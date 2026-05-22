@@ -1,0 +1,332 @@
+/* ===== 3D Dropper Splash Screen ===== */
+
+/* Splash Section - regular page section, not overlay */
+
+/* ===== Ambient Glow ===== */
+.splash-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 60%);
+  animation: glowBreathe 4s ease-in-out infinite;
+}
+
+@keyframes glowBreathe {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* ===== 3D Dropper Assembly ===== */
+.dropper-scene {
+  position: relative;
+  width: 60px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== Rubber Bulb (Top) ===== */
+.dropper-bulb {
+  width: 28px;
+  height: 32px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #1a1a1a 100%);
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  box-shadow: 
+    inset -2px -2px 4px rgba(0,0,0,0.8),
+    inset 2px 2px 4px rgba(255,255,255,0.05);
+  animation: bulbSqueeze 4s ease-in-out infinite;
+}
+
+@keyframes bulbSqueeze {
+  0%, 100% { transform: scaleY(1); }
+  30% { transform: scaleY(0.85); }
+  60% { transform: scaleY(1); }
+}
+
+/* ===== Glass Barrel ===== */
+.dropper-barrel {
+  width: 14px;
+  height: 140px;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.03) 0%,
+    rgba(201,169,110,0.08) 20%,
+    rgba(255,255,255,0.06) 40%,
+    rgba(201,169,110,0.05) 60%,
+    rgba(255,255,255,0.03) 100%
+  );
+  border: 1px solid rgba(201,169,110,0.15);
+  border-top: none;
+  border-bottom: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glass reflections */
+.dropper-barrel::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(180deg, 
+    rgba(255,255,255,0.15) 0%,
+    rgba(255,255,255,0.05) 50%,
+    rgba(255,255,255,0.1) 100%
+  );
+  border-radius: 2px;
+}
+
+/* ===== Liquid Inside Barrel ===== */
+.liquid-fill {
+  position: absolute;
+  bottom: 0;
+  left: 1px;
+  right: 1px;
+  height: 0%;
+  background: linear-gradient(180deg, 
+    rgba(212, 184, 118, 0.9) 0%,
+    rgba(201, 169, 110, 0.95) 30%,
+    rgba(166, 139, 82, 0.9) 100%
+  );
+  animation: liquidRise 4s ease-out infinite;
+}
+
+@keyframes liquidRise {
+  0% { height: 0%; }
+  25% { height: 70%; }
+  50% { height: 85%; }
+  70% { height: 60%; }
+  100% { height: 75%; }
+}
+
+/* Liquid bubbles */
+.liquid-bubble {
+  position: absolute;
+  background: rgba(232, 213, 163, 0.4);
+  border-radius: 50%;
+  animation: bubbleFloat 2s ease-in infinite;
+}
+
+@keyframes bubbleFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  100% { transform: translateY(-60px) scale(0.3); opacity: 0; }
+}
+
+/* ===== Conical Tip ===== */
+.dropper-tip {
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 24px solid rgba(201,169,110,0.12);
+  position: relative;
+}
+
+.dropper-tip::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: -22px;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 16px solid rgba(201,169,110,0.06);
+}
+
+/* ===== Drop Formation ===== */
+.drop-forming {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 30% 30%, #E8D5A3, #C9A96E, #A68B52);
+  border-radius: 50% 50% 50% 50%;
+  animation: dropForm 4s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(201,169,110,0.6);
+}
+
+@keyframes dropForm {
+  0% { 
+    width: 6px; height: 4px; 
+    border-radius: 50% 50% 50% 50%;
+    transform: translateX(-50%) translateY(0);
+  }
+  20% { 
+    width: 10px; height: 14px; 
+    border-radius: 50% 50% 40% 40%;
+    transform: translateX(-50%) translateY(4px);
+  }
+  35% { 
+    width: 9px; height: 18px; 
+    border-radius: 50% 50% 35% 35%;
+    transform: translateX(-50%) translateY(10px);
+  }
+  50% { 
+    width: 7px; height: 22px; 
+    border-radius: 50% 50% 30% 30%;
+    transform: translateX(-50%) translateY(18px);
+  }
+  60% { 
+    width: 4px; height: 8px; 
+    border-radius: 50%;
+    transform: translateX(-50%) translateY(40px);
+    opacity: 1;
+  }
+  70% {
+    width: 3px; height: 3px;
+    transform: translateX(-50%) translateY(70px);
+    opacity: 0.5;
+  }
+  100% { 
+    width: 2px; height: 2px;
+    transform: translateX(-50%) translateY(90px);
+    opacity: 0;
+  }
+}
+
+/* ===== Falling Drop (separate from forming) ===== */
+.drop-falling {
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle at 30% 30%, #E8D5A3, #C9A96E);
+  border-radius: 50%;
+  animation: dropFall 4s ease-in infinite;
+  box-shadow: 0 0 6px rgba(201,169,110,0.8);
+}
+
+@keyframes dropFall {
+  0%, 55% { 
+    transform: translateX(-50%) translateY(-20px); 
+    opacity: 0;
+    width: 4px; height: 4px;
+  }
+  60% { 
+    transform: translateX(-50%) translateY(0); 
+    opacity: 1;
+    width: 7px; height: 7px;
+  }
+  75% { 
+    transform: translateX(-50%) translateY(60px); 
+    opacity: 1;
+    width: 6px; height: 8px;
+  }
+  90% {
+    transform: translateX(-50%) translateY(100px) scaleX(2) scaleY(0.3);
+    opacity: 0.4;
+  }
+  100% { 
+    transform: translateX(-50%) translateY(110px) scaleX(3) scaleY(0.1);
+    opacity: 0;
+  }
+}
+
+/* ===== Splash / Ripple Effect ===== */
+.splash-ripple-container {
+  position: absolute;
+  bottom: -130px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.splash-ring {
+  position: absolute;
+  border: 1px solid rgba(201,169,110,0.5);
+  border-radius: 50%;
+  animation: rippleExpand 4s ease-out infinite;
+}
+
+.splash-ring:nth-child(1) {
+  width: 10px; height: 4px;
+  animation-delay: 0.9s;
+}
+.splash-ring:nth-child(2) {
+  width: 20px; height: 8px;
+  animation-delay: 1.0s;
+  border-color: rgba(201,169,110,0.35);
+}
+.splash-ring:nth-child(3) {
+  width: 35px; height: 12px;
+  animation-delay: 1.1s;
+  border-color: rgba(201,169,110,0.2);
+}
+
+@keyframes rippleExpand {
+  0% { transform: scale(0); opacity: 0; }
+  20% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* Splash droplets */
+.splash-droplet {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #C9A96E;
+  border-radius: 50%;
+  animation: splashDroplet 4s ease-out infinite;
+}
+
+@keyframes splashDroplet {
+  0%, 85% { transform: translate(0, 0); opacity: 0; }
+  90% { opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)); opacity: 0; }
+}
+
+/* ===== Brand Text Below ===== */
+.splash-brand {
+  margin-top: 60px;
+  text-align: center;
+  animation: brandFadeIn 4s ease-out infinite;
+}
+
+@keyframes brandFadeIn {
+  0%, 60% { opacity: 0; transform: translateY(20px); }
+  80% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.splash-brand-text {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: #C9A96E;
+  letter-spacing: 8px;
+  font-weight: 400;
+}
+
+.splash-brand-sub {
+  margin-top: 12px;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: rgba(201, 169, 110, 0.5);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ===== Particles Around Dropper ===== */
+.splash-particle {
+  position: absolute;
+  background: #C9A96E;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@keyframes particleDrift {
+  0% { transform: translate(0, 0); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translate(var(--tx), var(--ty)); opacity: 0; }
+}

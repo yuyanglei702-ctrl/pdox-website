@@ -1,0 +1,288 @@
+/* ===== Font Imports - MUST be first ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+/* ===== PDOX Brand Design System ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #D4B876;
+    --gold-dark: #A68B52;
+    --gold-glow: rgba(201, 169, 110, 0.2);
+    --black: #0E0D0B;
+    --black-warm: #141310;
+    --black-gold1: #181610;
+    --black-gold2: #1A1712;
+    --black-gold3: #161410;
+    --black-gold4: #13110D;
+    --black-gold5: #181611;
+    --black-soft: #1A1815;
+    --black-elevated: #252320;
+    --white: #FFFFFF;
+    --white-soft: rgba(255, 255, 255, 0.9);
+    --white-muted: rgba(255, 255, 255, 0.55);
+    --white-faint: rgba(255, 255, 255, 0.18);
+    --cream: #F5F1E8;
+    --warm-gray: #8A8278;
+
+    --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+    --font-sans: 'Montserrat', 'Inter', sans-serif;
+
+    --radius: 0.5rem;
+    --background: 30 8% 7%;
+    --foreground: 0 0% 98%;
+    --card: 30 8% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 30 8% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 38 45% 55%;
+    --primary-foreground: 30 8% 7%;
+    --secondary: 30 6% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 30 6% 18%;
+    --muted-foreground: 30 6% 60%;
+    --accent: 38 45% 55%;
+    --accent-foreground: 30 8% 7%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 38 45% 55%;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--black);
+    color: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+  }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes goldPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.7); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+@keyframes floatParticle {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  10% { opacity: 0.6; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== Gold Drop Animation ===== */
+@keyframes goldDrop {
+  0% { transform: translateY(0) scale(0.6); opacity: 0; }
+  15% { transform: translateY(8px) scale(1); opacity: 1; }
+  60% { transform: translateY(50px) scale(0.85); opacity: 0.9; }
+  80% { transform: translateY(65px) scale(1.2); opacity: 0.6; }
+  100% { transform: translateY(70px) scale(2); opacity: 0; }
+}
+
+@keyframes goldDrop2 {
+  0% { transform: translateY(0) scale(0.5); opacity: 0; }
+  10% { transform: translateY(6px) scale(1); opacity: 0.8; }
+  50% { transform: translateY(35px) scale(0.9); opacity: 0.7; }
+  100% { transform: translateY(55px) scale(1.5); opacity: 0; }
+}
+
+/* ===== Gold splash when drop hits ===== */
+@keyframes goldSplash {
+  0% { transform: scaleX(0); opacity: 0; }
+  30% { transform: scaleX(1); opacity: 0.7; }
+  100% { transform: scaleX(2.5); opacity: 0; }
+}
+
+/* ===== Gold sparkle on letters ===== */
+@keyframes goldSparkle {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Splash Screen Animations ===== */
+@keyframes splashFadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes liquidFill {
+  0% { clip-path: inset(100% 0 0 0); }
+  60% { clip-path: inset(0% 0 0 0); }
+  100% { clip-path: inset(0% 0 0 0); }
+}
+
+@keyframes liquidWave {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  50% { transform: translateX(-30%) rotate(180deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes dropThroughLogo {
+  0% { transform: translateY(-80px) scale(0.5); opacity: 0; }
+  20% { transform: translateY(-20px) scale(1); opacity: 1; }
+  50% { transform: translateY(20px) scale(0.9); opacity: 1; }
+  80% { transform: translateY(60px) scale(0.6); opacity: 0.5; }
+  100% { transform: translateY(100px) scale(0); opacity: 0; }
+}
+
+@keyframes dropThroughLogo2 {
+  0% { transform: translateY(-60px) scale(0.4); opacity: 0; }
+  15% { transform: translateY(-10px) scale(1); opacity: 0.8; }
+  45% { transform: translateY(30px) scale(0.85); opacity: 0.7; }
+  100% { transform: translateY(80px) scale(0); opacity: 0; }
+}
+
+@keyframes splashRipple {
+  0% { transform: scale(0); opacity: 0; }
+  40% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+@keyframes goldGlowPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* ===== Gold Shimmer on Text ===== */
+@keyframes goldShimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ===== Reveal Utility ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Gold Gradient Text ===== */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 50%, var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Particle Styles ===== */
+.particle {
+  position: absolute;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: floatParticle linear infinite;
+  pointer-events: none;
+}
+
+/* ===== Custom Selection ===== */
+::selection {
+  background: rgba(201, 169, 110, 0.3);
+  color: var(--white);
+}
+
+/* ===== Scan Line Animation for Hover Reveal ===== */
+@keyframes scanLine {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ===== Molecule Float Animation ===== */
+@keyframes moleculeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===== 3D Perspective Container ===== */
+.perspective-container {
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+/* ===== Product Hover Reveal ===== */
+.product-reveal-container:hover .product-reveal-overlay {
+  opacity: 1;
+}
+
+.product-reveal-container:hover .product-reveal-vignette {
+  opacity: 1;
+}
+
+.product-reveal-overlay {
+  transition: opacity 0.5s ease-out;
+}
+
+.product-reveal-vignette {
+  background: radial-gradient(circle 200px at var(--mouse-x, 50%) var(--mouse-y, 50%), transparent 0%, rgba(10,10,10,0.5) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.product-scan-line {
+  animation: scanLine 2.5s ease-in-out infinite;
+}
+
+.product-reticle {
+  transition: left 0.08s ease-out, top 0.08s ease-out;
+}
