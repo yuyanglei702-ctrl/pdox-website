@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router';
 import {
+  ArrowLeft,
   ArrowRight,
   Award,
   Beaker,
@@ -14,6 +16,15 @@ import {
 } from 'lucide-react';
 
 type Lang = 'en' | 'es';
+
+type Product = {
+  slug: string;
+  name: string;
+  subtitle: string;
+  body: string;
+  image: string;
+  tags: string[];
+};
 
 type Copy = {
   nav: string[];
@@ -33,7 +44,14 @@ type Copy = {
   productsKicker: string;
   productsTitle: string;
   productsBody: string;
-  products: { name: string; subtitle: string; body: string; image: string; tags: string[] }[];
+  products: Product[];
+  detailBack: string;
+  detailEyebrow: string;
+  detailOverview: string;
+  detailHighlights: string;
+  detailProtocol: string;
+  detailContact: string;
+  detailHint: string;
   scienceKicker: string;
   scienceTitle: string;
   scienceBody: string;
@@ -48,9 +66,9 @@ const copy: Record<Lang, Copy> = {
   en: {
     nav: ['Brand', 'Technology', 'Products', 'Science', 'Contact'],
     heroEyebrow: 'Spanish bio-enzyme skin science',
-    heroTitle: 'Precision Derma-Oil-X for professional skin protocols.',
+    heroTitle: 'PDOX',
     heroBody:
-      'PDOX develops bio-enzyme formulas in Madrid for clinics, distributors and premium skin programs that need measurable repair, contour and renewal performance.',
+      'Spanish bio-enzyme skin science for clinics, distributors and premium skin programs that need measurable repair, contour and renewal performance.',
     heroPrimary: 'Explore Products',
     heroSecondary: 'View Technology',
     stats: [
@@ -93,6 +111,7 @@ const copy: Record<Lang, Copy> = {
       'A compact product architecture makes the range easy to understand, demonstrate and expand across markets.',
     products: [
       {
+        slug: 'bandage-needle',
         name: 'Bandage Needle',
         subtitle: 'Emergency Serum',
         body: 'High-penetration bio-enzyme repair for barrier support and intensive recovery protocols.',
@@ -100,6 +119,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Repair', 'Barrier', 'Hero'],
       },
       {
+        slug: 'remodeling-needle',
         name: 'Remodeling Needle',
         subtitle: 'Facial Bioremodeling',
         body: 'Designed for professional programs focused on facial contour and harmony.',
@@ -107,6 +127,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Contour', 'Firmness'],
       },
       {
+        slug: 'wrinkle-eraser',
         name: 'Wrinkle Eraser',
         subtitle: 'Anti-Wrinkle',
         body: 'Collagen-support positioning for lines, texture and visible refinement.',
@@ -114,6 +135,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Lines', 'Texture'],
       },
       {
+        slug: 'collagen-activator',
         name: 'Collagen Activator',
         subtitle: 'Total Revitalization',
         body: 'A daily professional-strength routine for elasticity, firmness and even tone.',
@@ -121,6 +143,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Collagen', 'Glow'],
       },
       {
+        slug: 'hydration-complex',
         name: 'Hydration Complex',
         subtitle: 'Mesodermal Hydration',
         body: 'Hydration-focused protocol support with a premium clinical presentation.',
@@ -128,6 +151,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Hydration', 'Comfort'],
       },
       {
+        slug: 'liquid-bandage',
         name: 'Liquid Bandage',
         subtitle: 'Active Biological Bandage',
         body: 'A repair-led concept for micro-lesion care, elasticity and fast visible comfort.',
@@ -135,6 +159,13 @@ const copy: Record<Lang, Copy> = {
         tags: ['Recovery', 'Elasticity'],
       },
     ],
+    detailBack: 'Back to Products',
+    detailEyebrow: 'Product Detail',
+    detailOverview: 'Overview',
+    detailHighlights: 'Professional highlights',
+    detailProtocol: 'Protocol fit',
+    detailContact: 'Contact PDOX',
+    detailHint: 'Click any product image to open its detailed product page.',
     scienceKicker: 'Science',
     scienceTitle: 'Built for professional trust before mass visibility.',
     scienceBody:
@@ -163,9 +194,9 @@ const copy: Record<Lang, Copy> = {
   es: {
     nav: ['Marca', 'Tecnologia', 'Productos', 'Ciencia', 'Contacto'],
     heroEyebrow: 'Ciencia cutanea bio-enzimatica espanola',
-    heroTitle: 'Precision Derma-Oil-X para protocolos profesionales de piel.',
+    heroTitle: 'PDOX',
     heroBody:
-      'PDOX desarrolla formulas bio-enzimaticas en Madrid para clinicas, distribuidores y programas premium que buscan reparacion, contorno y renovacion medibles.',
+      'Ciencia cutanea bio-enzimatica espanola para clinicas, distribuidores y programas premium que buscan reparacion, contorno y renovacion medibles.',
     heroPrimary: 'Explorar Productos',
     heroSecondary: 'Ver Tecnologia',
     stats: [
@@ -208,6 +239,7 @@ const copy: Record<Lang, Copy> = {
       'Una arquitectura compacta permite entender, demostrar y expandir la linea con claridad en distintos mercados.',
     products: [
       {
+        slug: 'bandage-needle',
         name: 'Bandage Needle',
         subtitle: 'Serum de emergencia',
         body: 'Reparacion bio-enzimatica de alta penetracion para soporte de barrera y recuperacion intensiva.',
@@ -215,6 +247,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Reparacion', 'Barrera', 'Hero'],
       },
       {
+        slug: 'remodeling-needle',
         name: 'Remodeling Needle',
         subtitle: 'Bioremodelado facial',
         body: 'Disenado para programas profesionales centrados en contorno facial y armonia.',
@@ -222,6 +255,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Contorno', 'Firmeza'],
       },
       {
+        slug: 'wrinkle-eraser',
         name: 'Wrinkle Eraser',
         subtitle: 'Antiarrugas',
         body: 'Posicionamiento de soporte de colageno para lineas, textura y refinamiento visible.',
@@ -229,6 +263,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Lineas', 'Textura'],
       },
       {
+        slug: 'collagen-activator',
         name: 'Collagen Activator',
         subtitle: 'Revitalizacion total',
         body: 'Rutina diaria de fuerza profesional para elasticidad, firmeza y tono uniforme.',
@@ -236,6 +271,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Colageno', 'Luminosidad'],
       },
       {
+        slug: 'hydration-complex',
         name: 'Hydration Complex',
         subtitle: 'Hidratacion mesodermica',
         body: 'Soporte para protocolos de hidratacion con presentacion clinica premium.',
@@ -243,6 +279,7 @@ const copy: Record<Lang, Copy> = {
         tags: ['Hidratacion', 'Confort'],
       },
       {
+        slug: 'liquid-bandage',
         name: 'Liquid Bandage',
         subtitle: 'Vendaje biologico activo',
         body: 'Concepto de reparacion para microlesiones, elasticidad y confort visible rapido.',
@@ -250,6 +287,13 @@ const copy: Record<Lang, Copy> = {
         tags: ['Recuperacion', 'Elasticidad'],
       },
     ],
+    detailBack: 'Volver a Productos',
+    detailEyebrow: 'Detalle de Producto',
+    detailOverview: 'Vision general',
+    detailHighlights: 'Puntos profesionales',
+    detailProtocol: 'Encaje de protocolo',
+    detailContact: 'Contactar PDOX',
+    detailHint: 'Haz clic en cualquier imagen de producto para abrir su pagina de detalle.',
     scienceKicker: 'Ciencia',
     scienceTitle: 'Construido para confianza profesional antes de visibilidad masiva.',
     scienceBody:
@@ -281,10 +325,130 @@ const sectionIds = ['brand', 'technology', 'products', 'science', 'contact'];
 const techIcons = [FlaskConical, Microscope, Beaker, Sparkles];
 const scienceIcons = [ShieldCheck, Award, Globe2];
 
+function ProductDetail({
+  product,
+  copy,
+  lang,
+  onBack,
+}: {
+  product: Product;
+  copy: Copy;
+  lang: Lang;
+  onBack: () => void;
+}) {
+  const highlights =
+    lang === 'en'
+      ? [
+          `${product.subtitle} positioning for professional clinic and distributor presentation.`,
+          'Part of the PDOX bio-enzyme range for focused repair, renewal and visible skin performance.',
+          'Prepared for premium product education, protocol storytelling and partner conversations.',
+        ]
+      : [
+          `${product.subtitle} para presentacion profesional en clinicas y distribucion.`,
+          'Parte de la linea bio-enzimatica PDOX para reparacion, renovacion y rendimiento visible.',
+          'Preparado para educacion premium, narrativa de protocolo y conversaciones con socios.',
+        ];
+  const protocol =
+    lang === 'en'
+      ? 'Use this page as the professional product snapshot: product role, visual identity, benefit language and a clear contact path for commercial follow-up.'
+      : 'Usa esta pagina como ficha profesional del producto: rol, identidad visual, lenguaje de beneficio y contacto claro para seguimiento comercial.';
+
+  return (
+    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative mx-auto max-w-7xl">
+        <button
+          onClick={onBack}
+          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+        >
+          <ArrowLeft size={16} />
+          {copy.detailBack}
+        </button>
+
+        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div className="reveal border border-white/10 bg-black/35 p-8">
+            <div className="aspect-square bg-[#090909] p-8">
+              <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
+            </div>
+          </div>
+
+          <div>
+            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              {copy.detailEyebrow}
+            </p>
+            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+              {product.name}
+            </h1>
+            <p className="reveal mt-4 text-sm uppercase tracking-[0.26em] text-[#C9A96E]">{product.subtitle}</p>
+            <p className="reveal mt-8 max-w-2xl text-base leading-8 text-white/62">{product.body}</p>
+
+            <div className="reveal mt-8 flex flex-wrap gap-2">
+              {product.tags.map((tag) => (
+                <span key={tag} className="border border-white/10 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-white/50">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-4 md:grid-cols-2">
+              <article className="reveal border border-white/10 bg-white/[0.03] p-6">
+                <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                  {copy.detailOverview}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-white/52">{protocol}</p>
+              </article>
+
+              <article className="reveal border border-white/10 bg-white/[0.03] p-6">
+                <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                  {copy.detailProtocol}
+                </h2>
+                <p className="mt-4 text-sm leading-7 text-white/52">
+                  {lang === 'en'
+                    ? 'Designed for professional consultation, product education and distributor-facing range presentation.'
+                    : 'Disenado para consulta profesional, educacion de producto y presentacion de linea ante distribuidores.'}
+                </p>
+              </article>
+            </div>
+
+            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
+              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                {copy.detailHighlights}
+              </h2>
+              <div className="mt-5 grid gap-3">
+                {highlights.map((item) => (
+                  <div key={item} className="flex gap-3 text-sm leading-7 text-white/55">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href="mailto:info@pdoxserum.com"
+              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+            >
+              {copy.detailContact}
+              <ArrowRight size={16} />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   const t = copy[lang];
+  const currentPath = location.pathname.replace(/\/$/, '') || '/';
+  const activeProduct = currentPath.startsWith('/products/')
+    ? t.products.find((product) => `/products/${product.slug}` === currentPath)
+    : undefined;
 
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll('.reveal'));
@@ -299,10 +463,22 @@ function App() {
 
     revealItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, [lang]);
+  }, [lang, currentPath]);
 
   const goTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = () => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    if (currentPath !== '/') {
+      navigate('/');
+      window.setTimeout(scrollToSection, 80);
+    } else {
+      scrollToSection();
+    }
+    setMenuOpen(false);
+  };
+
+  const openProduct = (slug: string) => {
+    navigate(`/products/${slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenuOpen(false);
   };
 
@@ -368,6 +544,10 @@ function App() {
       </header>
 
       <main>
+        {activeProduct ? (
+          <ProductDetail product={activeProduct} copy={t} lang={lang} onBack={() => goTo('products')} />
+        ) : (
+          <>
         <section id="home" className="relative min-h-[92vh] overflow-hidden pt-16">
           <img
             src="/images/hero-bg.jpg"
@@ -380,7 +560,7 @@ function App() {
               <p className="reveal mb-5 text-[11px] uppercase tracking-[0.45em] text-[#C9A96E]">
                 {t.heroEyebrow}
               </p>
-              <h1 className="reveal text-[clamp(44px,8vw,104px)] leading-[0.88] text-white">
+              <h1 className="reveal text-[clamp(74px,14vw,172px)] font-medium leading-[0.82] tracking-[0.04em] text-white">
                 {t.heroTitle}
               </h1>
               <p className="reveal mt-7 max-w-2xl text-sm leading-8 text-white/62 sm:text-base">
@@ -469,13 +649,15 @@ function App() {
               </p>
               <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.productsTitle}</h2>
               <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.productsBody}</p>
+              <p className="reveal mt-3 text-[11px] uppercase tracking-[0.2em] text-[#C9A96E]/70">{t.detailHint}</p>
             </div>
 
             <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {t.products.map((product) => (
-                <article
+                <button
                   key={product.name}
-                  className="reveal group overflow-hidden border border-white/10 bg-[#111] transition hover:-translate-y-1 hover:border-[#C9A96E]/45"
+                  onClick={() => openProduct(product.slug)}
+                  className="reveal group overflow-hidden border border-white/10 bg-[#111] text-left transition hover:-translate-y-1 hover:border-[#C9A96E]/45 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                 >
                   <div className="aspect-[4/3] bg-black p-6">
                     <img
@@ -488,6 +670,10 @@ function App() {
                     <p className="text-[10px] uppercase tracking-[0.28em] text-[#C9A96E]">{product.subtitle}</p>
                     <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
                     <p className="mt-4 min-h-[72px] text-xs leading-6 text-white/48">{product.body}</p>
+                    <div className="mt-5 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E]">
+                      {t.detailEyebrow}
+                      <ArrowRight size={14} />
+                    </div>
                     <div className="mt-5 flex flex-wrap gap-2">
                       {product.tags.map((tag) => (
                         <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
@@ -496,7 +682,7 @@ function App() {
                       ))}
                     </div>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
           </div>
@@ -548,6 +734,8 @@ function App() {
             </a>
           </div>
         </section>
+          </>
+        )}
       </main>
 
       <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-10 sm:px-6 lg:px-8">
