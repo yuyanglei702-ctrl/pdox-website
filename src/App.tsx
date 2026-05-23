@@ -545,7 +545,7 @@ function ProductDetail({
 
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg.jpg" alt="" className="absolute inset-0 h-full w-full object-cover opacity-20" />
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative mx-auto max-w-7xl">
         <button
@@ -740,11 +740,11 @@ function App() {
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-16">
           <img
-            src="/images/hero-bg.jpg"
+            src="/images/hero-bg-gold.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-25"
+            className="absolute inset-0 h-full w-full object-cover opacity-55"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.18),transparent_34%),linear-gradient(to_bottom,rgba(0,0,0,0.5),#0A0A0A_88%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.12),transparent_36%),linear-gradient(to_bottom,rgba(0,0,0,0.24),#0A0A0A_92%)]" />
           <GoldParticleField />
           <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
             <p className="reveal mb-6 text-[11px] uppercase tracking-[0.48em] text-[#C9A96E]">
