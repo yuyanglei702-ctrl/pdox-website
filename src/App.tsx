@@ -804,54 +804,64 @@ const sectionIds = ['brand', 'technology', 'products', 'partners', 'faq', 'conta
 const techIcons = [FlaskConical, Microscope, Beaker, Sparkles];
 const scienceIcons = [ShieldCheck, Award, Globe2];
 const goldParticles = [
-  { left: '6%', top: '12%', size: '2px', delay: '0s', duration: '18s', blur: false },
-  { left: '14%', top: '68%', size: '1px', delay: '2.2s', duration: '22s', blur: false },
-  { left: '22%', top: '36%', size: '2px', delay: '1.1s', duration: '16s', blur: true },
-  { left: '31%', top: '78%', size: '1px', delay: '3.4s', duration: '24s', blur: false },
-  { left: '43%', top: '24%', size: '2px', delay: '0.8s', duration: '20s', blur: false },
-  { left: '52%', top: '62%', size: '3px', delay: '4.2s', duration: '26s', blur: true },
-  { left: '61%', top: '16%', size: '1px', delay: '1.5s', duration: '19s', blur: false },
-  { left: '69%', top: '70%', size: '2px', delay: '2.8s', duration: '23s', blur: false },
-  { left: '78%', top: '32%', size: '2px', delay: '5.1s', duration: '17s', blur: true },
-  { left: '87%', top: '58%', size: '1px', delay: '3.6s', duration: '21s', blur: false },
-  { left: '92%', top: '22%', size: '2px', delay: '6.4s', duration: '25s', blur: false },
-  { left: '36%', top: '48%', size: '1px', delay: '2.9s', duration: '14s', blur: false },
-  { left: '10%', top: '85%', size: '2px', delay: '7.2s', duration: '28s', blur: true },
-  { left: '18%', top: '8%', size: '1px', delay: '4.5s', duration: '16s', blur: false },
-  { left: '28%', top: '55%', size: '2px', delay: '1.8s', duration: '20s', blur: false },
-  { left: '39%', top: '88%', size: '1px', delay: '5.3s', duration: '24s', blur: false },
-  { left: '48%', top: '15%', size: '2px', delay: '8.1s', duration: '22s', blur: true },
-  { left: '57%', top: '42%', size: '1px', delay: '3.7s', duration: '18s', blur: false },
-  { left: '66%', top: '92%', size: '2px', delay: '6.8s', duration: '26s', blur: false },
-  { left: '74%', top: '8%', size: '1px', delay: '2.4s', duration: '15s', blur: false },
-  { left: '83%', top: '38%', size: '2px', delay: '9.2s', duration: '27s', blur: true },
-  { left: '91%', top: '75%', size: '1px', delay: '4.1s', duration: '19s', blur: false },
-  { left: '5%', top: '45%', size: '2px', delay: '7.5s', duration: '23s', blur: false },
-  { left: '96%', top: '52%', size: '1px', delay: '5.8s', duration: '21s', blur: false },
-  { left: '3%', top: '28%', size: '2px', delay: '1.2s', duration: '20s', blur: true },
-  { left: '12%', top: '55%', size: '1px', delay: '3.8s', duration: '26s', blur: false },
-  { left: '24%', top: '18%', size: '2px', delay: '6.1s', duration: '24s', blur: false },
-  { left: '33%', top: '62%', size: '1px', delay: '2.5s', duration: '18s', blur: false },
-  { left: '46%', top: '38%', size: '3px', delay: '8.5s', duration: '30s', blur: true },
-  { left: '55%', top: '78%', size: '1px', delay: '4.2s', duration: '22s', blur: false },
-  { left: '63%', top: '28%', size: '2px', delay: '1.9s', duration: '16s', blur: false },
-  { left: '71%', top: '52%', size: '1px', delay: '5.6s', duration: '28s', blur: false },
-  { left: '79%', top: '82%', size: '2px', delay: '3.3s', duration: '20s', blur: true },
-  { left: '85%', top: '18%', size: '1px', delay: '7.8s', duration: '24s', blur: false },
-  { left: '94%', top: '42%', size: '2px', delay: '2.1s', duration: '19s', blur: false },
-  { left: '8%', top: '92%', size: '1px', delay: '9.5s', duration: '32s', blur: false },
-  { left: '16%', top: '42%', size: '2px', delay: '4.8s', duration: '21s', blur: true },
-  { left: '38%', top: '8%', size: '1px', delay: '6.3s', duration: '25s', blur: false },
-  { left: '50%', top: '88%', size: '2px', delay: '1.6s', duration: '17s', blur: false },
-  { left: '58%', top: '12%', size: '1px', delay: '8.9s', duration: '29s', blur: false },
-  { left: '68%', top: '48%', size: '2px', delay: '3.1s', duration: '23s', blur: true },
-  { left: '76%', top: '68%', size: '1px', delay: '5.4s', duration: '15s', blur: false },
-  { left: '88%', top: '8%', size: '2px', delay: '7.1s', duration: '27s', blur: false },
-  { left: '98%', top: '72%', size: '1px', delay: '2.7s', duration: '20s', blur: false },
-  { left: '2%', top: '62%', size: '2px', delay: '10.2s', duration: '26s', blur: true },
-  { left: '44%', top: '72%', size: '1px', delay: '4.4s', duration: '18s', blur: false },
-  { left: '53%', top: '32%', size: '2px', delay: '9.1s', duration: '22s', blur: false },
-  { left: '81%', top: '58%', size: '1px', delay: '6.7s', duration: '24s', blur: false },
+  /* normal particles 2-4px */
+  { left: '6%', top: '12%', size: '3px', delay: '0s', duration: '18s', type: 'normal' },
+  { left: '14%', top: '68%', size: '2px', delay: '2.2s', duration: '22s', type: 'normal' },
+  { left: '22%', top: '36%', size: '3px', delay: '1.1s', duration: '16s', type: 'blur' },
+  { left: '31%', top: '78%', size: '2px', delay: '3.4s', duration: '24s', type: 'normal' },
+  { left: '43%', top: '24%', size: '3px', delay: '0.8s', duration: '20s', type: 'normal' },
+  { left: '52%', top: '62%', size: '4px', delay: '4.2s', duration: '26s', type: 'bright' },
+  { left: '61%', top: '16%', size: '2px', delay: '1.5s', duration: '19s', type: 'normal' },
+  { left: '69%', top: '70%', size: '3px', delay: '2.8s', duration: '23s', type: 'normal' },
+  { left: '78%', top: '32%', size: '3px', delay: '5.1s', duration: '17s', type: 'blur' },
+  { left: '87%', top: '58%', size: '2px', delay: '3.6s', duration: '21s', type: 'normal' },
+  { left: '92%', top: '22%', size: '3px', delay: '6.4s', duration: '25s', type: 'normal' },
+  { left: '36%', top: '48%', size: '2px', delay: '2.9s', duration: '14s', type: 'normal' },
+  { left: '10%', top: '85%', size: '3px', delay: '7.2s', duration: '28s', type: 'blur' },
+  { left: '18%', top: '8%', size: '2px', delay: '4.5s', duration: '16s', type: 'normal' },
+  { left: '28%', top: '55%', size: '3px', delay: '1.8s', duration: '20s', type: 'normal' },
+  { left: '39%', top: '88%', size: '2px', delay: '5.3s', duration: '24s', type: 'normal' },
+  { left: '48%', top: '15%', size: '3px', delay: '8.1s', duration: '22s', type: 'blur' },
+  { left: '57%', top: '42%', size: '2px', delay: '3.7s', duration: '18s', type: 'normal' },
+  { left: '66%', top: '92%', size: '3px', delay: '6.8s', duration: '26s', type: 'normal' },
+  { left: '74%', top: '8%', size: '2px', delay: '2.4s', duration: '15s', type: 'normal' },
+  { left: '83%', top: '38%', size: '3px', delay: '9.2s', duration: '27s', type: 'blur' },
+  { left: '91%', top: '75%', size: '2px', delay: '4.1s', duration: '19s', type: 'normal' },
+  { left: '5%', top: '45%', size: '3px', delay: '7.5s', duration: '23s', type: 'normal' },
+  { left: '96%', top: '52%', size: '2px', delay: '5.8s', duration: '21s', type: 'normal' },
+  { left: '3%', top: '28%', size: '3px', delay: '1.2s', duration: '20s', type: 'blur' },
+  { left: '12%', top: '55%', size: '2px', delay: '3.8s', duration: '26s', type: 'normal' },
+  { left: '24%', top: '18%', size: '3px', delay: '6.1s', duration: '24s', type: 'normal' },
+  { left: '33%', top: '62%', size: '2px', delay: '2.5s', duration: '18s', type: 'normal' },
+  { left: '46%', top: '38%', size: '4px', delay: '8.5s', duration: '30s', type: 'bright' },
+  { left: '55%', top: '78%', size: '2px', delay: '4.2s', duration: '22s', type: 'normal' },
+  { left: '63%', top: '28%', size: '3px', delay: '1.9s', duration: '16s', type: 'normal' },
+  { left: '71%', top: '52%', size: '2px', delay: '5.6s', duration: '28s', type: 'normal' },
+  { left: '79%', top: '82%', size: '3px', delay: '3.3s', duration: '20s', type: 'blur' },
+  { left: '85%', top: '18%', size: '2px', delay: '7.8s', duration: '24s', type: 'normal' },
+  { left: '94%', top: '42%', size: '3px', delay: '2.1s', duration: '19s', type: 'normal' },
+  { left: '8%', top: '92%', size: '2px', delay: '9.5s', duration: '32s', type: 'normal' },
+  { left: '16%', top: '42%', size: '3px', delay: '4.8s', duration: '21s', type: 'blur' },
+  { left: '38%', top: '8%', size: '2px', delay: '6.3s', duration: '25s', type: 'normal' },
+  { left: '50%', top: '88%', size: '3px', delay: '1.6s', duration: '17s', type: 'normal' },
+  { left: '58%', top: '12%', size: '2px', delay: '8.9s', duration: '29s', type: 'normal' },
+  { left: '68%', top: '48%', size: '3px', delay: '3.1s', duration: '23s', type: 'blur' },
+  { left: '76%', top: '68%', size: '2px', delay: '5.4s', duration: '15s', type: 'normal' },
+  { left: '88%', top: '8%', size: '3px', delay: '7.1s', duration: '27s', type: 'normal' },
+  { left: '98%', top: '72%', size: '2px', delay: '2.7s', duration: '20s', type: 'normal' },
+  { left: '2%', top: '62%', size: '3px', delay: '10.2s', duration: '26s', type: 'blur' },
+  { left: '44%', top: '72%', size: '2px', delay: '4.4s', duration: '18s', type: 'normal' },
+  { left: '53%', top: '32%', size: '3px', delay: '9.1s', duration: '22s', type: 'normal' },
+  { left: '81%', top: '58%', size: '2px', delay: '6.7s', duration: '24s', type: 'normal' },
+  /* bright highlight particles 6-10px */
+  { left: '20%', top: '25%', size: '8px', delay: '0.5s', duration: '24s', type: 'bright' },
+  { left: '65%', top: '55%', size: '6px', delay: '3.5s', duration: '28s', type: 'bright' },
+  { left: '40%', top: '75%', size: '10px', delay: '7.0s', duration: '20s', type: 'bright' },
+  { left: '80%', top: '20%', size: '7px', delay: '5.5s', duration: '26s', type: 'bright' },
+  { left: '15%', top: '50%', size: '9px', delay: '2.0s', duration: '22s', type: 'bright' },
+  { left: '72%', top: '82%', size: '6px', delay: '8.5s', duration: '30s', type: 'bright' },
+  { left: '35%', top: '15%', size: '8px', delay: '4.0s', duration: '18s', type: 'bright' },
+  { left: '90%', top: '65%', size: '7px', delay: '1.0s', duration: '25s', type: 'bright' },
 ];
 
 function GoldParticleField({
@@ -863,17 +873,21 @@ function GoldParticleField({
   count?: number;
   className?: string;
 }) {
+  const particleClass = (type: string) => {
+    if (type === 'bright') return 'pdox-gold-particle-bright';
+    if (type === 'blur') return 'pdox-gold-particle-blur';
+    return 'pdox-gold-particle';
+  };
   return (
     <div
-      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+      className={`pointer-events-none absolute inset-0 overflow-hidden z-[2] ${className}`}
       aria-hidden="true"
-      style={{ zIndex: 0 }}
     >
-      <div className={`pdox-gold-haze ${subtle ? 'opacity-35' : 'opacity-70'}`} />
+      <div className={`pdox-gold-haze ${subtle ? 'opacity-45' : 'opacity-85'}`} />
       {goldParticles.slice(0, count).map((particle, i) => (
         <span
           key={`${particle.left}-${particle.top}-${i}`}
-          className={particle.blur ? 'pdox-gold-particle-blur' : 'pdox-gold-particle'}
+          className={particleClass(particle.type)}
           style={{
             left: particle.left,
             top: particle.top,
@@ -898,18 +912,18 @@ function GrainTexture() {
 
 function MolecularDriftLayer({ count = 6 }: { count?: number }) {
   const molecules = [
-    { left: '8%', top: '20%', w: 28, h: 22, delay: '0s', duration: '24s', rotate: 15 },
-    { left: '72%', top: '15%', w: 22, h: 30, delay: '4s', duration: '28s', rotate: -10 },
-    { left: '35%', top: '65%', w: 34, h: 26, delay: '8s', duration: '32s', rotate: 25 },
-    { left: '82%', top: '72%', w: 20, h: 20, delay: '2s', duration: '26s', rotate: -20 },
-    { left: '18%', top: '78%', w: 26, h: 18, delay: '12s', duration: '30s', rotate: 8 },
-    { left: '55%', top: '35%', w: 30, h: 24, delay: '6s', duration: '22s', rotate: -15 },
-    { left: '45%', top: '88%', w: 24, h: 28, delay: '10s', duration: '34s', rotate: 18 },
-    { left: '92%', top: '45%', w: 18, h: 22, delay: '3s', duration: '27s', rotate: -5 },
+    { left: '5%', top: '12%', w: 120, h: 100, delay: '0s', duration: '26s', rotate: 12 },
+    { left: '70%', top: '8%', w: 140, h: 120, delay: '5s', duration: '30s', rotate: -18 },
+    { left: '30%', top: '55%', w: 160, h: 110, delay: '10s', duration: '34s', rotate: 22 },
+    { left: '78%', top: '60%', w: 100, h: 90, delay: '3s', duration: '28s', rotate: -25 },
+    { left: '12%', top: '70%', w: 130, h: 100, delay: '15s', duration: '32s', rotate: 8 },
+    { left: '50%', top: '25%', w: 150, h: 130, delay: '7s', duration: '24s', rotate: -12 },
+    { left: '40%', top: '80%', w: 110, h: 100, delay: '12s', duration: '36s', rotate: 16 },
+    { left: '88%', top: '35%', w: 120, h: 110, delay: '2s', duration: '29s', rotate: -6 },
   ];
 
   return (
-    <div className="pdox-molecular-drift" aria-hidden="true" style={{ zIndex: 0 }}>
+    <div className="pdox-molecular-drift z-[2]" aria-hidden="true">
       {molecules.slice(0, count).map((m, i) => (
         <div
           key={i}
@@ -921,27 +935,35 @@ function MolecularDriftLayer({ count = 6 }: { count?: number }) {
             height: m.h,
             animationDelay: m.delay,
             animationDuration: m.duration,
-            opacity: 0.18,
+            opacity: 0.30,
           }}
         >
           <div
             className="pdox-molecule-node"
-            style={{ left: 0, top: 0, width: 4, height: 4 }}
+            style={{ left: 0, top: 0, width: 8, height: 8 }}
           />
           <div
             className="pdox-molecule-node"
-            style={{ right: 0, top: '30%', width: 3, height: 3 }}
+            style={{ right: '15%', top: '25%', width: 6, height: 6 }}
           />
           <div
             className="pdox-molecule-node"
-            style={{ left: '25%', bottom: 0, width: 3.5, height: 3.5 }}
+            style={{ left: '30%', bottom: '10%', width: 7, height: 7 }}
+          />
+          <div
+            className="pdox-molecule-node"
+            style={{ right: '5%', bottom: '30%', width: 5, height: 5 }}
+          />
+          <div
+            className="pdox-molecule-node"
+            style={{ left: '45%', top: '10%', width: 6, height: 6 }}
           />
           <div
             className="pdox-molecule-line"
             style={{
-              left: 2,
-              top: 2,
-              width: m.w * 0.6,
+              left: 4,
+              top: 4,
+              width: m.w * 0.55,
               transform: `rotate(${m.rotate}deg)`,
             }}
           />
@@ -949,9 +971,18 @@ function MolecularDriftLayer({ count = 6 }: { count?: number }) {
             className="pdox-molecule-line"
             style={{
               left: m.w * 0.35,
-              top: m.h * 0.35,
-              width: m.w * 0.5,
-              transform: `rotate(${m.rotate + 60}deg)`,
+              top: m.h * 0.25,
+              width: m.w * 0.45,
+              transform: `rotate(${m.rotate + 55}deg)`,
+            }}
+          />
+          <div
+            className="pdox-molecule-line"
+            style={{
+              left: m.w * 0.20,
+              top: m.h * 0.55,
+              width: m.w * 0.40,
+              transform: `rotate(${m.rotate - 40}deg)`,
             }}
           />
         </div>
@@ -961,7 +992,7 @@ function MolecularDriftLayer({ count = 6 }: { count?: number }) {
 }
 
 function GoldLightSweep() {
-  return <div className="pdox-light-sweep" aria-hidden="true" style={{ zIndex: 0 }} />;
+  return <div className="pdox-light-sweep z-[2]" aria-hidden="true" />;
 }
 
 function ProductDetail({
@@ -1400,10 +1431,10 @@ function App() {
           <img
             src="/images/hero-bg-gold.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-55"
+            className="absolute inset-0 h-full w-full object-cover opacity-55 z-0"
           />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.12),transparent_36%),linear-gradient(to_bottom,rgba(0,0,0,0.24),#0A0A0A_92%)]" />
-          <GoldParticleField count={42} />
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.12),transparent_36%),linear-gradient(to_bottom,rgba(0,0,0,0.24),#0A0A0A_92%)]" />
+          <GoldParticleField count={48} />
           <MolecularDriftLayer count={6} />
           <GoldLightSweep />
           <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
@@ -1441,10 +1472,10 @@ function App() {
           <img
             src="/images/bg-molecular-gold-flow.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
-          <GoldParticleField subtle count={30} />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <GoldParticleField subtle count={36} />
           <MolecularDriftLayer count={5} />
           <GoldLightSweep />
           <GrainTexture />
@@ -1480,10 +1511,10 @@ function App() {
           <img
             src="/images/bg-lab-champagne.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
-          <GoldParticleField subtle count={14} />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <GoldParticleField subtle count={18} />
           <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
@@ -1524,10 +1555,10 @@ function App() {
           <img
             src="/images/bg-molecular-gold-flow.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
-          <GoldParticleField subtle count={30} />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <GoldParticleField subtle count={36} />
           <MolecularDriftLayer count={5} />
           <GoldLightSweep />
           <GrainTexture />
@@ -1579,10 +1610,10 @@ function App() {
           <img
             src="/images/bg-lab-champagne.png"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-40"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
-          <GoldParticleField subtle count={14} />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <GoldParticleField subtle count={18} />
           <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
@@ -1665,8 +1696,8 @@ function App() {
         </section>
 
         <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <GoldParticleField subtle />
-          <div className="relative mx-auto max-w-7xl">
+          <GoldParticleField subtle count={16} />
+          <div className="relative z-10 mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
                 <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
