@@ -1331,6 +1331,12 @@ function App() {
         </section>
 
         <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <img
+            src="/images/bg-molecular-gold-flow.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
           <GoldParticleField subtle count={24} />
           <GrainTexture />
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
@@ -1362,6 +1368,12 @@ function App() {
         </section>
 
         <section id="brand" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <img
+            src="/images/bg-lab-champagne.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
           <SoftGlow />
           <GrainTexture />
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
@@ -1398,6 +1410,12 @@ function App() {
         </section>
 
         <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <img
+            src="/images/bg-molecular-gold-flow.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
           <GoldParticleField subtle count={20} />
           <GrainTexture />
           <div className="relative mx-auto max-w-7xl">
@@ -1445,6 +1463,12 @@ function App() {
         </section>
 
         <section id="products" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <img
+            src="/images/bg-lab-champagne.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
           <SoftGlow />
           <GrainTexture />
           <div className="relative mx-auto max-w-7xl">
