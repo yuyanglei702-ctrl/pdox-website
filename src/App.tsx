@@ -34,6 +34,7 @@ type Stat = {
   summary: string;
   sections: { title: string; body: string }[];
   partnerValue: string;
+  image: string;
 };
 
 type Copy = {
@@ -121,6 +122,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Materials, packaging and site language are prepared for clinic consultation and distributor education from day one.',
           },
         ],
+        image: '/images/insight-madrid-origin.png',
         partnerValue:
           'Helps partners explain where the brand comes from and why PDOX is positioned as a premium professional skin science platform.',
       },
@@ -149,6 +151,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Surface renewal, smoother texture and radiance.',
           },
         ],
+        image: '/images/insight-enzyme-platform.png',
         partnerValue:
           'Makes the product system easier to explain in consultations, training materials and distributor presentations.',
       },
@@ -173,6 +176,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Every batch is expected to deliver the same visual, sensory and performance profile.',
           },
         ],
+        image: '/images/insight-stability-target.png',
         partnerValue:
           'Supports clinic and distributor confidence when presenting PDOX as a serious professional dermocosmetic platform.',
       },
@@ -197,6 +201,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Positioning stays within cosmetic and professional skin science boundaries without overstating medical outcomes.',
           },
         ],
+        image: '/images/insight-eu-quality.png',
         partnerValue:
           'Helps partners prepare for training, sales conversations and future market documentation without overstating medical claims.',
       },
@@ -423,6 +428,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Los materiales, envases y lenguaje del sitio estan preparados para consulta clinica y educacion de distribuidores desde el primer dia.',
           },
         ],
+        image: '/images/insight-madrid-origin.png',
         partnerValue:
           'Ayuda a los socios a explicar de donde viene la marca y por que PDOX se posiciona como una plataforma premium de ciencia cutanea profesional.',
       },
@@ -451,6 +457,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Renovacion superficial, textura mas suave y luminosidad.',
           },
         ],
+        image: '/images/insight-enzyme-platform.png',
         partnerValue:
           'Facilita explicar el sistema de productos en consultas, materiales de formacion y presentaciones ante distribuidores.',
       },
@@ -475,6 +482,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Cada lote debe ofrecer el mismo perfil visual, sensorial y de rendimiento.',
           },
         ],
+        image: '/images/insight-stability-target.png',
         partnerValue:
           'Refuerza la confianza de clinicas y distribuidores al presentar PDOX como una plataforma dermocosmetica profesional seria.',
       },
@@ -499,6 +507,7 @@ const copy: Record<Lang, Copy> = {
             body: 'El posicionamiento se mantiene dentro de limites cosmeticos y de ciencia cutanea profesional sin sobredimensionar resultados medicos.',
           },
         ],
+        image: '/images/insight-eu-quality.png',
         partnerValue:
           'Ayuda a los socios a prepararse para formacion, conversaciones de venta y documentacion futura de mercado sin sobredimensionar claims medicos.',
       },
@@ -916,10 +925,14 @@ function InsightDetail({
             </a>
           </div>
 
-          <div className="reveal border border-white/10 bg-black/35 p-8">
-            <div className="aspect-[4/5] bg-[#090909] p-8 flex flex-col items-center justify-center text-center">
-              <div className="font-serif text-6xl text-[#C9A96E] sm:text-8xl">{insight.value}</div>
-              <div className="mt-4 text-[11px] uppercase tracking-[0.18em] text-white/48">{insight.label}</div>
+          <div className="reveal overflow-hidden border border-white/10 bg-black/20 transition hover:border-[#C9A96E]/45">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <img
+                src={insight.image}
+                alt={insight.title}
+                className="h-full w-full object-cover transition duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
             </div>
           </div>
         </div>
