@@ -208,6 +208,34 @@
   100% { background-position: 200% center; }
 }
 
+@keyframes pdoxParticleRise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0) scale(0.75);
+  }
+  16% {
+    opacity: 0.8;
+  }
+  58% {
+    opacity: 0.55;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(18px, -120px, 0) scale(1.25);
+  }
+}
+
+@keyframes pdoxHazePulse {
+  0%, 100% {
+    opacity: 0.28;
+    transform: translate(-50%, -50%) scale(0.92);
+  }
+  50% {
+    opacity: 0.62;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
 /* ===== Reveal Utility ===== */
 .reveal {
   opacity: 0;
@@ -234,6 +262,43 @@
   border-radius: 50%;
   animation: floatParticle linear infinite;
   pointer-events: none;
+}
+
+.pdox-gold-haze {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(72vw, 760px);
+  height: min(42vw, 380px);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, rgba(201, 169, 110, 0.22), rgba(201, 169, 110, 0.06) 42%, transparent 72%);
+  filter: blur(22px);
+  transform: translate(-50%, -50%);
+  animation: pdoxHazePulse 8s ease-in-out infinite;
+}
+
+.pdox-gold-particle {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: #C9A96E;
+  box-shadow: 0 0 14px rgba(201, 169, 110, 0.75), 0 0 32px rgba(201, 169, 110, 0.22);
+  opacity: 0;
+  animation-name: pdoxParticleRise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdox-gold-haze,
+  .pdox-gold-particle {
+    animation: none;
+  }
+
+  .pdox-gold-particle {
+    opacity: 0.35;
+  }
 }
 
 /* ===== Custom Selection ===== */

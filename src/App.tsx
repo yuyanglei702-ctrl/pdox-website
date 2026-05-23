@@ -34,6 +34,9 @@ type Copy = {
   heroPrimary: string;
   heroSecondary: string;
   stats: { value: string; label: string }[];
+  overviewKicker: string;
+  overviewTitle: string;
+  overviewBody: string;
   brandKicker: string;
   brandTitle: string;
   brandBody: string[];
@@ -56,6 +59,17 @@ type Copy = {
   scienceTitle: string;
   scienceBody: string;
   sciencePoints: { title: string; body: string }[];
+  channelsKicker: string;
+  channelsTitle: string;
+  channelsBody: string;
+  channels: { title: string; body: string; points: string[] }[];
+  protocolKicker: string;
+  protocolTitle: string;
+  protocolBody: string;
+  protocolSteps: { value: string; title: string; body: string }[];
+  faqKicker: string;
+  faqTitle: string;
+  faqs: { question: string; answer: string }[];
   ctaTitle: string;
   ctaBody: string;
   ctaButton: string;
@@ -64,7 +78,7 @@ type Copy = {
 
 const copy: Record<Lang, Copy> = {
   en: {
-    nav: ['Brand', 'Technology', 'Products', 'Science', 'Contact'],
+    nav: ['Brand', 'Technology', 'Products', 'Partners', 'FAQ', 'Contact'],
     heroEyebrow: 'Spanish bio-enzyme skin science',
     heroTitle: 'PDOX',
     heroBody:
@@ -77,6 +91,10 @@ const copy: Record<Lang, Copy> = {
       { value: '15Y', label: 'room-temperature stability target' },
       { value: 'EU', label: 'quality and compliance focus' },
     ],
+    overviewKicker: 'PDOX Overview',
+    overviewTitle: 'Professional bio-enzyme skin programs from Madrid.',
+    overviewBody:
+      'A clear snapshot of the PDOX platform: Spanish origin, four enzyme complexes, stability discipline and EU-facing quality language for professional channels.',
     brandKicker: 'The Brand',
     brandTitle: 'Independent research, proprietary formulation and clinical-grade presentation.',
     brandBody: [
@@ -184,6 +202,72 @@ const copy: Record<Lang, Copy> = {
         body: 'English and Spanish keep the site focused for international launch and Spanish brand origin.',
       },
     ],
+    channelsKicker: 'Professional Channels',
+    channelsTitle: 'Built for clinics, distributors and premium brand partners.',
+    channelsBody:
+      'PDOX should communicate differently to each audience while keeping one premium scientific brand language.',
+    channels: [
+      {
+        title: 'Clinics & Skin Studios',
+        body: 'A clear product system for professional facial and body protocols, consultation storytelling and premium treatment menus.',
+        points: ['Protocol education', 'Premium treatment positioning', 'Product range clarity'],
+      },
+      {
+        title: 'Distributors',
+        body: 'A concise brand platform that helps channel partners explain origin, technology, products and commercial potential.',
+        points: ['Market-ready narrative', 'Expandable product architecture', 'Bilingual launch foundation'],
+      },
+      {
+        title: 'End Consumers',
+        body: 'A refined website experience that builds trust before purchase conversations begin through visual quality and simple explanations.',
+        points: ['Brand confidence', 'Benefit-led language', 'Professional credibility'],
+      },
+    ],
+    protocolKicker: 'Protocol Logic',
+    protocolTitle: 'From product images to professional treatment pathways.',
+    protocolBody:
+      'The website now frames PDOX as a system, not a loose catalog: repair, contour, renewal and hydration can be presented as complementary professional pathways.',
+    protocolSteps: [
+      {
+        value: '01',
+        title: 'Assess',
+        body: 'Position each product around a visible skin priority such as recovery, contour, texture, hydration or elasticity.',
+      },
+      {
+        value: '02',
+        title: 'Match',
+        body: 'Connect enzyme logic to a professional protocol so clinics and partners can explain why the product exists.',
+      },
+      {
+        value: '03',
+        title: 'Support',
+        body: 'Guide partners toward product education, commercial consultation and long-term range development.',
+      },
+    ],
+    faqKicker: 'FAQ',
+    faqTitle: 'Questions partners usually ask first.',
+    faqs: [
+      {
+        question: 'Is PDOX designed for professional channels?',
+        answer:
+          'Yes. The website positions PDOX for clinics, distributors and premium skin programs, with product language focused on professional presentation.',
+      },
+      {
+        question: 'Can product pages be expanded later?',
+        answer:
+          'Yes. Each product already has its own detail page, so claims, protocols, training assets, certificates or market materials can be added progressively.',
+      },
+      {
+        question: 'Why English and Spanish only?',
+        answer:
+          'English supports international communication, while Spanish reinforces the Madrid brand origin and launch identity.',
+      },
+      {
+        question: 'How should partners contact PDOX?',
+        answer:
+          'The site currently routes inquiries to info@pdoxserum.com. A fuller inquiry form can be added later when sales routing is defined.',
+      },
+    ],
     ctaTitle: 'Start a precision skin protocol.',
     ctaBody:
       'For clinics, distributors and brand partners, PDOX is prepared to become a focused global dermocosmetic platform.',
@@ -192,7 +276,7 @@ const copy: Record<Lang, Copy> = {
       'PDOX is an independent precision bio-enzyme skin science brand based in Madrid. Research, formulation and production story prepared for global distribution.',
   },
   es: {
-    nav: ['Marca', 'Tecnologia', 'Productos', 'Ciencia', 'Contacto'],
+    nav: ['Marca', 'Tecnologia', 'Productos', 'Socios', 'FAQ', 'Contacto'],
     heroEyebrow: 'Ciencia cutanea bio-enzimatica espanola',
     heroTitle: 'PDOX',
     heroBody:
@@ -205,6 +289,10 @@ const copy: Record<Lang, Copy> = {
       { value: '15A', label: 'objetivo de estabilidad ambiente' },
       { value: 'UE', label: 'enfoque en calidad y cumplimiento' },
     ],
+    overviewKicker: 'Vision PDOX',
+    overviewTitle: 'Programas profesionales bio-enzimaticos de piel desde Madrid.',
+    overviewBody:
+      'Una lectura clara de la plataforma PDOX: origen espanol, cuatro complejos enzimaticos, disciplina de estabilidad y lenguaje de calidad orientado a canales profesionales.',
     brandKicker: 'La Marca',
     brandTitle: 'Investigacion independiente, formulacion propia y presentacion clinica premium.',
     brandBody: [
@@ -312,6 +400,72 @@ const copy: Record<Lang, Copy> = {
         body: 'Ingles y espanol mantienen el sitio enfocado para lanzamiento internacional y origen espanol.',
       },
     ],
+    channelsKicker: 'Canales Profesionales',
+    channelsTitle: 'Pensado para clinicas, distribuidores y socios premium de marca.',
+    channelsBody:
+      'PDOX debe hablar a cada audiencia con un mensaje distinto, manteniendo un lenguaje cientifico premium y coherente.',
+    channels: [
+      {
+        title: 'Clinicas y estudios de piel',
+        body: 'Un sistema claro de productos para protocolos faciales y corporales, consulta profesional y menus de tratamiento premium.',
+        points: ['Educacion de protocolo', 'Posicionamiento premium', 'Claridad de linea'],
+      },
+      {
+        title: 'Distribuidores',
+        body: 'Una plataforma de marca concisa para explicar origen, tecnologia, productos y potencial comercial.',
+        points: ['Narrativa lista para mercado', 'Arquitectura expandible', 'Base bilingue de lanzamiento'],
+      },
+      {
+        title: 'Consumidores finales',
+        body: 'Una experiencia refinada que genera confianza antes de la conversacion de compra con calidad visual y explicaciones simples.',
+        points: ['Confianza de marca', 'Lenguaje de beneficio', 'Credibilidad profesional'],
+      },
+    ],
+    protocolKicker: 'Logica de Protocolo',
+    protocolTitle: 'De imagenes de producto a rutas profesionales de tratamiento.',
+    protocolBody:
+      'La web presenta PDOX como un sistema, no como un catalogo suelto: reparacion, contorno, renovacion e hidratacion funcionan como rutas profesionales complementarias.',
+    protocolSteps: [
+      {
+        value: '01',
+        title: 'Evaluar',
+        body: 'Posicionar cada producto alrededor de una prioridad visible: recuperacion, contorno, textura, hidratacion o elasticidad.',
+      },
+      {
+        value: '02',
+        title: 'Conectar',
+        body: 'Relacionar la logica enzimatica con un protocolo profesional para explicar por que existe cada producto.',
+      },
+      {
+        value: '03',
+        title: 'Acompanamiento',
+        body: 'Orientar a los socios hacia educacion de producto, consulta comercial y desarrollo de linea a largo plazo.',
+      },
+    ],
+    faqKicker: 'FAQ',
+    faqTitle: 'Preguntas que los socios suelen hacer primero.',
+    faqs: [
+      {
+        question: 'PDOX esta pensado para canales profesionales?',
+        answer:
+          'Si. La web posiciona PDOX para clinicas, distribuidores y programas premium, con lenguaje de producto orientado a presentacion profesional.',
+      },
+      {
+        question: 'Se pueden ampliar las paginas de producto despues?',
+        answer:
+          'Si. Cada producto ya tiene su propia pagina de detalle, por lo que se pueden agregar claims, protocolos, formacion, certificados o materiales de mercado.',
+      },
+      {
+        question: 'Por que solo ingles y espanol?',
+        answer:
+          'El ingles ayuda a la comunicacion internacional, mientras que el espanol refuerza el origen de marca en Madrid y la identidad de lanzamiento.',
+      },
+      {
+        question: 'Como deben contactar los socios con PDOX?',
+        answer:
+          'Actualmente las consultas van a info@pdoxserum.com. Mas adelante se puede anadir un formulario cuando la ruta comercial este definida.',
+      },
+    ],
     ctaTitle: 'Inicia un protocolo cutaneo de precision.',
     ctaBody:
       'Para clinicas, distribuidores y socios de marca, PDOX esta preparado para convertirse en una plataforma dermocosmetica global enfocada.',
@@ -321,9 +475,45 @@ const copy: Record<Lang, Copy> = {
   },
 };
 
-const sectionIds = ['brand', 'technology', 'products', 'science', 'contact'];
+const sectionIds = ['brand', 'technology', 'products', 'partners', 'faq', 'contact'];
 const techIcons = [FlaskConical, Microscope, Beaker, Sparkles];
 const scienceIcons = [ShieldCheck, Award, Globe2];
+const goldParticles = [
+  { left: '8%', top: '18%', size: '3px', delay: '0s', duration: '9s' },
+  { left: '14%', top: '68%', size: '2px', delay: '1.8s', duration: '11s' },
+  { left: '22%', top: '36%', size: '5px', delay: '0.7s', duration: '13s' },
+  { left: '31%', top: '78%', size: '2px', delay: '2.4s', duration: '10s' },
+  { left: '43%', top: '24%', size: '3px', delay: '1.1s', duration: '12s' },
+  { left: '52%', top: '62%', size: '4px', delay: '3s', duration: '14s' },
+  { left: '61%', top: '16%', size: '2px', delay: '0.3s', duration: '10s' },
+  { left: '69%', top: '70%', size: '3px', delay: '2.1s', duration: '12s' },
+  { left: '78%', top: '32%', size: '5px', delay: '1.5s', duration: '15s' },
+  { left: '87%', top: '58%', size: '2px', delay: '0.9s', duration: '11s' },
+  { left: '92%', top: '22%', size: '3px', delay: '2.8s', duration: '13s' },
+  { left: '36%', top: '48%', size: '2px', delay: '4s', duration: '12s' },
+];
+
+function GoldParticleField({ subtle = false }: { subtle?: boolean }) {
+  return (
+    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className={`pdox-gold-haze ${subtle ? 'opacity-35' : 'opacity-70'}`} />
+      {goldParticles.map((particle) => (
+        <span
+          key={`${particle.left}-${particle.top}`}
+          className="pdox-gold-particle"
+          style={{
+            left: particle.left,
+            top: particle.top,
+            width: particle.size,
+            height: particle.size,
+            animationDelay: particle.delay,
+            animationDuration: particle.duration,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 function ProductDetail({
   product,
@@ -548,25 +738,27 @@ function App() {
           <ProductDetail product={activeProduct} copy={t} lang={lang} onBack={() => goTo('products')} />
         ) : (
           <>
-        <section id="home" className="relative min-h-[92vh] overflow-hidden pt-16">
+        <section id="home" className="relative min-h-screen overflow-hidden pt-16">
           <img
             src="/images/hero-bg.jpg"
             alt=""
-            className="absolute inset-0 h-full w-full object-cover opacity-45"
+            className="absolute inset-0 h-full w-full object-cover opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0A0A0A]/80 to-[#0A0A0A]" />
-          <div className="relative mx-auto grid min-h-[calc(92vh-4rem)] max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-            <div className="max-w-3xl">
-              <p className="reveal mb-5 text-[11px] uppercase tracking-[0.45em] text-[#C9A96E]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.18),transparent_34%),linear-gradient(to_bottom,rgba(0,0,0,0.5),#0A0A0A_88%)]" />
+          <GoldParticleField />
+          <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
+            <p className="reveal mb-6 text-[11px] uppercase tracking-[0.48em] text-[#C9A96E]">
                 {t.heroEyebrow}
-              </p>
-              <h1 className="reveal text-[clamp(74px,14vw,172px)] font-medium leading-[0.82] tracking-[0.04em] text-white">
-                {t.heroTitle}
-              </h1>
-              <p className="reveal mt-7 max-w-2xl text-sm leading-8 text-white/62 sm:text-base">
+            </p>
+            <div className="reveal relative">
+              <div className="absolute inset-x-0 top-1/2 mx-auto h-24 w-72 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
+              <img src="/images/logo.png" alt="PDOX" className="relative mx-auto h-auto w-[min(68vw,390px)] invert brightness-200" />
+            </div>
+            <h1 className="sr-only">{t.heroTitle}</h1>
+            <p className="reveal mt-9 max-w-3xl text-base leading-8 text-white/68 sm:text-lg">
                 {t.heroBody}
-              </p>
-              <div className="reveal mt-9 flex flex-col gap-3 sm:flex-row">
+            </p>
+            <div className="reveal mt-10 flex flex-col gap-3 sm:flex-row">
                 <button
                   onClick={() => goTo('products')}
                   className="inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-6 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
@@ -580,12 +772,23 @@ function App() {
                 >
                   {t.heroSecondary}
                 </button>
-              </div>
             </div>
+          </div>
+        </section>
 
+        <section className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+          <GoldParticleField subtle />
+          <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+            <div className="max-w-2xl">
+              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+                {t.overviewKicker}
+              </p>
+              <h2 className="reveal text-[clamp(32px,5vw,64px)] leading-tight">{t.overviewTitle}</h2>
+              <p className="reveal mt-6 text-sm leading-8 text-white/58">{t.overviewBody}</p>
+            </div>
             <div className="reveal grid gap-3 sm:grid-cols-2">
               {t.stats.map((stat) => (
-                <div key={stat.label} className="border border-white/10 bg-black/30 p-5 backdrop-blur-md">
+                <div key={stat.label} className="border border-white/10 bg-black/35 p-5 backdrop-blur-md transition hover:border-[#C9A96E]/45">
                   <div className="font-serif text-4xl text-[#C9A96E]">{stat.value}</div>
                   <div className="mt-2 text-[11px] uppercase leading-5 tracking-[0.18em] text-white/48">
                     {stat.label}
@@ -720,7 +923,83 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="bg-[#C9A96E] px-4 py-18 text-black sm:px-6 lg:px-8 lg:py-24">
+        <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <GoldParticleField subtle />
+          <div className="relative mx-auto max-w-7xl">
+            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+              <div>
+                <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+                  {t.channelsKicker}
+                </p>
+                <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.channelsTitle}</h2>
+              </div>
+              <p className="reveal text-sm leading-8 text-white/55">{t.channelsBody}</p>
+            </div>
+
+            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+              {t.channels.map((channel) => (
+                <article key={channel.title} className="reveal border border-white/10 bg-black/30 p-6 backdrop-blur-md transition hover:border-[#C9A96E]/45">
+                  <h3 className="font-sans text-lg font-medium text-white">{channel.title}</h3>
+                  <p className="mt-4 min-h-[112px] text-sm leading-7 text-white/52">{channel.body}</p>
+                  <div className="mt-6 grid gap-2">
+                    {channel.points.map((point) => (
+                      <div key={point} className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/45">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#C9A96E]" />
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#0A0A0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+            <div>
+              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+                {t.protocolKicker}
+              </p>
+              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.protocolTitle}</h2>
+              <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.protocolBody}</p>
+            </div>
+
+            <div className="grid gap-4">
+              {t.protocolSteps.map((step) => (
+                <article key={step.value} className="reveal grid gap-4 border border-white/10 bg-white/[0.03] p-6 sm:grid-cols-[88px_1fr]">
+                  <div className="font-serif text-5xl text-[#C9A96E]">{step.value}</div>
+                  <div>
+                    <h3 className="font-sans text-base font-medium uppercase tracking-[0.18em] text-white">{step.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-white/52">{step.body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="border-y border-white/10 bg-[#0F0E0B] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+          <div className="mx-auto max-w-5xl">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+                {t.faqKicker}
+              </p>
+              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.faqTitle}</h2>
+            </div>
+
+            <div className="mt-12 grid gap-4">
+              {t.faqs.map((item) => (
+                <article key={item.question} className="reveal border border-white/10 bg-black/30 p-6">
+                  <h3 className="font-sans text-base font-medium text-white">{item.question}</h3>
+                  <p className="mt-3 text-sm leading-7 text-white/52">{item.answer}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="bg-[#C9A96E] px-4 py-20 text-black sm:px-6 lg:px-8 lg:py-24">
           <div className="mx-auto max-w-4xl text-center">
             <Clock className="reveal mx-auto mb-6 h-8 w-8" />
             <h2 className="reveal text-[clamp(30px,5vw,58px)] leading-tight">{t.ctaTitle}</h2>
