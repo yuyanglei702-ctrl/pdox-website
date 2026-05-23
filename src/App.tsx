@@ -53,7 +53,7 @@ type Copy = {
   techKicker: string;
   techTitle: string;
   techBody: string;
-  techCards: { title: string; body: string }[];
+  techCards: { title: string; body: string; image: string }[];
   productsKicker: string;
   productsTitle: string;
   productsBody: string;
@@ -219,18 +219,22 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Lipase Complex',
         body: 'Targets localized lipid appearance and supports contour-focused professional protocols.',
+        image: '/images/tech-lipase-complex.png',
       },
       {
         title: 'Collagenase Complex',
         body: 'Supports firmness, elasticity and dermal remodeling programs without invasive positioning.',
+        image: '/images/tech-collagenase-complex.png',
       },
       {
         title: 'Hyaluronidase Complex',
         body: 'Helps improve hydration delivery and the feel of deep skin replenishment.',
+        image: '/images/tech-hyaluronidase-complex.png',
       },
       {
         title: 'Keratinase Complex',
         body: 'Encourages surface renewal, smoother texture and brighter-looking skin.',
+        image: '/images/tech-keratinase-complex.png',
       },
     ],
     productsKicker: 'Products',
@@ -517,18 +521,22 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Complejo Lipasa',
         body: 'Orientado a la apariencia de lipidos localizados y protocolos profesionales de contorno.',
+        image: '/images/tech-lipase-complex.png',
       },
       {
         title: 'Complejo Colagenasa',
         body: 'Apoya programas de firmeza, elasticidad y remodelacion dermica con lenguaje no invasivo.',
+        image: '/images/tech-collagenase-complex.png',
       },
       {
         title: 'Complejo Hialuronidasa',
         body: 'Ayuda a mejorar la entrega de hidratacion y la sensacion de reposicion profunda.',
+        image: '/images/tech-hyaluronidase-complex.png',
       },
       {
         title: 'Complejo Queratinasa',
         body: 'Favorece renovacion superficial, textura mas lisa y piel con aspecto mas luminoso.',
+        image: '/images/tech-keratinase-complex.png',
       },
     ],
     productsKicker: 'Productos',
@@ -1142,10 +1150,21 @@ function App() {
               {t.techCards.map((card, index) => {
                 const Icon = techIcons[index];
                 return (
-                  <article key={card.title} className="reveal border border-white/10 bg-black/25 p-6">
-                    <Icon className="mb-6 h-8 w-8 text-[#C9A96E]" />
-                    <h3 className="font-sans text-base font-medium text-white">{card.title}</h3>
-                    <p className="mt-4 text-xs leading-6 text-white/48">{card.body}</p>
+                  <article key={card.title} className="reveal group overflow-hidden border border-white/10 bg-black/25 transition hover:border-[#C9A96E]/45">
+                    <div className="aspect-[4/3] overflow-hidden bg-[#0A0A0A]">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="mb-4 flex items-center gap-3">
+                        <Icon className="h-6 w-6 text-[#C9A96E]" />
+                        <h3 className="font-sans text-base font-medium text-white">{card.title}</h3>
+                      </div>
+                      <p className="text-xs leading-6 text-white/48">{card.body}</p>
+                    </div>
                   </article>
                 );
               })}
