@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import {
   ArrowLeft,
@@ -81,6 +81,10 @@ type Copy = {
   faqKicker: string;
   faqTitle: string;
   faqs: { question: string; answer: string }[];
+  productMarqueeKicker: string;
+  productMarqueeTitle: string;
+  productMarqueeBody: string;
+  productMarqueeCta: string;
   ctaTitle: string;
   ctaBody: string;
   ctaButton: string;
@@ -427,6 +431,10 @@ const copy: Record<Lang, Copy> = {
           'The site currently routes inquiries to info@pdoxserum.com. A fuller inquiry form can be added later when sales routing is defined.',
       },
     ],
+    productMarqueeKicker: 'Product Line',
+    productMarqueeTitle: 'PDOX products in continuous professional motion.',
+    productMarqueeBody: 'Explore the complete PDOX range through repair, contour, renewal and hydration-focused skin programs.',
+    productMarqueeCta: 'View Product',
     ctaTitle: 'Start a precision skin protocol.',
     ctaBody:
       'For clinics, distributors and brand partners, PDOX is prepared to become a focused global dermocosmetic platform.',
@@ -778,6 +786,10 @@ const copy: Record<Lang, Copy> = {
           'Actualmente las consultas van a info@pdoxserum.com. Mas adelante se puede anadir un formulario cuando la ruta comercial este definida.',
       },
     ],
+    productMarqueeKicker: 'Linea de Producto',
+    productMarqueeTitle: 'Productos PDOX en movimiento profesional continuo.',
+    productMarqueeBody: 'Explora la gama PDOX a traves de programas de reparacion, contorno, renovacion e hidratacion.',
+    productMarqueeCta: 'Ver Producto',
     ctaTitle: 'Inicia un protocolo cutaneo de precision.',
     ctaBody:
       'Para clinicas, distribuidores y socios de marca, PDOX esta preparado para convertirse en una plataforma dermocosmetica global enfocada.',
@@ -993,6 +1005,149 @@ function MolecularDriftLayer({ count = 6 }: { count?: number }) {
 
 function GoldLightSweep() {
   return <div className="pdox-light-sweep z-[2]" aria-hidden="true" />;
+}
+
+function ProductMarquee({
+  products,
+  copy,
+  onOpenProduct,
+}: {
+  products: Product[];
+  copy: Copy;
+  onOpenProduct: (slug: string) => void;
+}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isPausedRef = useRef(false);
+  const isDraggingRef = useRef(false);
+  const hasDraggedRef = useRef(false);
+  const dragStartX = useRef(0);
+  const dragStartScroll = useRef(0);
+  const [isDraggingState, setIsDraggingState] = useState(false);
+
+  const marqueeProducts = [...products, ...products, ...products];
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let rafId: number;
+    let lastTime = performance.now();
+    const speed = 0.035;
+
+    const animate = (time: number) => {
+      if (!prefersReduced && !isPausedRef.current && !isDraggingRef.current) {
+        const delta = time - lastTime;
+        container.scrollLeft += delta * speed;
+        const oneSet = container.scrollWidth / 3;
+        if (container.scrollLeft >= oneSet) {
+          container.scrollLeft -= oneSet;
+        }
+      }
+      lastTime = time;
+      rafId = requestAnimationFrame(animate);
+    };
+
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
+  }, [products.length]);
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    isDraggingRef.current = true;
+    hasDraggedRef.current = false;
+    dragStartX.current = e.clientX;
+    dragStartScroll.current = containerRef.current?.scrollLeft || 0;
+    setIsDraggingState(true);
+    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (!isDraggingRef.current || !containerRef.current) return;
+    const delta = e.clientX - dragStartX.current;
+    if (Math.abs(delta) > 3) hasDraggedRef.current = true;
+    containerRef.current.scrollLeft = dragStartScroll.current - delta;
+  };
+
+  const handlePointerUp = () => {
+    isDraggingRef.current = false;
+    setIsDraggingState(false);
+  };
+
+  const handleClick = (slug: string) => {
+    if (!hasDraggedRef.current) onOpenProduct(slug);
+  };
+
+  return (
+    <section className="relative overflow-hidden border-y border-white/10 bg-[#0A0A0A] py-24 lg:py-32">
+      <img
+        src="/images/bg-molecular-gold-flow.png"
+        alt=""
+        className="absolute inset-0 h-full w-full object-cover opacity-25 z-0"
+      />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/75 to-[#0A0A0A]/88" />
+      <GoldParticleField subtle count={20} />
+      <GrainTexture />
+      <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
+            {copy.productMarqueeKicker}
+          </p>
+          <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">
+            {copy.productMarqueeTitle}
+          </h2>
+          <p className="reveal mt-6 text-base leading-9 text-white/55">
+            {copy.productMarqueeBody}
+          </p>
+        </div>
+      </div>
+
+      <div
+        ref={containerRef}
+        className={`relative z-10 mt-14 flex gap-6 overflow-x-auto px-4 sm:px-6 lg:px-8 select-none pdox-marquee-hide-scrollbar ${
+          isDraggingState ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        onMouseEnter={() => { isPausedRef.current = true; }}
+        onMouseLeave={() => { isPausedRef.current = false; isDraggingRef.current = false; setIsDraggingState(false); }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+      >
+        {marqueeProducts.map((product, i) => (
+          <button
+            key={`${product.slug}-${i}`}
+            onClick={() => handleClick(product.slug)}
+            className="pdox-card-premium group shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left"
+            style={{ width: 'clamp(300px, 22vw, 380px)' }}
+          >
+            <div className="aspect-[4/3] bg-black p-6">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
+              />
+            </div>
+            <div className="p-6">
+              <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+              <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
+              <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {product.tags.map((tag) => (
+                  <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
+                {copy.productMarqueeCta}
+                <ArrowRight size={14} />
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function ProductDetail({
@@ -1771,6 +1926,12 @@ function App() {
             </div>
           </div>
         </section>
+
+        <ProductMarquee
+          products={t.products}
+          copy={t}
+          onOpenProduct={(slug) => openProduct(slug)}
+        />
 
         <section id="contact" className="bg-[#C9A96E] px-4 py-24 text-black sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-4xl text-center">

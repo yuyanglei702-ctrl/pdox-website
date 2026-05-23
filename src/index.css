@@ -672,3 +672,8 @@
     transition: none;
   }
 }
+
+/* ===== Product Marquee Scrollbar Hide ===== */
+.pdox-marquee-hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
