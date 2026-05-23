@@ -54,7 +54,7 @@ type Copy = {
   techKicker: string;
   techTitle: string;
   techBody: string;
-  techCards: { title: string; body: string; image: string }[];
+  techCards: { title: string; body: string; image: string; slug: string; detailTitle: string; detailSummary: string; detailSections: { title: string; body: string }[]; detailPartnerValue: string }[];
   productsKicker: string;
   productsTitle: string;
   productsBody: string;
@@ -89,6 +89,10 @@ type Copy = {
   insightEyebrow: string;
   insightSections: string;
   insightPartnerValue: string;
+  brandStoryTitle: string;
+  brandStorySummary: string;
+  brandStorySections: { title: string; body: string }[];
+  brandStoryPartnerValue: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -225,21 +229,57 @@ const copy: Record<Lang, Copy> = {
         title: 'Lipase Complex',
         body: 'Targets localized lipid appearance and supports contour-focused professional protocols.',
         image: '/images/tech-lipase-complex.png',
+        slug: 'lipase-complex',
+        detailTitle: 'Lipase Complex',
+        detailSummary: 'A contour-focused enzyme complex positioned around localized lipid appearance and professional body or facial protocol support.',
+        detailSections: [
+          { title: 'Supports contour-focused protocol language', body: 'Helps explain how enzyme action relates to visible contour and localized appearance.' },
+          { title: 'Helps explain lipid balance in professional consultations', body: 'Gives clinics a scientific anchor when discussing lipid-related skin priorities.' },
+          { title: 'Works as part of a broader PDOX bio-enzyme platform', body: 'Designed to complement repair, hydration and surface-renewal programs.' },
+        ],
+        detailPartnerValue: 'Makes it easier for clinics and distributors to present contour-related skin science with confidence.',
       },
       {
         title: 'Collagenase Complex',
         body: 'Supports firmness, elasticity and dermal remodeling programs without invasive positioning.',
         image: '/images/tech-collagenase-complex.png',
+        slug: 'collagenase-complex',
+        detailTitle: 'Collagenase Complex',
+        detailSummary: 'A firmness and elasticity-focused complex positioned for visible skin quality, remodeling language and premium professional treatment planning.',
+        detailSections: [
+          { title: 'Supports firmness and elasticity storytelling', body: 'Connects enzyme logic to visible skin structure and resilience.' },
+          { title: 'Connects collagen renewal language with professional skincare programs', body: 'Helps clinics position the product within broader renewal protocols.' },
+          { title: 'Helps clinics explain texture and structure-focused protocols', body: 'Supports consultation narratives around visible skin quality and tone.' },
+        ],
+        detailPartnerValue: 'Gives partners clear language for texture, firmness and visible quality conversations.',
       },
       {
         title: 'Hyaluronidase Complex',
         body: 'Helps improve hydration delivery and the feel of deep skin replenishment.',
         image: '/images/tech-hyaluronidase-complex.png',
+        slug: 'hyaluronidase-complex',
+        detailTitle: 'Hyaluronidase Complex',
+        detailSummary: 'A hydration-delivery complex designed to support replenishment, comfort and a smoother professional skincare experience.',
+        detailSections: [
+          { title: 'Supports hydration delivery language', body: 'Positions the complex around moisture pathways and skin comfort.' },
+          { title: 'Helps explain deep replenishment and skin comfort', body: 'Gives clinics a credible way to discuss hydration as a visible benefit.' },
+          { title: 'Fits recovery, glow and hydration-focused protocols', body: 'Complements repair and renewal programs with a hydration angle.' },
+        ],
+        detailPartnerValue: 'Supports clinics and distributors when presenting hydration as a premium professional outcome.',
       },
       {
         title: 'Keratinase Complex',
         body: 'Encourages surface renewal, smoother texture and brighter-looking skin.',
         image: '/images/tech-keratinase-complex.png',
+        slug: 'keratinase-complex',
+        detailTitle: 'Keratinase Complex',
+        detailSummary: 'A surface-renewal complex positioned around smoother texture, refined appearance and brighter-looking skin.',
+        detailSections: [
+          { title: 'Supports surface renewal storytelling', body: 'Helps explain visible texture improvement and radiance in professional language.' },
+          { title: 'Helps explain texture refinement and radiance', body: 'Gives clinics a clear path when discussing surface quality and glow.' },
+          { title: 'Complements repair, hydration and firmness programs', body: 'Designed to complete the PDOX platform with a surface-focused angle.' },
+        ],
+        detailPartnerValue: 'Makes it easier to present radiance and surface quality as part of a professional skin science program.',
       },
     ],
     productsKicker: 'Products',
@@ -393,6 +433,15 @@ const copy: Record<Lang, Copy> = {
     ctaButton: 'Contact PDOX',
     footerBody:
       'PDOX is an independent precision bio-enzyme skin science brand based in Madrid. Research, formulation and production story prepared for global distribution.',
+    brandStoryTitle: 'Independent research, proprietary formulation and clinical-grade presentation.',
+    brandStorySummary: 'PDOX is built around a Spanish precision bio-enzyme skincare identity, combining laboratory credibility, premium dermocosmetic aesthetics and professional protocol language.',
+    brandStorySections: [
+      { title: 'Spanish laboratory identity', body: 'Rooted in Madrid research culture with a credible European origin story for international partners.' },
+      { title: 'Proprietary formulation direction', body: 'Independent development priorities that support premium positioning rather than mass-market trends.' },
+      { title: 'Premium clinical presentation', body: 'Materials, packaging and site language prepared for clinic consultation and distributor education.' },
+      { title: 'Prepared for clinics, distributors and professional partners', body: 'A brand platform designed to be explained with confidence in professional channels from day one.' },
+    ],
+    brandStoryPartnerValue: 'This brand story helps partners explain PDOX as a serious professional skincare science platform, not only a product catalog.',
     insightBack: 'Back to Overview',
     insightEyebrow: 'Insight',
     insightSections: 'Key areas',
@@ -531,21 +580,57 @@ const copy: Record<Lang, Copy> = {
         title: 'Complejo Lipasa',
         body: 'Orientado a la apariencia de lipidos localizados y protocolos profesionales de contorno.',
         image: '/images/tech-lipase-complex.png',
+        slug: 'lipase-complex',
+        detailTitle: 'Complejo Lipasa',
+        detailSummary: 'Complejo enzimatico enfocado en contorno, posicionado alrededor de la apariencia lipidica localizada y el soporte de protocolos corporales o faciales profesionales.',
+        detailSections: [
+          { title: 'Apoya el lenguaje de protocolo de contorno', body: 'Ayuda a explicar como la accion enzimatica se relaciona con el contorno visible y la apariencia localizada.' },
+          { title: 'Facilita explicar el equilibrio lipidico en consultas profesionales', body: 'Ofrece a las clinicas un anclaje cientifico al discutir prioridades cutaneas relacionadas con lipidos.' },
+          { title: 'Funciona como parte de la plataforma bio-enzimatica PDOX', body: 'Disenado para complementar programas de reparacion, hidratacion y renovacion superficial.' },
+        ],
+        detailPartnerValue: 'Facilita que clinicas y distribuidores presenten la ciencia cutanea de contorno con confianza.',
       },
       {
         title: 'Complejo Colagenasa',
         body: 'Apoya programas de firmeza, elasticidad y remodelacion dermica con lenguaje no invasivo.',
         image: '/images/tech-collagenase-complex.png',
+        slug: 'collagenase-complex',
+        detailTitle: 'Complejo Colagenasa',
+        detailSummary: 'Complejo enfocado en firmeza y elasticidad, posicionado para calidad visible de la piel, lenguaje de remodelacion y planificacion de tratamientos profesionales premium.',
+        detailSections: [
+          { title: 'Apoya la narrativa de firmeza y elasticidad', body: 'Conecta la logica enzimatica con la estructura visible y la resiliencia de la piel.' },
+          { title: 'Conecta el lenguaje de renovacion de colageno con programas profesionales', body: 'Ayuda a las clinicas a posicionar el producto dentro de protocolos de renovacion mas amplios.' },
+          { title: 'Facilita explicar protocolos enfocados en textura y estructura', body: 'Soporta narrativas de consulta sobre calidad visible y tono de la piel.' },
+        ],
+        detailPartnerValue: 'Ofrece a los socios lenguaje claro para conversaciones sobre textura, firmeza y calidad visible.',
       },
       {
         title: 'Complejo Hialuronidasa',
         body: 'Ayuda a mejorar la entrega de hidratacion y la sensacion de reposicion profunda.',
         image: '/images/tech-hyaluronidase-complex.png',
+        slug: 'hyaluronidase-complex',
+        detailTitle: 'Complejo Hialuronidasa',
+        detailSummary: 'Complejo de entrega de hidratacion disenado para apoyar reposicion, confort y una experiencia cutanea profesional mas suave.',
+        detailSections: [
+          { title: 'Apoya el lenguaje de entrega de hidratacion', body: 'Posiciona el complejo alrededor de las vias de humedad y el confort de la piel.' },
+          { title: 'Ayuda a explicar reposicion profunda y confort cutaneo', body: 'Ofrece a las clinicas una forma creible de discutir la hidratacion como beneficio visible.' },
+          { title: 'Encaja en protocolos de recuperacion, luminosidad e hidratacion', body: 'Complementa programas de reparacion y renovacion con un enfoque en hidratacion.' },
+        ],
+        detailPartnerValue: 'Apoya a clinicas y distribuidores al presentar la hidratacion como un resultado profesional premium.',
       },
       {
         title: 'Complejo Queratinasa',
         body: 'Favorece renovacion superficial, textura mas lisa y piel con aspecto mas luminoso.',
         image: '/images/tech-keratinase-complex.png',
+        slug: 'keratinase-complex',
+        detailTitle: 'Complejo Queratinasa',
+        detailSummary: 'Complejo de renovacion superficial posicionado alrededor de textura mas suave, apariencia refinada y piel con aspecto mas luminoso.',
+        detailSections: [
+          { title: 'Apoya la narrativa de renovacion superficial', body: 'Ayuda a explicar la mejora visible de textura y luminosidad en lenguaje profesional.' },
+          { title: 'Facilita explicar refinamiento de textura y radiancia', body: 'Ofrece a las clinicas un camino claro al discutir calidad superficial y brillo.' },
+          { title: 'Complementa programas de reparacion, hidratacion y firmeza', body: 'Disenado para completar la plataforma PDOX con un angulo de renovacion superficial.' },
+        ],
+        detailPartnerValue: 'Facilita presentar radiancia y calidad superficial como parte de un programa profesional de ciencia cutanea.',
       },
     ],
     productsKicker: 'Productos',
@@ -699,6 +784,15 @@ const copy: Record<Lang, Copy> = {
     ctaButton: 'Contactar PDOX',
     footerBody:
       'PDOX es una marca independiente de ciencia cutanea bio-enzimatica de precision con base en Madrid. Historia de investigacion, formulacion y produccion preparada para distribucion global.',
+    brandStoryTitle: 'Investigacion independiente, formulacion propia y presentacion clinica premium.',
+    brandStorySummary: 'PDOX se construye desde una identidad espanola de bio-enzimas de precision para el cuidado de la piel, combinando credibilidad de laboratorio, estetica dermocosmetica premium y lenguaje de protocolo profesional.',
+    brandStorySections: [
+      { title: 'Identidad de laboratorio espanol', body: 'Arraigada en la cultura de investigacion de Madrid con una historia de origen europeo creible para socios internacionales.' },
+      { title: 'Direccion de formulacion propia', body: 'Prioridades de desarrollo independientes que apoyan el posicionamiento premium en lugar de seguir tendencias de mercado masivo.' },
+      { title: 'Presentacion clinica premium', body: 'Materiales, envases y lenguaje del sitio preparados para consulta clinica y educacion de distribuidores.' },
+      { title: 'Preparado para clinicas, distribuidores y socios profesionales', body: 'Una plataforma de marca disenada para explicarse con confianza en canales profesionales desde el primer dia.' },
+    ],
+    brandStoryPartnerValue: 'Esta historia de marca ayuda a los socios a explicar PDOX como una plataforma seria de ciencia cutanea profesional, no solo un catalogo de productos.',
     insightBack: 'Volver a Vision general',
     insightEyebrow: 'Insight',
     insightSections: 'Areas clave',
@@ -941,6 +1035,97 @@ function InsightDetail({
   );
 }
 
+
+function ContentDetail({
+  title,
+  summary,
+  sections,
+  partnerValue,
+  image,
+  copy,
+  onBack,
+  eyebrow,
+}: {
+  title: string;
+  summary: string;
+  sections: { title: string; body: string }[];
+  partnerValue: string;
+  image: string;
+  copy: Copy;
+  onBack: () => void;
+  eyebrow: string;
+}) {
+  return (
+    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative mx-auto max-w-7xl">
+        <button
+          onClick={onBack}
+          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+        >
+          <ArrowLeft size={16} />
+          {copy.insightBack}
+        </button>
+
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <div>
+            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              {eyebrow}
+            </p>
+            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+              {title}
+            </h1>
+            <p className="reveal mt-6 max-w-2xl text-base leading-8 text-white/62">{summary}</p>
+
+            <div className="reveal mt-10 border border-white/10 bg-white/[0.03] p-6">
+              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                {copy.insightSections}
+              </h2>
+              <div className="mt-5 grid gap-4">
+                {sections.map((section) => (
+                  <div key={section.title} className="flex gap-3 text-sm leading-7 text-white/55">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                    <div>
+                      <span className="font-medium text-white/80">{section.title}</span>
+                      <p className="text-white/50">{section.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
+              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                {copy.insightPartnerValue}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-white/52">{partnerValue}</p>
+            </div>
+
+            <a
+              href="mailto:info@pdoxserum.com"
+              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+            >
+              {copy.detailContact}
+              <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div className="reveal overflow-hidden border border-white/10 bg-black/20 transition hover:border-[#C9A96E]/45">
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <img
+                src={image}
+                alt={title}
+                className="h-full w-full object-cover transition duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -953,6 +1138,10 @@ function App() {
     : undefined;
   const activeInsight = currentPath.startsWith('/insights/')
     ? t.stats.find((stat) => `/insights/${stat.slug}` === currentPath)
+    : undefined;
+  const activeBrandStory = currentPath === '/brand-story';
+  const activeTechCard = currentPath.startsWith('/technology/')
+    ? t.techCards.find((card) => `/technology/${card.slug}` === currentPath)
     : undefined;
 
   useEffect(() => {
@@ -1059,6 +1248,28 @@ function App() {
           <ProductDetail product={activeProduct} copy={t} lang={lang} onBack={() => goTo('products')} />
         ) : activeInsight ? (
           <InsightDetail insight={activeInsight} copy={t} onBack={() => goTo('overview')} />
+        ) : activeBrandStory ? (
+          <ContentDetail
+            title={t.brandStoryTitle}
+            summary={t.brandStorySummary}
+            sections={t.brandStorySections}
+            partnerValue={t.brandStoryPartnerValue}
+            image="/images/lab-scene.jpg"
+            copy={t}
+            onBack={() => goTo('brand')}
+            eyebrow={lang === 'en' ? 'Brand Story' : 'Historia de Marca'}
+          />
+        ) : activeTechCard ? (
+          <ContentDetail
+            title={activeTechCard.detailTitle}
+            summary={activeTechCard.detailSummary}
+            sections={activeTechCard.detailSections}
+            partnerValue={activeTechCard.detailPartnerValue}
+            image={activeTechCard.image}
+            copy={t}
+            onBack={() => goTo('technology')}
+            eyebrow={lang === 'en' ? 'Technology' : 'Tecnologia'}
+          />
         ) : (
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-16">
@@ -1131,9 +1342,22 @@ function App() {
 
         <section id="brand" className="px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="reveal">
-              <img src="/images/lab-scene.jpg" alt="" className="aspect-[4/5] w-full object-cover" />
-            </div>
+            <button
+              onClick={() => navigate('/brand-story')}
+              className="reveal group relative overflow-hidden border border-white/10 text-left transition hover:border-[#C9A96E]/45"
+            >
+              <img
+                src="/images/lab-scene.jpg"
+                alt=""
+                className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+              <div className="absolute inset-0 flex items-end justify-center p-6">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
+                  {lang === 'en' ? 'View Brand Story' : 'Ver historia de marca'}
+                </span>
+              </div>
+            </button>
             <div>
               <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.brandKicker}
@@ -1163,13 +1387,23 @@ function App() {
               {t.techCards.map((card, index) => {
                 const Icon = techIcons[index];
                 return (
-                  <article key={card.title} className="reveal group overflow-hidden border border-white/10 bg-black/25 transition hover:border-[#C9A96E]/45">
-                    <div className="aspect-[4/3] overflow-hidden bg-[#0A0A0A]">
+                  <button
+                    key={card.title}
+                    onClick={() => navigate(`/technology/${card.slug}`)}
+                    className="reveal group cursor-pointer overflow-hidden border border-white/10 bg-black/25 text-left transition hover:border-[#C9A96E]/45 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden bg-[#0A0A0A]">
                       <img
                         src={card.image}
                         alt={card.title}
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute inset-0 flex items-end justify-center p-4">
+                        <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
+                          {lang === 'en' ? 'View Details' : 'Ver detalles'}
+                        </span>
+                      </div>
                     </div>
                     <div className="p-6">
                       <div className="mb-4 flex items-center gap-3">
@@ -1178,7 +1412,7 @@ function App() {
                       </div>
                       <p className="text-xs leading-6 text-white/48">{card.body}</p>
                     </div>
-                  </article>
+                  </button>
                 );
               })}
             </div>
