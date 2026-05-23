@@ -1024,56 +1024,56 @@ function ProductDetail({
       : 'Usa esta pagina como ficha profesional del producto: rol, identidad visual, lenguaje de beneficio y contacto claro para seguimiento comercial.';
 
   return (
-    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
-      <div className="relative mx-auto max-w-7xl">
+    <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
           onClick={onBack}
-          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+          className="reveal mb-10 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E] transition hover:text-white"
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={18} />
           {copy.detailBack}
         </button>
 
-        <div className="grid gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <div className="reveal border border-white/10 bg-black/35 p-8">
-            <div className="aspect-square bg-[#090909] p-8">
+        <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
+          <div className="reveal border border-white/10 bg-black/35 p-10">
+            <div className="aspect-square bg-[#090909] p-10">
               <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
             </div>
           </div>
 
           <div>
-            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+            <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
               {copy.detailEyebrow}
             </p>
-            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+            <h1 className="reveal font-sans text-[clamp(42px,6vw,84px)] font-medium leading-none">
               {product.name}
             </h1>
-            <p className="reveal mt-4 text-sm uppercase tracking-[0.26em] text-[#C9A96E]">{product.subtitle}</p>
-            <p className="reveal mt-8 max-w-2xl text-base leading-8 text-white/62">{product.body}</p>
+            <p className="reveal mt-5 text-base uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+            <p className="reveal mt-8 max-w-2xl text-lg leading-9 text-white/62">{product.body}</p>
 
             <div className="reveal mt-8 flex flex-wrap gap-2">
               {product.tags.map((tag) => (
-                <span key={tag} className="border border-white/10 px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] text-white/50">
+                <span key={tag} className="border border-white/10 px-3.5 py-2 text-[11px] uppercase tracking-[0.16em] text-white/50">
                   {tag}
                 </span>
               ))}
             </div>
 
-            <div className="mt-10 grid gap-4 md:grid-cols-2">
-              <article className="reveal border border-white/10 bg-white/[0.03] p-6">
-                <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              <article className="reveal border border-white/10 bg-white/[0.03] p-8">
+                <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                   {copy.detailOverview}
                 </h2>
-                <p className="mt-4 text-sm leading-7 text-white/52">{protocol}</p>
+                <p className="mt-5 text-base leading-8 text-white/52">{protocol}</p>
               </article>
 
-              <article className="reveal border border-white/10 bg-white/[0.03] p-6">
-                <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+              <article className="reveal border border-white/10 bg-white/[0.03] p-8">
+                <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                   {copy.detailProtocol}
                 </h2>
-                <p className="mt-4 text-sm leading-7 text-white/52">
+                <p className="mt-5 text-base leading-8 text-white/52">
                   {lang === 'en'
                     ? 'Designed for professional consultation, product education and distributor-facing range presentation.'
                     : 'Disenado para consulta profesional, educacion de producto y presentacion de linea ante distribuidores.'}
@@ -1081,14 +1081,14 @@ function ProductDetail({
               </article>
             </div>
 
-            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
-              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="reveal mt-10 border border-white/10 bg-black/25 p-8">
+              <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                 {copy.detailHighlights}
               </h2>
-              <div className="mt-5 grid gap-3">
+              <div className="mt-6 grid gap-4">
                 {highlights.map((item) => (
-                  <div key={item} className="flex gap-3 text-sm leading-7 text-white/55">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                  <div key={item} className="flex gap-3 text-base leading-8 text-white/55">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -1097,10 +1097,10 @@ function ProductDetail({
 
             <a
               href="mailto:info@pdoxserum.com"
-              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+              className="reveal mt-10 inline-flex items-center gap-2 bg-[#C9A96E] px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-white"
             >
               {copy.detailContact}
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </a>
           </div>
         </div>
@@ -1119,36 +1119,36 @@ function InsightDetail({
   onBack: () => void;
 }) {
   return (
-    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
-      <div className="relative mx-auto max-w-7xl">
+    <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
           onClick={onBack}
-          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+          className="reveal mb-10 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E] transition hover:text-white"
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={18} />
           {copy.insightBack}
         </button>
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
-            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+            <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
               {copy.insightEyebrow}
             </p>
-            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+            <h1 className="reveal font-sans text-[clamp(42px,6vw,84px)] font-medium leading-none">
               {insight.title}
             </h1>
-            <p className="reveal mt-6 max-w-2xl text-base leading-8 text-white/62">{insight.summary}</p>
+            <p className="reveal mt-8 max-w-2xl text-lg leading-9 text-white/62">{insight.summary}</p>
 
-            <div className="reveal mt-10 border border-white/10 bg-white/[0.03] p-6">
-              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="reveal mt-12 border border-white/10 bg-white/[0.03] p-8">
+              <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                 {copy.insightSections}
               </h2>
-              <div className="mt-5 grid gap-4">
+              <div className="mt-6 grid gap-5">
                 {insight.sections.map((section) => (
-                  <div key={section.title} className="flex gap-3 text-sm leading-7 text-white/55">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                  <div key={section.title} className="flex gap-3 text-base leading-8 text-white/55">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
                     <div>
                       <span className="font-medium text-white/80">{section.title}</span>
                       <p className="text-white/50">{section.body}</p>
@@ -1158,19 +1158,19 @@ function InsightDetail({
               </div>
             </div>
 
-            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
-              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="reveal mt-10 border border-white/10 bg-black/25 p-8">
+              <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                 {copy.insightPartnerValue}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-white/52">{insight.partnerValue}</p>
+              <p className="mt-5 text-base leading-8 text-white/52">{insight.partnerValue}</p>
             </div>
 
             <a
               href="mailto:info@pdoxserum.com"
-              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+              className="reveal mt-10 inline-flex items-center gap-2 bg-[#C9A96E] px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-white"
             >
               {copy.detailContact}
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </a>
           </div>
 
@@ -1211,36 +1211,36 @@ function ContentDetail({
   eyebrow: string;
 }) {
   return (
-    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
-      <div className="relative mx-auto max-w-7xl">
+    <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
           onClick={onBack}
-          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+          className="reveal mb-10 inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E] transition hover:text-white"
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={18} />
           {copy.insightBack}
         </button>
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
-            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+            <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
               {eyebrow}
             </p>
-            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+            <h1 className="reveal font-sans text-[clamp(42px,6vw,84px)] font-medium leading-none">
               {title}
             </h1>
-            <p className="reveal mt-6 max-w-2xl text-base leading-8 text-white/62">{summary}</p>
+            <p className="reveal mt-8 max-w-2xl text-lg leading-9 text-white/62">{summary}</p>
 
-            <div className="reveal mt-10 border border-white/10 bg-white/[0.03] p-6">
-              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="reveal mt-12 border border-white/10 bg-white/[0.03] p-8">
+              <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                 {copy.insightSections}
               </h2>
-              <div className="mt-5 grid gap-4">
+              <div className="mt-6 grid gap-5">
                 {sections.map((section) => (
-                  <div key={section.title} className="flex gap-3 text-sm leading-7 text-white/55">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                  <div key={section.title} className="flex gap-3 text-base leading-8 text-white/55">
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
                     <div>
                       <span className="font-medium text-white/80">{section.title}</span>
                       <p className="text-white/50">{section.body}</p>
@@ -1250,19 +1250,19 @@ function ContentDetail({
               </div>
             </div>
 
-            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
-              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+            <div className="reveal mt-10 border border-white/10 bg-black/25 p-8">
+              <h2 className="font-sans text-base font-medium uppercase tracking-[0.2em] text-white">
                 {copy.insightPartnerValue}
               </h2>
-              <p className="mt-4 text-sm leading-7 text-white/52">{partnerValue}</p>
+              <p className="mt-5 text-base leading-8 text-white/52">{partnerValue}</p>
             </div>
 
             <a
               href="mailto:info@pdoxserum.com"
-              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+              className="reveal mt-10 inline-flex items-center gap-2 bg-[#C9A96E] px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-white"
             >
               {copy.detailContact}
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </a>
           </div>
 
@@ -1340,30 +1340,30 @@ function App() {
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/75 backdrop-blur-xl">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
           <button onClick={() => goTo('home')} className="flex items-center gap-3" aria-label="PDOX home">
-            <img src="/images/logo.png" alt="PDOX" className="h-8 w-auto invert brightness-200" />
+            <img src="/images/logo.png" alt="PDOX" className="h-10 w-auto invert brightness-200" />
           </button>
 
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-10 lg:flex">
             {t.nav.map((item, index) => (
               <button
                 key={item}
                 onClick={() => goTo(sectionIds[index])}
-                className="text-[11px] uppercase text-white/55 transition-colors hover:text-[#C9A96E]"
+                className="text-[13px] uppercase tracking-wide text-white/55 transition-colors hover:text-[#C9A96E]"
               >
                 {item}
               </button>
             ))}
           </nav>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <div className="rounded-full border border-white/10 bg-white/5 p-1">
               {(['en', 'es'] as Lang[]).map((item) => (
                 <button
                   key={item}
                   onClick={() => setLang(item)}
-                  className={`rounded-full px-3 py-1.5 text-[10px] font-medium uppercase transition ${
+                  className={`rounded-full px-3.5 py-1.5 text-[11px] font-medium uppercase transition ${
                     lang === item ? 'bg-[#C9A96E] text-black' : 'text-white/55 hover:text-white'
                   }`}
                 >
@@ -1383,12 +1383,12 @@ function App() {
 
         {menuOpen && (
           <div className="border-t border-white/10 bg-[#0A0A0A] px-4 py-4 lg:hidden">
-            <div className="mx-auto grid max-w-7xl gap-2">
+            <div className="mx-auto grid max-w-[1500px] gap-2">
               {t.nav.map((item, index) => (
                 <button
                   key={item}
                   onClick={() => goTo(sectionIds[index])}
-                  className="rounded-md px-3 py-3 text-left text-xs uppercase text-white/70 hover:bg-white/5 hover:text-[#C9A96E]"
+                  className="rounded-md px-3 py-3 text-left text-sm uppercase text-white/70 hover:bg-white/5 hover:text-[#C9A96E]"
                 >
                   {item}
                 </button>
@@ -1427,40 +1427,40 @@ function App() {
           />
         ) : (
           <>
-        <section id="home" className="relative min-h-screen overflow-hidden pt-16">
+        <section id="home" className="relative min-h-screen overflow-hidden pt-20">
           <img
             src="/images/hero-bg-gold.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-55 z-0"
           />
-          <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.12),transparent_36%),linear-gradient(to_bottom,rgba(0,0,0,0.24),#0A0A0A_92%)]" />
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.14),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.18),#0A0A0A_92%)]" />
           <GoldParticleField count={48} />
           <MolecularDriftLayer count={6} />
           <GoldLightSweep />
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
-            <p className="reveal mb-6 text-[11px] uppercase tracking-[0.48em] text-[#C9A96E]">
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
+            <p className="reveal mb-6 text-[13px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.heroEyebrow}
             </p>
             <div className="reveal relative">
               <div className="pdox-logo-breathe" />
-              <div className="absolute inset-x-0 top-1/2 mx-auto h-24 w-72 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
-              <img src="/images/logo.png" alt="PDOX" className="relative mx-auto h-auto w-[min(68vw,390px)] invert brightness-200" />
+              <div className="absolute inset-x-0 top-1/2 mx-auto h-28 w-80 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
+              <img src="/images/logo.png" alt="PDOX" className="relative mx-auto h-auto w-[min(72vw,480px)] invert brightness-200" />
             </div>
             <h1 className="sr-only">{t.heroTitle}</h1>
-            <p className="reveal mt-9 max-w-3xl text-base leading-8 text-white/68 sm:text-lg">
+            <p className="reveal mt-10 max-w-3xl text-lg leading-9 text-white/68">
                 {t.heroBody}
             </p>
-            <div className="reveal mt-10 flex flex-col gap-3 sm:flex-row">
+            <div className="reveal mt-12 flex flex-col gap-4 sm:flex-row">
                 <button
                   onClick={() => goTo('products')}
-                  className="pdox-btn-shine inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-6 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+                  className="pdox-btn-shine inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-white"
                 >
                   {t.heroPrimary}
-                  <ArrowRight size={16} />
+                  <ArrowRight size={18} />
                 </button>
                 <button
                   onClick={() => goTo('technology')}
-                  className="inline-flex items-center justify-center border border-white/15 px-6 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-white/75 transition hover:border-[#C9A96E] hover:text-[#C9A96E]"
+                  className="inline-flex items-center justify-center border border-white/15 px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-white/75 transition hover:border-[#C9A96E] hover:text-[#C9A96E]"
                 >
                   {t.heroSecondary}
                 </button>
@@ -1468,37 +1468,37 @@ function App() {
           </div>
         </section>
 
-        <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
             src="/images/bg-molecular-gold-flow.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
           <GoldParticleField subtle count={36} />
           <MolecularDriftLayer count={5} />
           <GoldLightSweep />
           <GrainTexture />
-          <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div className="max-w-2xl">
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.overviewKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,64px)] leading-tight">{t.overviewTitle}</h2>
-              <p className="reveal mt-6 text-sm leading-8 text-white/58">{t.overviewBody}</p>
+              <h2 className="reveal text-[clamp(40px,5vw,76px)] leading-tight">{t.overviewTitle}</h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/58">{t.overviewBody}</p>
             </div>
-            <div className="reveal grid gap-3 sm:grid-cols-2">
+            <div className="reveal grid gap-4 sm:grid-cols-2">
               {t.stats.map((stat) => (
                 <button
                   key={stat.label}
                   onClick={() => openInsight(stat.slug)}
-                  className="pdox-card-premium group cursor-pointer border border-white/10 bg-black/35 p-5 text-left backdrop-blur-md"
+                  className="pdox-card-premium group cursor-pointer border border-white/10 bg-black/35 p-7 text-left backdrop-blur-md"
                 >
                   <div className="flex items-center justify-between">
-                    <div className="font-serif text-4xl text-[#C9A96E]">{stat.value}</div>
-                    <ArrowRight size={16} className="text-[#C9A96E] opacity-0 transition group-hover:opacity-100" />
+                    <div className="font-serif text-5xl text-[#C9A96E]">{stat.value}</div>
+                    <ArrowRight size={18} className="text-[#C9A96E] opacity-0 transition group-hover:opacity-100" />
                   </div>
-                  <div className="mt-2 text-[11px] uppercase leading-5 tracking-[0.18em] text-white/48">
+                  <div className="mt-3 text-sm uppercase leading-6 tracking-[0.16em] text-white/48">
                     {stat.label}
                   </div>
                 </button>
@@ -1507,18 +1507,18 @@ function App() {
           </div>
         </section>
 
-        <section id="brand" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="brand" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
             src="/images/bg-lab-champagne.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
           <GoldParticleField subtle count={18} />
           <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
-          <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <button
               onClick={() => navigate('/brand-story')}
               className="pdox-card-premium reveal group relative overflow-hidden border border-white/10 text-left"
@@ -1529,18 +1529,18 @@ function App() {
                 className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-              <div className="absolute inset-0 flex items-end justify-center p-6">
-                <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
+              <div className="absolute inset-0 flex items-end justify-center p-8">
+                <span className="text-[13px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
                   {lang === 'en' ? 'View Brand Story' : 'Ver historia de marca'}
                 </span>
               </div>
             </button>
             <div>
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.brandKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,64px)] leading-tight">{t.brandTitle}</h2>
-              <div className="mt-7 grid gap-5 text-sm leading-8 text-white/58">
+              <h2 className="reveal text-[clamp(40px,5vw,76px)] leading-tight">{t.brandTitle}</h2>
+              <div className="mt-8 grid gap-6 text-base leading-9 text-white/58">
                 {t.brandBody.map((paragraph) => (
                   <p className="reveal" key={paragraph}>
                     {paragraph}
@@ -1551,26 +1551,26 @@ function App() {
           </div>
         </section>
 
-        <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
             src="/images/bg-molecular-gold-flow.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
           <GoldParticleField subtle count={36} />
           <MolecularDriftLayer count={5} />
           <GoldLightSweep />
           <GrainTexture />
-          <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-[1500px]">
             <div className="max-w-3xl">
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.techKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.techTitle}</h2>
-              <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.techBody}</p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.techTitle}</h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">{t.techBody}</p>
             </div>
-            <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {t.techCards.map((card, index) => {
                 const Icon = techIcons[index];
                 return (
@@ -1586,18 +1586,18 @@ function App() {
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <div className="absolute inset-0 flex items-end justify-center p-4">
-                        <span className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
+                      <div className="absolute inset-0 flex items-end justify-center p-5">
+                        <span className="text-[12px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E] opacity-0 transition group-hover:opacity-100">
                           {lang === 'en' ? 'View Details' : 'Ver detalles'}
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
+                    <div className="p-7">
                       <div className="mb-4 flex items-center gap-3">
-                        <Icon className="h-6 w-6 text-[#C9A96E]" />
-                        <h3 className="font-sans text-base font-medium text-white">{card.title}</h3>
+                        <Icon className="h-7 w-7 text-[#C9A96E]" />
+                        <h3 className="font-sans text-lg font-medium text-white">{card.title}</h3>
                       </div>
-                      <p className="text-xs leading-6 text-white/48">{card.body}</p>
+                      <p className="text-sm leading-7 text-white/48">{card.body}</p>
                     </div>
                   </button>
                 );
@@ -1606,52 +1606,52 @@ function App() {
           </div>
         </section>
 
-        <section id="products" className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="products" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
             src="/images/bg-lab-champagne.png"
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
           <GoldParticleField subtle count={18} />
           <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
-          <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-[1500px]">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.productsKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.productsTitle}</h2>
-              <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.productsBody}</p>
-              <p className="reveal mt-3 text-[11px] uppercase tracking-[0.2em] text-[#C9A96E]/70">{t.detailHint}</p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.productsTitle}</h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">{t.productsBody}</p>
+              <p className="reveal mt-4 text-[13px] uppercase tracking-[0.18em] text-[#C9A96E]/70">{t.detailHint}</p>
             </div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {t.products.map((product) => (
                 <button
                   key={product.name}
                   onClick={() => openProduct(product.slug)}
                   className="pdox-card-premium reveal group overflow-hidden border border-white/10 bg-[#111] text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                 >
-                  <div className="aspect-[4/3] bg-black p-6">
+                  <div className="aspect-[4/3] bg-black p-8">
                     <img
                       src={product.image}
                       alt={product.name}
                       className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
-                  <div className="p-6">
-                    <p className="text-[10px] uppercase tracking-[0.28em] text-[#C9A96E]">{product.subtitle}</p>
-                    <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
-                    <p className="mt-4 min-h-[72px] text-xs leading-6 text-white/48">{product.body}</p>
-                    <div className="mt-5 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#C9A96E]">
+                  <div className="p-8">
+                    <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+                    <h3 className="mt-3 font-sans text-xl font-medium">{product.name}</h3>
+                    <p className="mt-5 min-h-[80px] text-sm leading-7 text-white/48">{product.body}</p>
+                    <div className="mt-6 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
                       {t.detailEyebrow}
-                      <ArrowRight size={14} />
+                      <ArrowRight size={16} />
                     </div>
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-6 flex flex-wrap gap-2">
                       {product.tags.map((tag) => (
-                        <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
+                        <span key={tag} className="border border-white/10 px-3 py-1.5 text-[11px] text-white/45">
                           {tag}
                         </span>
                       ))}
@@ -1663,31 +1663,32 @@ function App() {
           </div>
         </section>
 
-        <section id="science" className="relative overflow-hidden bg-[#0F0E0B] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="science" className="relative overflow-hidden bg-[#0F0E0B] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
             src="/images/enzyme-visual.jpg"
             alt=""
-            className="absolute right-0 top-0 h-full w-full object-cover opacity-15"
+            className="absolute right-0 top-0 h-full w-full object-cover opacity-15 z-0"
           />
-          <div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0F0E0B] via-[#0F0E0B]/80 to-transparent" />
+          <div className="relative z-10 mx-auto grid max-w-[1500px] gap-14 lg:grid-cols-[1fr_1fr] lg:items-start">
             <div>
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.scienceKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.scienceTitle}</h2>
-              <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.scienceBody}</p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.scienceTitle}</h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">{t.scienceBody}</p>
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               {t.sciencePoints.map((point, index) => {
                 const Icon = scienceIcons[index];
                 return (
-                  <article key={point.title} className="reveal border border-white/10 bg-black/35 p-6 backdrop-blur">
-                    <div className="mb-4 flex items-center gap-3">
-                      <Icon className="h-6 w-6 text-[#C9A96E]" />
-                      <h3 className="font-sans text-base font-medium">{point.title}</h3>
+                  <article key={point.title} className="reveal border border-white/10 bg-black/35 p-8 backdrop-blur">
+                    <div className="mb-5 flex items-center gap-3">
+                      <Icon className="h-7 w-7 text-[#C9A96E]" />
+                      <h3 className="font-sans text-lg font-medium">{point.title}</h3>
                     </div>
-                    <p className="text-xs leading-6 text-white/50">{point.body}</p>
+                    <p className="text-sm leading-7 text-white/50">{point.body}</p>
                   </article>
                 );
               })}
@@ -1695,27 +1696,27 @@ function App() {
           </div>
         </section>
 
-        <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <GoldParticleField subtle count={16} />
-          <div className="relative z-10 mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+          <div className="relative z-10 mx-auto max-w-[1500px]">
+            <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
-                <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+                <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                   {t.channelsKicker}
                 </p>
-                <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.channelsTitle}</h2>
+                <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.channelsTitle}</h2>
               </div>
-              <p className="reveal text-sm leading-8 text-white/55">{t.channelsBody}</p>
+              <p className="reveal text-base leading-9 text-white/55">{t.channelsBody}</p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:grid-cols-3">
+            <div className="mt-14 grid gap-6 lg:grid-cols-3">
               {t.channels.map((channel) => (
-                <article key={channel.title} className="reveal border border-white/10 bg-black/30 p-6 backdrop-blur-md transition hover:border-[#C9A96E]/45">
-                  <h3 className="font-sans text-lg font-medium text-white">{channel.title}</h3>
-                  <p className="mt-4 min-h-[112px] text-sm leading-7 text-white/52">{channel.body}</p>
-                  <div className="mt-6 grid gap-2">
+                <article key={channel.title} className="reveal border border-white/10 bg-black/30 p-8 backdrop-blur-md transition hover:border-[#C9A96E]/45">
+                  <h3 className="font-sans text-xl font-medium text-white">{channel.title}</h3>
+                  <p className="mt-5 min-h-[112px] text-base leading-8 text-white/52">{channel.body}</p>
+                  <div className="mt-8 grid gap-3">
                     {channel.points.map((point) => (
-                      <div key={point} className="flex items-center gap-3 text-[11px] uppercase tracking-[0.18em] text-white/45">
+                      <div key={point} className="flex items-center gap-3 text-[13px] uppercase tracking-[0.16em] text-white/45">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#C9A96E]" />
                         {point}
                       </div>
@@ -1727,23 +1728,23 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-[#0A0A0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+        <section className="bg-[#0A0A0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <div className="mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
             <div>
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.protocolKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.protocolTitle}</h2>
-              <p className="reveal mt-6 text-sm leading-8 text-white/55">{t.protocolBody}</p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.protocolTitle}</h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">{t.protocolBody}</p>
             </div>
 
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               {t.protocolSteps.map((step) => (
-                <article key={step.value} className="reveal grid gap-4 border border-white/10 bg-white/[0.03] p-6 sm:grid-cols-[88px_1fr]">
-                  <div className="font-serif text-5xl text-[#C9A96E]">{step.value}</div>
+                <article key={step.value} className="reveal grid gap-5 border border-white/10 bg-white/[0.03] p-8 sm:grid-cols-[100px_1fr]">
+                  <div className="font-serif text-6xl text-[#C9A96E]">{step.value}</div>
                   <div>
-                    <h3 className="font-sans text-base font-medium uppercase tracking-[0.18em] text-white">{step.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-white/52">{step.body}</p>
+                    <h3 className="font-sans text-lg font-medium uppercase tracking-[0.16em] text-white">{step.title}</h3>
+                    <p className="mt-4 text-base leading-8 text-white/52">{step.body}</p>
                   </div>
                 </article>
               ))}
@@ -1751,37 +1752,37 @@ function App() {
           </div>
         </section>
 
-        <section id="faq" className="border-y border-white/10 bg-[#0F0E0B] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
+        <section id="faq" className="border-y border-white/10 bg-[#0F0E0B] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <div className="mx-auto max-w-5xl">
             <div className="mx-auto max-w-3xl text-center">
-              <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
                 {t.faqKicker}
               </p>
-              <h2 className="reveal text-[clamp(32px,5vw,62px)] leading-tight">{t.faqTitle}</h2>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">{t.faqTitle}</h2>
             </div>
 
-            <div className="mt-12 grid gap-4">
+            <div className="mt-14 grid gap-5">
               {t.faqs.map((item) => (
-                <article key={item.question} className="reveal border border-white/10 bg-black/30 p-6">
-                  <h3 className="font-sans text-base font-medium text-white">{item.question}</h3>
-                  <p className="mt-3 text-sm leading-7 text-white/52">{item.answer}</p>
+                <article key={item.question} className="reveal border border-white/10 bg-black/30 p-8">
+                  <h3 className="font-sans text-lg font-medium text-white">{item.question}</h3>
+                  <p className="mt-4 text-base leading-8 text-white/52">{item.answer}</p>
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="bg-[#C9A96E] px-4 py-20 text-black sm:px-6 lg:px-8 lg:py-24">
+        <section id="contact" className="bg-[#C9A96E] px-4 py-24 text-black sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-4xl text-center">
-            <Clock className="reveal mx-auto mb-6 h-8 w-8" />
-            <h2 className="reveal text-[clamp(30px,5vw,58px)] leading-tight">{t.ctaTitle}</h2>
-            <p className="reveal mx-auto mt-5 max-w-2xl text-sm leading-8 text-black/65">{t.ctaBody}</p>
+            <Clock className="reveal mx-auto mb-8 h-9 w-9" />
+            <h2 className="reveal text-[clamp(34px,5vw,64px)] leading-tight">{t.ctaTitle}</h2>
+            <p className="reveal mx-auto mt-6 max-w-2xl text-base leading-9 text-black/65">{t.ctaBody}</p>
             <a
               href="mailto:info@pdoxserum.com"
-              className="reveal mt-8 inline-flex items-center gap-2 bg-black px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-[#C9A96E] transition hover:bg-white hover:text-black"
+              className="reveal mt-10 inline-flex items-center gap-2 bg-black px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#C9A96E] transition hover:bg-white hover:text-black"
             >
               {t.ctaButton}
-              <ArrowRight size={16} />
+              <ArrowRight size={18} />
             </a>
           </div>
         </section>
@@ -1789,13 +1790,13 @@ function App() {
         )}
       </main>
 
-      <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+      <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[1500px] flex-col gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div>
-            <img src="/images/logo.png" alt="PDOX" className="mx-auto h-8 w-auto invert brightness-200 sm:mx-0" />
-            <p className="mt-4 max-w-xl text-xs leading-6 text-white/42">{t.footerBody}</p>
+            <img src="/images/logo.png" alt="PDOX" className="mx-auto h-9 w-auto invert brightness-200 sm:mx-0" />
+            <p className="mt-5 max-w-xl text-sm leading-7 text-white/42">{t.footerBody}</p>
           </div>
-          <div className="text-[10px] uppercase tracking-[0.25em] text-white/25">
+          <div className="text-[11px] uppercase tracking-[0.22em] text-white/25">
             (c) 2026 PDOX - Madrid - Global Distribution
           </div>
         </div>
