@@ -26,6 +26,16 @@ type Product = {
   tags: string[];
 };
 
+type Stat = {
+  value: string;
+  label: string;
+  slug: string;
+  title: string;
+  summary: string;
+  sections: { title: string; body: string }[];
+  partnerValue: string;
+};
+
 type Copy = {
   nav: string[];
   heroEyebrow: string;
@@ -33,7 +43,7 @@ type Copy = {
   heroBody: string;
   heroPrimary: string;
   heroSecondary: string;
-  stats: { value: string; label: string }[];
+  stats: Stat[];
   overviewKicker: string;
   overviewTitle: string;
   overviewBody: string;
@@ -74,6 +84,10 @@ type Copy = {
   ctaBody: string;
   ctaButton: string;
   footerBody: string;
+  insightBack: string;
+  insightEyebrow: string;
+  insightSections: string;
+  insightPartnerValue: string;
 };
 
 const copy: Record<Lang, Copy> = {
@@ -86,10 +100,106 @@ const copy: Record<Lang, Copy> = {
     heroPrimary: 'Explore Products',
     heroSecondary: 'View Technology',
     stats: [
-      { value: '2010', label: 'Madrid laboratory origin' },
-      { value: '4', label: 'precision enzyme complexes' },
-      { value: '15Y', label: 'room-temperature stability target' },
-      { value: 'EU', label: 'quality and compliance focus' },
+      {
+        value: '2010',
+        label: 'Madrid laboratory origin',
+        slug: 'madrid-origin',
+        title: 'Madrid laboratory origin',
+        summary:
+          'PDOX is positioned around a Spanish laboratory identity, combining premium dermocosmetic language with professional skin protocol logic.',
+        sections: [
+          {
+            title: 'Spanish scientific identity',
+            body: "PDOX draws from Madrid's research and formulation culture, presenting a credible European origin story for international partners.",
+          },
+          {
+            title: 'Independent formulation direction',
+            body: 'The brand maintains its own development priorities rather than following mass-market trends, which supports premium positioning.',
+          },
+          {
+            title: 'Professional presentation for clinics and distribution partners',
+            body: 'Materials, packaging and site language are prepared for clinic consultation and distributor education from day one.',
+          },
+        ],
+        partnerValue:
+          'Helps partners explain where the brand comes from and why PDOX is positioned as a premium professional skin science platform.',
+      },
+      {
+        value: '4',
+        label: 'precision enzyme complexes',
+        slug: 'enzyme-platform',
+        title: 'Four precision enzyme complexes',
+        summary:
+          'PDOX presents a multi-enzyme platform designed around complementary skin priorities: lipid balance, firmness, hydration delivery and surface refinement.',
+        sections: [
+          {
+            title: 'Lipase Complex',
+            body: 'Contour and localized lipid appearance.',
+          },
+          {
+            title: 'Collagenase Complex',
+            body: 'Firmness, elasticity and remodeling language.',
+          },
+          {
+            title: 'Hyaluronidase Complex',
+            body: 'Hydration delivery and replenishment.',
+          },
+          {
+            title: 'Keratinase Complex',
+            body: 'Surface renewal, smoother texture and radiance.',
+          },
+        ],
+        partnerValue:
+          'Makes the product system easier to explain in consultations, training materials and distributor presentations.',
+      },
+      {
+        value: '15Y',
+        label: 'room-temperature stability target',
+        slug: 'stability-target',
+        title: 'Room-temperature stability target',
+        summary:
+          'PDOX communicates a stability-led formulation direction for professional partners who need confidence in product handling, storage and presentation.',
+        sections: [
+          {
+            title: 'Stability discipline',
+            body: 'Formulation choices prioritize shelf stability and handling confidence under professional channel conditions.',
+          },
+          {
+            title: 'Practical channel handling',
+            body: 'Reduced cold-chain dependency simplifies logistics for clinics and distributors in varied markets.',
+          },
+          {
+            title: 'Premium product consistency',
+            body: 'Every batch is expected to deliver the same visual, sensory and performance profile.',
+          },
+        ],
+        partnerValue:
+          'Supports clinic and distributor confidence when presenting PDOX as a serious professional dermocosmetic platform.',
+      },
+      {
+        value: 'EU',
+        label: 'quality and compliance focus',
+        slug: 'eu-quality',
+        title: 'EU quality and compliance focus',
+        summary:
+          'PDOX should communicate with quality, traceability and documentation language suitable for international professional channels.',
+        sections: [
+          {
+            title: 'EU-facing quality language',
+            body: 'Claims, labeling and site copy are prepared with European market expectations in mind.',
+          },
+          {
+            title: 'Batch and documentation readiness',
+            body: 'Product records and traceability processes support professional channel requirements.',
+          },
+          {
+            title: 'Responsible professional claims',
+            body: 'Positioning stays within cosmetic and professional skin science boundaries without overstating medical outcomes.',
+          },
+        ],
+        partnerValue:
+          'Helps partners prepare for training, sales conversations and future market documentation without overstating medical claims.',
+      },
     ],
     overviewKicker: 'PDOX Overview',
     overviewTitle: 'Professional bio-enzyme skin programs from Madrid.',
@@ -274,6 +384,10 @@ const copy: Record<Lang, Copy> = {
     ctaButton: 'Contact PDOX',
     footerBody:
       'PDOX is an independent precision bio-enzyme skin science brand based in Madrid. Research, formulation and production story prepared for global distribution.',
+    insightBack: 'Back to Overview',
+    insightEyebrow: 'Insight',
+    insightSections: 'Key areas',
+    insightPartnerValue: 'Partner value',
   },
   es: {
     nav: ['Marca', 'Tecnologia', 'Productos', 'Socios', 'FAQ', 'Contacto'],
@@ -284,10 +398,106 @@ const copy: Record<Lang, Copy> = {
     heroPrimary: 'Explorar Productos',
     heroSecondary: 'Ver Tecnologia',
     stats: [
-      { value: '2010', label: 'origen de laboratorio en Madrid' },
-      { value: '4', label: 'complejos enzimaticos de precision' },
-      { value: '15A', label: 'objetivo de estabilidad ambiente' },
-      { value: 'UE', label: 'enfoque en calidad y cumplimiento' },
+      {
+        value: '2010',
+        label: 'origen de laboratorio en Madrid',
+        slug: 'madrid-origin',
+        title: 'Origen de laboratorio en Madrid',
+        summary:
+          'PDOX se posiciona desde una identidad de laboratorio espanola, combinando lenguaje dermocosmetico premium con logica de protocolo profesional para la piel.',
+        sections: [
+          {
+            title: 'Identidad cientifica espanola',
+            body: 'PDOX bebe de la cultura de investigacion y formulacion de Madrid, presentando una historia de origen europeo creible para socios internacionales.',
+          },
+          {
+            title: 'Direccion de formulacion independiente',
+            body: 'La marca mantiene sus propias prioridades de desarrollo en lugar de seguir tendencias de mercado masivo, lo que refuerza su posicionamiento premium.',
+          },
+          {
+            title: 'Presentacion profesional para clinicas y socios de distribucion',
+            body: 'Los materiales, envases y lenguaje del sitio estan preparados para consulta clinica y educacion de distribuidores desde el primer dia.',
+          },
+        ],
+        partnerValue:
+          'Ayuda a los socios a explicar de donde viene la marca y por que PDOX se posiciona como una plataforma premium de ciencia cutanea profesional.',
+      },
+      {
+        value: '4',
+        label: 'complejos enzimaticos de precision',
+        slug: 'enzyme-platform',
+        title: 'Cuatro complejos enzimaticos de precision',
+        summary:
+          'PDOX presenta una plataforma multi-enzimatica disenada alrededor de prioridades complementarias de la piel: equilibrio lipidico, firmeza, entrega de hidratacion y refinamiento superficial.',
+        sections: [
+          {
+            title: 'Complejo Lipasa',
+            body: 'Contorno y apariencia lipidica localizada.',
+          },
+          {
+            title: 'Complejo Colagenasa',
+            body: 'Firmeza, elasticidad y lenguaje de remodelacion.',
+          },
+          {
+            title: 'Complejo Hialuronidasa',
+            body: 'Entrega de hidratacion y reposicion.',
+          },
+          {
+            title: 'Complejo Queratinasa',
+            body: 'Renovacion superficial, textura mas suave y luminosidad.',
+          },
+        ],
+        partnerValue:
+          'Facilita explicar el sistema de productos en consultas, materiales de formacion y presentaciones ante distribuidores.',
+      },
+      {
+        value: '15A',
+        label: 'objetivo de estabilidad ambiente',
+        slug: 'stability-target',
+        title: 'Objetivo de estabilidad a temperatura ambiente',
+        summary:
+          'PDOX comunica una direccion de formulacion liderada por la estabilidad para socios profesionales que necesitan confianza en el manejo, almacenamiento y presentacion del producto.',
+        sections: [
+          {
+            title: 'Disciplina de estabilidad',
+            body: 'Las decisiones de formulacion priorizan la estabilidad en estante y la confianza de manejo bajo condiciones de canal profesional.',
+          },
+          {
+            title: 'Manejo practico de canal',
+            body: 'Menor dependencia de cadena de frio simplifica la logistica para clinicas y distribuidores en mercados variados.',
+          },
+          {
+            title: 'Consistencia premium del producto',
+            body: 'Cada lote debe ofrecer el mismo perfil visual, sensorial y de rendimiento.',
+          },
+        ],
+        partnerValue:
+          'Refuerza la confianza de clinicas y distribuidores al presentar PDOX como una plataforma dermocosmetica profesional seria.',
+      },
+      {
+        value: 'UE',
+        label: 'enfoque en calidad y cumplimiento',
+        slug: 'eu-quality',
+        title: 'Enfoque en calidad y cumplimiento UE',
+        summary:
+          'PDOX debe comunicar con lenguaje de calidad, trazabilidad y documentacion adecuado para canales profesionales internacionales.',
+        sections: [
+          {
+            title: 'Lenguaje de calidad orientado a UE',
+            body: 'Los claims, etiquetado y copy del sitio se preparan teniendo en cuenta las expectativas del mercado europeo.',
+          },
+          {
+            title: 'Preparacion de lotes y documentacion',
+            body: 'Los registros de producto y procesos de trazabilidad apoyan los requisitos de canal profesional.',
+          },
+          {
+            title: 'Claims profesionales responsables',
+            body: 'El posicionamiento se mantiene dentro de limites cosmeticos y de ciencia cutanea profesional sin sobredimensionar resultados medicos.',
+          },
+        ],
+        partnerValue:
+          'Ayuda a los socios a prepararse para formacion, conversaciones de venta y documentacion futura de mercado sin sobredimensionar claims medicos.',
+      },
     ],
     overviewKicker: 'Vision PDOX',
     overviewTitle: 'Programas profesionales bio-enzimaticos de piel desde Madrid.',
@@ -472,6 +682,10 @@ const copy: Record<Lang, Copy> = {
     ctaButton: 'Contactar PDOX',
     footerBody:
       'PDOX es una marca independiente de ciencia cutanea bio-enzimatica de precision con base en Madrid. Historia de investigacion, formulacion y produccion preparada para distribucion global.',
+    insightBack: 'Volver a Vision general',
+    insightEyebrow: 'Insight',
+    insightSections: 'Areas clave',
+    insightPartnerValue: 'Valor para socios',
   },
 };
 
@@ -629,6 +843,83 @@ function ProductDetail({
   );
 }
 
+function InsightDetail({
+  insight,
+  copy,
+  onBack,
+}: {
+  insight: Stat;
+  copy: Copy;
+  onBack: () => void;
+}) {
+  return (
+    <section className="relative min-h-screen overflow-hidden px-4 pb-20 pt-28 sm:px-6 lg:px-8">
+      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
+      <div className="relative mx-auto max-w-7xl">
+        <button
+          onClick={onBack}
+          className="reveal mb-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#C9A96E] transition hover:text-white"
+        >
+          <ArrowLeft size={16} />
+          {copy.insightBack}
+        </button>
+
+        <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
+          <div>
+            <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
+              {copy.insightEyebrow}
+            </p>
+            <h1 className="reveal font-sans text-[clamp(38px,6vw,76px)] font-medium leading-none">
+              {insight.title}
+            </h1>
+            <p className="reveal mt-6 max-w-2xl text-base leading-8 text-white/62">{insight.summary}</p>
+
+            <div className="reveal mt-10 border border-white/10 bg-white/[0.03] p-6">
+              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                {copy.insightSections}
+              </h2>
+              <div className="mt-5 grid gap-4">
+                {insight.sections.map((section) => (
+                  <div key={section.title} className="flex gap-3 text-sm leading-7 text-white/55">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#C9A96E]" />
+                    <div>
+                      <span className="font-medium text-white/80">{section.title}</span>
+                      <p className="text-white/50">{section.body}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="reveal mt-8 border border-white/10 bg-black/25 p-6">
+              <h2 className="font-sans text-sm font-medium uppercase tracking-[0.22em] text-white">
+                {copy.insightPartnerValue}
+              </h2>
+              <p className="mt-4 text-sm leading-7 text-white/52">{insight.partnerValue}</p>
+            </div>
+
+            <a
+              href="mailto:info@pdoxserum.com"
+              className="reveal mt-8 inline-flex items-center gap-2 bg-[#C9A96E] px-7 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+            >
+              {copy.detailContact}
+              <ArrowRight size={16} />
+            </a>
+          </div>
+
+          <div className="reveal border border-white/10 bg-black/35 p-8">
+            <div className="aspect-[4/5] bg-[#090909] p-8 flex flex-col items-center justify-center text-center">
+              <div className="font-serif text-6xl text-[#C9A96E] sm:text-8xl">{insight.value}</div>
+              <div className="mt-4 text-[11px] uppercase tracking-[0.18em] text-white/48">{insight.label}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [lang, setLang] = useState<Lang>('en');
   const [menuOpen, setMenuOpen] = useState(false);
@@ -638,6 +929,9 @@ function App() {
   const currentPath = location.pathname.replace(/\/$/, '') || '/';
   const activeProduct = currentPath.startsWith('/products/')
     ? t.products.find((product) => `/products/${product.slug}` === currentPath)
+    : undefined;
+  const activeInsight = currentPath.startsWith('/insights/')
+    ? t.stats.find((stat) => `/insights/${stat.slug}` === currentPath)
     : undefined;
 
   useEffect(() => {
@@ -672,6 +966,12 @@ function App() {
     setMenuOpen(false);
   };
 
+  const openInsight = (slug: string) => {
+    navigate(`/insights/${slug}`);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/75 backdrop-blur-xl">
@@ -702,7 +1002,7 @@ function App() {
                     lang === item ? 'bg-[#C9A96E] text-black' : 'text-white/55 hover:text-white'
                   }`}
                 >
-                  {item}
+                  {item === 'en' ? 'EN' : 'ES'}
                 </button>
               ))}
             </div>
@@ -736,6 +1036,8 @@ function App() {
       <main>
         {activeProduct ? (
           <ProductDetail product={activeProduct} copy={t} lang={lang} onBack={() => goTo('products')} />
+        ) : activeInsight ? (
+          <InsightDetail insight={activeInsight} copy={t} onBack={() => goTo('home')} />
         ) : (
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-16">
@@ -788,12 +1090,19 @@ function App() {
             </div>
             <div className="reveal grid gap-3 sm:grid-cols-2">
               {t.stats.map((stat) => (
-                <div key={stat.label} className="border border-white/10 bg-black/35 p-5 backdrop-blur-md transition hover:border-[#C9A96E]/45">
-                  <div className="font-serif text-4xl text-[#C9A96E]">{stat.value}</div>
+                <button
+                  key={stat.label}
+                  onClick={() => openInsight(stat.slug)}
+                  className="group cursor-pointer border border-white/10 bg-black/35 p-5 text-left backdrop-blur-md transition hover:border-[#C9A96E]/70"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="font-serif text-4xl text-[#C9A96E]">{stat.value}</div>
+                    <ArrowRight size={16} className="text-[#C9A96E] opacity-0 transition group-hover:opacity-100" />
+                  </div>
                   <div className="mt-2 text-[11px] uppercase leading-5 tracking-[0.18em] text-white/48">
                     {stat.label}
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>
