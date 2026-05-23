@@ -804,40 +804,76 @@ const sectionIds = ['brand', 'technology', 'products', 'partners', 'faq', 'conta
 const techIcons = [FlaskConical, Microscope, Beaker, Sparkles];
 const scienceIcons = [ShieldCheck, Award, Globe2];
 const goldParticles = [
-  { left: '6%', top: '12%', size: '2px', delay: '0s', duration: '18s' },
-  { left: '14%', top: '68%', size: '1px', delay: '2.2s', duration: '22s' },
-  { left: '22%', top: '36%', size: '2px', delay: '1.1s', duration: '16s' },
-  { left: '31%', top: '78%', size: '1px', delay: '3.4s', duration: '24s' },
-  { left: '43%', top: '24%', size: '2px', delay: '0.8s', duration: '20s' },
-  { left: '52%', top: '62%', size: '3px', delay: '4.2s', duration: '26s' },
-  { left: '61%', top: '16%', size: '1px', delay: '1.5s', duration: '19s' },
-  { left: '69%', top: '70%', size: '2px', delay: '2.8s', duration: '23s' },
-  { left: '78%', top: '32%', size: '2px', delay: '5.1s', duration: '17s' },
-  { left: '87%', top: '58%', size: '1px', delay: '3.6s', duration: '21s' },
-  { left: '92%', top: '22%', size: '2px', delay: '6.4s', duration: '25s' },
-  { left: '36%', top: '48%', size: '1px', delay: '2.9s', duration: '14s' },
-  { left: '10%', top: '85%', size: '2px', delay: '7.2s', duration: '28s' },
-  { left: '18%', top: '8%', size: '1px', delay: '4.5s', duration: '16s' },
-  { left: '28%', top: '55%', size: '2px', delay: '1.8s', duration: '20s' },
-  { left: '39%', top: '88%', size: '1px', delay: '5.3s', duration: '24s' },
-  { left: '48%', top: '15%', size: '2px', delay: '8.1s', duration: '22s' },
-  { left: '57%', top: '42%', size: '1px', delay: '3.7s', duration: '18s' },
-  { left: '66%', top: '92%', size: '2px', delay: '6.8s', duration: '26s' },
-  { left: '74%', top: '8%', size: '1px', delay: '2.4s', duration: '15s' },
-  { left: '83%', top: '38%', size: '2px', delay: '9.2s', duration: '27s' },
-  { left: '91%', top: '75%', size: '1px', delay: '4.1s', duration: '19s' },
-  { left: '5%', top: '45%', size: '2px', delay: '7.5s', duration: '23s' },
-  { left: '96%', top: '52%', size: '1px', delay: '5.8s', duration: '21s' },
+  { left: '6%', top: '12%', size: '2px', delay: '0s', duration: '18s', blur: false },
+  { left: '14%', top: '68%', size: '1px', delay: '2.2s', duration: '22s', blur: false },
+  { left: '22%', top: '36%', size: '2px', delay: '1.1s', duration: '16s', blur: true },
+  { left: '31%', top: '78%', size: '1px', delay: '3.4s', duration: '24s', blur: false },
+  { left: '43%', top: '24%', size: '2px', delay: '0.8s', duration: '20s', blur: false },
+  { left: '52%', top: '62%', size: '3px', delay: '4.2s', duration: '26s', blur: true },
+  { left: '61%', top: '16%', size: '1px', delay: '1.5s', duration: '19s', blur: false },
+  { left: '69%', top: '70%', size: '2px', delay: '2.8s', duration: '23s', blur: false },
+  { left: '78%', top: '32%', size: '2px', delay: '5.1s', duration: '17s', blur: true },
+  { left: '87%', top: '58%', size: '1px', delay: '3.6s', duration: '21s', blur: false },
+  { left: '92%', top: '22%', size: '2px', delay: '6.4s', duration: '25s', blur: false },
+  { left: '36%', top: '48%', size: '1px', delay: '2.9s', duration: '14s', blur: false },
+  { left: '10%', top: '85%', size: '2px', delay: '7.2s', duration: '28s', blur: true },
+  { left: '18%', top: '8%', size: '1px', delay: '4.5s', duration: '16s', blur: false },
+  { left: '28%', top: '55%', size: '2px', delay: '1.8s', duration: '20s', blur: false },
+  { left: '39%', top: '88%', size: '1px', delay: '5.3s', duration: '24s', blur: false },
+  { left: '48%', top: '15%', size: '2px', delay: '8.1s', duration: '22s', blur: true },
+  { left: '57%', top: '42%', size: '1px', delay: '3.7s', duration: '18s', blur: false },
+  { left: '66%', top: '92%', size: '2px', delay: '6.8s', duration: '26s', blur: false },
+  { left: '74%', top: '8%', size: '1px', delay: '2.4s', duration: '15s', blur: false },
+  { left: '83%', top: '38%', size: '2px', delay: '9.2s', duration: '27s', blur: true },
+  { left: '91%', top: '75%', size: '1px', delay: '4.1s', duration: '19s', blur: false },
+  { left: '5%', top: '45%', size: '2px', delay: '7.5s', duration: '23s', blur: false },
+  { left: '96%', top: '52%', size: '1px', delay: '5.8s', duration: '21s', blur: false },
+  { left: '3%', top: '28%', size: '2px', delay: '1.2s', duration: '20s', blur: true },
+  { left: '12%', top: '55%', size: '1px', delay: '3.8s', duration: '26s', blur: false },
+  { left: '24%', top: '18%', size: '2px', delay: '6.1s', duration: '24s', blur: false },
+  { left: '33%', top: '62%', size: '1px', delay: '2.5s', duration: '18s', blur: false },
+  { left: '46%', top: '38%', size: '3px', delay: '8.5s', duration: '30s', blur: true },
+  { left: '55%', top: '78%', size: '1px', delay: '4.2s', duration: '22s', blur: false },
+  { left: '63%', top: '28%', size: '2px', delay: '1.9s', duration: '16s', blur: false },
+  { left: '71%', top: '52%', size: '1px', delay: '5.6s', duration: '28s', blur: false },
+  { left: '79%', top: '82%', size: '2px', delay: '3.3s', duration: '20s', blur: true },
+  { left: '85%', top: '18%', size: '1px', delay: '7.8s', duration: '24s', blur: false },
+  { left: '94%', top: '42%', size: '2px', delay: '2.1s', duration: '19s', blur: false },
+  { left: '8%', top: '92%', size: '1px', delay: '9.5s', duration: '32s', blur: false },
+  { left: '16%', top: '42%', size: '2px', delay: '4.8s', duration: '21s', blur: true },
+  { left: '38%', top: '8%', size: '1px', delay: '6.3s', duration: '25s', blur: false },
+  { left: '50%', top: '88%', size: '2px', delay: '1.6s', duration: '17s', blur: false },
+  { left: '58%', top: '12%', size: '1px', delay: '8.9s', duration: '29s', blur: false },
+  { left: '68%', top: '48%', size: '2px', delay: '3.1s', duration: '23s', blur: true },
+  { left: '76%', top: '68%', size: '1px', delay: '5.4s', duration: '15s', blur: false },
+  { left: '88%', top: '8%', size: '2px', delay: '7.1s', duration: '27s', blur: false },
+  { left: '98%', top: '72%', size: '1px', delay: '2.7s', duration: '20s', blur: false },
+  { left: '2%', top: '62%', size: '2px', delay: '10.2s', duration: '26s', blur: true },
+  { left: '44%', top: '72%', size: '1px', delay: '4.4s', duration: '18s', blur: false },
+  { left: '53%', top: '32%', size: '2px', delay: '9.1s', duration: '22s', blur: false },
+  { left: '81%', top: '58%', size: '1px', delay: '6.7s', duration: '24s', blur: false },
 ];
 
-function GoldParticleField({ subtle = false, count = 12 }: { subtle?: boolean; count?: number }) {
+function GoldParticleField({
+  subtle = false,
+  count = 12,
+  className = '',
+}: {
+  subtle?: boolean;
+  count?: number;
+  className?: string;
+}) {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <div
+      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
+      aria-hidden="true"
+      style={{ zIndex: 0 }}
+    >
       <div className={`pdox-gold-haze ${subtle ? 'opacity-35' : 'opacity-70'}`} />
-      {goldParticles.slice(0, count).map((particle) => (
+      {goldParticles.slice(0, count).map((particle, i) => (
         <span
-          key={`${particle.left}-${particle.top}`}
-          className="pdox-gold-particle"
+          key={`${particle.left}-${particle.top}-${i}`}
+          className={particle.blur ? 'pdox-gold-particle-blur' : 'pdox-gold-particle'}
           style={{
             left: particle.left,
             top: particle.top,
@@ -858,6 +894,74 @@ function SoftGlow() {
 
 function GrainTexture() {
   return <div className="pdox-grain" aria-hidden="true" />;
+}
+
+function MolecularDriftLayer({ count = 6 }: { count?: number }) {
+  const molecules = [
+    { left: '8%', top: '20%', w: 28, h: 22, delay: '0s', duration: '24s', rotate: 15 },
+    { left: '72%', top: '15%', w: 22, h: 30, delay: '4s', duration: '28s', rotate: -10 },
+    { left: '35%', top: '65%', w: 34, h: 26, delay: '8s', duration: '32s', rotate: 25 },
+    { left: '82%', top: '72%', w: 20, h: 20, delay: '2s', duration: '26s', rotate: -20 },
+    { left: '18%', top: '78%', w: 26, h: 18, delay: '12s', duration: '30s', rotate: 8 },
+    { left: '55%', top: '35%', w: 30, h: 24, delay: '6s', duration: '22s', rotate: -15 },
+    { left: '45%', top: '88%', w: 24, h: 28, delay: '10s', duration: '34s', rotate: 18 },
+    { left: '92%', top: '45%', w: 18, h: 22, delay: '3s', duration: '27s', rotate: -5 },
+  ];
+
+  return (
+    <div className="pdox-molecular-drift" aria-hidden="true" style={{ zIndex: 0 }}>
+      {molecules.slice(0, count).map((m, i) => (
+        <div
+          key={i}
+          className="pdox-molecule"
+          style={{
+            left: m.left,
+            top: m.top,
+            width: m.w,
+            height: m.h,
+            animationDelay: m.delay,
+            animationDuration: m.duration,
+            opacity: 0.18,
+          }}
+        >
+          <div
+            className="pdox-molecule-node"
+            style={{ left: 0, top: 0, width: 4, height: 4 }}
+          />
+          <div
+            className="pdox-molecule-node"
+            style={{ right: 0, top: '30%', width: 3, height: 3 }}
+          />
+          <div
+            className="pdox-molecule-node"
+            style={{ left: '25%', bottom: 0, width: 3.5, height: 3.5 }}
+          />
+          <div
+            className="pdox-molecule-line"
+            style={{
+              left: 2,
+              top: 2,
+              width: m.w * 0.6,
+              transform: `rotate(${m.rotate}deg)`,
+            }}
+          />
+          <div
+            className="pdox-molecule-line"
+            style={{
+              left: m.w * 0.35,
+              top: m.h * 0.35,
+              width: m.w * 0.5,
+              transform: `rotate(${m.rotate + 60}deg)`,
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function GoldLightSweep() {
+  return <div className="pdox-light-sweep" aria-hidden="true" style={{ zIndex: 0 }} />;
 }
 
 function ProductDetail({
@@ -1299,12 +1403,15 @@ function App() {
             className="absolute inset-0 h-full w-full object-cover opacity-55"
           />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.12),transparent_36%),linear-gradient(to_bottom,rgba(0,0,0,0.24),#0A0A0A_92%)]" />
-          <GoldParticleField />
-          <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
+          <GoldParticleField count={42} />
+          <MolecularDriftLayer count={6} />
+          <GoldLightSweep />
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-4rem)] max-w-5xl flex-col items-center justify-center px-4 py-16 text-center sm:px-6 lg:px-8">
             <p className="reveal mb-6 text-[11px] uppercase tracking-[0.48em] text-[#C9A96E]">
                 {t.heroEyebrow}
             </p>
             <div className="reveal relative">
+              <div className="pdox-logo-breathe" />
               <div className="absolute inset-x-0 top-1/2 mx-auto h-24 w-72 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
               <img src="/images/logo.png" alt="PDOX" className="relative mx-auto h-auto w-[min(68vw,390px)] invert brightness-200" />
             </div>
@@ -1315,7 +1422,7 @@ function App() {
             <div className="reveal mt-10 flex flex-col gap-3 sm:flex-row">
                 <button
                   onClick={() => goTo('products')}
-                  className="inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-6 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
+                  className="pdox-btn-shine inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-6 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-black transition hover:bg-white"
                 >
                   {t.heroPrimary}
                   <ArrowRight size={16} />
@@ -1337,9 +1444,11 @@ function App() {
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
-          <GoldParticleField subtle count={24} />
+          <GoldParticleField subtle count={30} />
+          <MolecularDriftLayer count={5} />
+          <GoldLightSweep />
           <GrainTexture />
-          <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="max-w-2xl">
               <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.overviewKicker}
@@ -1352,7 +1461,7 @@ function App() {
                 <button
                   key={stat.label}
                   onClick={() => openInsight(stat.slug)}
-                  className="group cursor-pointer border border-white/10 bg-black/35 p-5 text-left backdrop-blur-md transition hover:border-[#C9A96E]/70"
+                  className="pdox-card-premium group cursor-pointer border border-white/10 bg-black/35 p-5 text-left backdrop-blur-md"
                 >
                   <div className="flex items-center justify-between">
                     <div className="font-serif text-4xl text-[#C9A96E]">{stat.value}</div>
@@ -1373,18 +1482,20 @@ function App() {
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <GoldParticleField subtle count={14} />
+          <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
-          <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
             <button
               onClick={() => navigate('/brand-story')}
-              className="reveal group relative overflow-hidden border border-white/10 text-left transition hover:border-[#C9A96E]/45"
+              className="pdox-card-premium reveal group relative overflow-hidden border border-white/10 text-left"
             >
               <img
                 src="/images/lab-scene.jpg"
                 alt=""
-                className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-105"
+                className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
               <div className="absolute inset-0 flex items-end justify-center p-6">
@@ -1416,9 +1527,11 @@ function App() {
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
-          <GoldParticleField subtle count={20} />
+          <GoldParticleField subtle count={30} />
+          <MolecularDriftLayer count={5} />
+          <GoldLightSweep />
           <GrainTexture />
-          <div className="relative mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-7xl">
             <div className="max-w-3xl">
               <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.techKicker}
@@ -1433,13 +1546,13 @@ function App() {
                   <button
                     key={card.title}
                     onClick={() => navigate(`/technology/${card.slug}`)}
-                    className="reveal group cursor-pointer overflow-hidden border border-white/10 bg-black/25 text-left transition hover:border-[#C9A96E]/45 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
+                    className="pdox-card-premium reveal group cursor-pointer overflow-hidden border border-white/10 bg-black/25 text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#0A0A0A]">
                       <img
                         src={card.image}
                         alt={card.title}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute inset-0 flex items-end justify-center p-4">
@@ -1468,10 +1581,12 @@ function App() {
             alt=""
             className="absolute inset-0 h-full w-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/72 to-[#0A0A0A]/92" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A]/90 via-[#0A0A0A]/78 to-[#0A0A0A]/94" />
+          <GoldParticleField subtle count={14} />
+          <div className="pdox-champagne-glow" />
           <SoftGlow />
           <GrainTexture />
-          <div className="relative mx-auto max-w-7xl">
+          <div className="relative z-10 mx-auto max-w-7xl">
             <div className="mx-auto max-w-3xl text-center">
               <p className="reveal mb-4 text-[11px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.productsKicker}
@@ -1486,13 +1601,13 @@ function App() {
                 <button
                   key={product.name}
                   onClick={() => openProduct(product.slug)}
-                  className="reveal group overflow-hidden border border-white/10 bg-[#111] text-left transition hover:-translate-y-1 hover:border-[#C9A96E]/45 focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
+                  className="pdox-card-premium reveal group overflow-hidden border border-white/10 bg-[#111] text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                 >
                   <div className="aspect-[4/3] bg-black p-6">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="h-full w-full object-contain transition duration-700 group-hover:scale-105"
+                      className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
                   <div className="p-6">

@@ -372,3 +372,292 @@
   background-repeat: repeat;
   background-size: 180px 180px;
 }
+
+/* ===== New Premium Animations ===== */
+
+@keyframes pdoxFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--pdox-opacity, 0.4);
+  }
+  50% {
+    transform: translate3d(var(--pdox-drift-x, 12px), -50%, 0);
+  }
+  90% {
+    opacity: var(--pdox-opacity-end, 0.15);
+  }
+  100% {
+    transform: translate3d(var(--pdox-drift-x-end, 20px), -110%, 0);
+    opacity: 0;
+  }
+}
+
+@keyframes pdoxTwinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes pdoxLightSweep {
+  0% {
+    transform: translateX(-120%) translateY(30%) rotate(25deg);
+    opacity: 0.06;
+  }
+  50% {
+    opacity: 0.14;
+  }
+  100% {
+    transform: translateX(120%) translateY(-30%) rotate(25deg);
+    opacity: 0.06;
+  }
+}
+
+@keyframes pdoxCardGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(201, 169, 110, 0);
+  }
+  50% {
+    box-shadow: 0 0 40px -10px rgba(201, 169, 110, 0.12);
+  }
+}
+
+@keyframes pdoxLogoBreathe {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  50% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+@keyframes pdoxDrift {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(8px, -14px) rotate(1.5deg);
+  }
+  50% {
+    transform: translate(-4px, -22px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(6px, -10px) rotate(0.5deg);
+  }
+}
+
+@keyframes pdoxButtonShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* ===== Enhanced Gold Particle Field ===== */
+.pdox-gold-particle {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: rgba(201, 169, 110, 0.42);
+  box-shadow: 0 0 14px rgba(201, 169, 110, 0.75), 0 0 32px rgba(201, 169, 110, 0.22);
+  opacity: 0;
+  animation-name: pdoxParticleRise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.pdox-gold-particle-blur {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  background: rgba(245, 215, 150, 0.35);
+  box-shadow: 0 0 20px rgba(245, 215, 150, 0.5), 0 0 48px rgba(201, 169, 110, 0.18);
+  filter: blur(1px);
+  opacity: 0;
+  animation-name: pdoxParticleRise;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* ===== Molecular Drift Layer ===== */
+.pdox-molecular-drift {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pdox-molecule {
+  position: absolute;
+  animation: pdoxDrift ease-in-out infinite;
+}
+
+.pdox-molecule-node {
+  position: absolute;
+  border-radius: 999px;
+  background: rgba(201, 169, 110, 0.22);
+  box-shadow: 0 0 8px rgba(201, 169, 110, 0.2);
+}
+
+.pdox-molecule-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(201,169,110,0.18), rgba(201,169,110,0.06));
+  transform-origin: left center;
+}
+
+/* ===== Gold Light Sweep ===== */
+.pdox-light-sweep {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.pdox-light-sweep::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    rgba(201, 169, 110, 0.04) 25%,
+    rgba(245, 215, 150, 0.10) 48%,
+    rgba(201, 169, 110, 0.04) 72%,
+    transparent 100%
+  );
+  filter: blur(40px);
+  animation: pdoxLightSweep 22s ease-in-out infinite alternate;
+}
+
+/* ===== Logo Breathe Halo ===== */
+.pdox-logo-breathe {
+  pointer-events: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(80vw, 520px);
+  height: min(80vw, 520px);
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(201, 169, 110, 0.08), transparent 55%);
+  filter: blur(40px);
+  animation: pdoxLogoBreathe 6s ease-in-out infinite;
+}
+
+/* ===== Card Premium Hover Glow ===== */
+.pdox-card-premium {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease;
+}
+
+.pdox-card-premium:hover {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 110, 0.55);
+  box-shadow: 0 24px 80px -16px rgba(201, 169, 110, 0.14),
+              0 0 0 1px rgba(201, 169, 110, 0.12);
+}
+
+/* ===== Button Gold Shine ===== */
+.pdox-btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.pdox-btn-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+  transition: none;
+}
+
+.pdox-btn-shine:hover::after {
+  animation: pdoxButtonShine 0.7s ease forwards;
+}
+
+/* ===== Champagne Ambient Glow for Brand/Products ===== */
+.pdox-champagne-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.pdox-champagne-glow::before {
+  content: '';
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  width: 50%;
+  height: 50%;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(201, 169, 110, 0.06), transparent 55%);
+  filter: blur(60px);
+  animation: pdoxLogoBreathe 10s ease-in-out infinite;
+}
+
+.pdox-champagne-glow::after {
+  content: '';
+  position: absolute;
+  right: 15%;
+  bottom: 10%;
+  width: 40%;
+  height: 40%;
+  border-radius: 999px;
+  background: radial-gradient(circle at center, rgba(245, 215, 150, 0.04), transparent 50%);
+  filter: blur(50px);
+  animation: pdoxLogoBreathe 12s ease-in-out infinite reverse;
+}
+
+/* ===== Image 3D Hover ===== */
+.pdox-image-3d {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pdox-image-3d:hover {
+  transform: scale(1.03);
+  box-shadow: 0 24px 80px rgba(201, 169, 110, 0.18);
+}
+
+/* ===== prefers-reduced-motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  .pdox-gold-haze,
+  .pdox-gold-particle,
+  .pdox-gold-particle-blur,
+  .pdox-light-sweep::before,
+  .pdox-logo-breathe,
+  .pdox-champagne-glow::before,
+  .pdox-champagne-glow::after,
+  .pdox-molecule {
+    animation: none !important;
+  }
+
+  .pdox-gold-particle,
+  .pdox-gold-particle-blur {
+    opacity: 0.25;
+  }
+
+  .pdox-card-premium:hover,
+  .pdox-image-3d:hover {
+    transform: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
