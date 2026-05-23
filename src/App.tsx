@@ -1058,7 +1058,7 @@ function App() {
         {activeProduct ? (
           <ProductDetail product={activeProduct} copy={t} lang={lang} onBack={() => goTo('products')} />
         ) : activeInsight ? (
-          <InsightDetail insight={activeInsight} copy={t} onBack={() => goTo('home')} />
+          <InsightDetail insight={activeInsight} copy={t} onBack={() => goTo('overview')} />
         ) : (
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-16">
@@ -1099,7 +1099,7 @@ function App() {
           </div>
         </section>
 
-        <section className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
+        <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-20 sm:px-6 lg:px-8 lg:py-24">
           <GoldParticleField subtle />
           <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-center">
             <div className="max-w-2xl">
