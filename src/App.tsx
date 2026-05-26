@@ -1933,6 +1933,40 @@ function App() {
           onOpenProduct={(slug) => openProduct(slug)}
         />
 
+        <section id="source-traceability" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <img
+            src="/images/bg-molecular-gold-flow.png"
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover opacity-30 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
+          <GoldParticleField subtle count={20} />
+          <GrainTexture />
+          <div className="relative z-10 mx-auto max-w-[1500px]">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
+                European Laboratory Visit
+              </p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">
+                Source Traceability
+              </h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">
+                PDOX highlights source transparency through documented European laboratory visits, presenting a professional skincare technology narrative built on selected sources, traceable quality, and trusted assurance.
+              </p>
+            </div>
+
+            <div className="reveal mt-14 flex justify-center px-4 sm:px-6 lg:px-8">
+              <div className="relative w-full max-w-[1120px] overflow-hidden rounded-[18px] border border-white/10 bg-black/35 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.6)]">
+                <img
+                  src="/images/source-traceability-en.png"
+                  alt="PDOX Spain Source Traceability European Laboratory Visit"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="bg-[#C9A96E] px-4 py-24 text-black sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-4xl text-center">
             <Clock className="reveal mx-auto mb-8 h-9 w-9" />
