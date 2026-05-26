@@ -1955,8 +1955,8 @@ function App() {
               </p>
             </div>
 
-            <div className="reveal mt-14 flex justify-center px-4 sm:px-6 lg:px-8">
-              <div className="relative w-full max-w-[1120px] overflow-hidden rounded-[18px] border border-white/10 bg-black/35 shadow-[0_24px_80px_-16px_rgba(0,0,0,0.6)]">
+            <div className="reveal mt-12 flex justify-center px-4 sm:px-6 lg:px-8">
+              <div className="relative w-full max-w-[560px] overflow-hidden rounded-[18px] border border-white/10 bg-black/35 shadow-[0_24px_70px_-18px_rgba(0,0,0,0.65)] sm:max-w-[600px] lg:max-w-[620px]">
                 <img
                   src="/images/source-traceability-en.png"
                   alt="PDOX Spain Source Traceability European Laboratory Visit"
