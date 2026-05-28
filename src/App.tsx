@@ -296,7 +296,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Bandage Needle',
         subtitle: 'Emergency Serum',
         body: 'High-penetration bio-enzyme repair for barrier support and intensive recovery protocols.',
-        image: '/images/product-bandage.jpg',
+        image: '/images/products/product-01-bandage-needle.jpg',
         tags: ['Repair', 'Barrier', 'Hero'],
       },
       {
@@ -304,7 +304,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Remodeling Needle',
         subtitle: 'Facial Bioremodeling',
         body: 'Designed for professional programs focused on facial contour and harmony.',
-        image: '/images/product-remodeling.jpg',
+        image: '/images/products/product-02-remodeling-needle.jpg',
         tags: ['Contour', 'Firmness'],
       },
       {
@@ -312,7 +312,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Wrinkle Eraser',
         subtitle: 'Anti-Wrinkle',
         body: 'Collagen-support positioning for lines, texture and visible refinement.',
-        image: '/images/product-eraser.jpg',
+        image: '/images/products/product-03-wrinkle-eraser.jpg',
         tags: ['Lines', 'Texture'],
       },
       {
@@ -320,7 +320,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Collagen Activator',
         subtitle: 'Total Revitalization',
         body: 'A daily professional-strength routine for elasticity, firmness and even tone.',
-        image: '/images/product-collagen.jpg',
+        image: '/images/products/product-04-collagen-activator.jpg',
         tags: ['Collagen', 'Glow'],
       },
       {
@@ -328,7 +328,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Hydration Complex',
         subtitle: 'Mesodermal Hydration',
         body: 'Hydration-focused protocol support with a premium clinical presentation.',
-        image: '/images/product-activator.jpg',
+        image: '/images/products/product-05-hydration-complex.jpg',
         tags: ['Hydration', 'Comfort'],
       },
       {
@@ -651,7 +651,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Bandage Needle',
         subtitle: 'Serum de emergencia',
         body: 'Reparacion bio-enzimatica de alta penetracion para soporte de barrera y recuperacion intensiva.',
-        image: '/images/product-bandage.jpg',
+        image: '/images/products/product-01-bandage-needle.jpg',
         tags: ['Reparacion', 'Barrera', 'Hero'],
       },
       {
@@ -659,7 +659,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Remodeling Needle',
         subtitle: 'Bioremodelado facial',
         body: 'Disenado para programas profesionales centrados en contorno facial y armonia.',
-        image: '/images/product-remodeling.jpg',
+        image: '/images/products/product-02-remodeling-needle.jpg',
         tags: ['Contorno', 'Firmeza'],
       },
       {
@@ -667,7 +667,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Wrinkle Eraser',
         subtitle: 'Antiarrugas',
         body: 'Posicionamiento de soporte de colageno para lineas, textura y refinamiento visible.',
-        image: '/images/product-eraser.jpg',
+        image: '/images/products/product-03-wrinkle-eraser.jpg',
         tags: ['Lineas', 'Textura'],
       },
       {
@@ -675,7 +675,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Collagen Activator',
         subtitle: 'Revitalizacion total',
         body: 'Rutina diaria de fuerza profesional para elasticidad, firmeza y tono uniforme.',
-        image: '/images/product-collagen.jpg',
+        image: '/images/products/product-04-collagen-activator.jpg',
         tags: ['Colageno', 'Luminosidad'],
       },
       {
@@ -683,7 +683,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Hydration Complex',
         subtitle: 'Hidratacion mesodermica',
         body: 'Soporte para protocolos de hidratacion con presentacion clinica premium.',
-        image: '/images/product-activator.jpg',
+        image: '/images/products/product-05-hydration-complex.jpg',
         tags: ['Hidratacion', 'Confort'],
       },
       {
