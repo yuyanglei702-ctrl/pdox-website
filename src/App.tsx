@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
+import VerifyPage from './pages/VerifyPage';
 import {
   ArrowLeft,
   ArrowRight,
@@ -130,7 +131,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Materials, packaging and site language are prepared for clinic consultation and distributor education from day one.',
           },
         ],
-        image: '/images/insight-madrid-origin.png',
+        image: '/images/optimized/insight-madrid-origin.webp',
         partnerValue:
           'Helps partners explain where the brand comes from and why PDOX is positioned as a premium professional skin science platform.',
       },
@@ -159,7 +160,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Surface renewal, smoother texture and radiance.',
           },
         ],
-        image: '/images/insight-enzyme-platform.png',
+        image: '/images/optimized/insight-enzyme-platform.webp',
         partnerValue:
           'Makes the product system easier to explain in consultations, training materials and distributor presentations.',
       },
@@ -184,7 +185,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Every batch is expected to deliver the same visual, sensory and performance profile.',
           },
         ],
-        image: '/images/insight-stability-target.png',
+        image: '/images/optimized/insight-stability-target.webp',
         partnerValue:
           'Supports clinic and distributor confidence when presenting PDOX as a serious professional dermocosmetic platform.',
       },
@@ -209,7 +210,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Positioning stays within cosmetic and professional skin science boundaries without overstating medical outcomes.',
           },
         ],
-        image: '/images/insight-eu-quality.png',
+        image: '/images/optimized/insight-eu-quality.webp',
         partnerValue:
           'Helps partners prepare for training, sales conversations and future market documentation without overstating medical claims.',
       },
@@ -232,7 +233,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Lipase Complex',
         body: 'Targets localized lipid appearance and supports contour-focused professional protocols.',
-        image: '/images/tech-lipase-complex.png',
+        image: '/images/optimized/tech-lipase-complex.webp',
         slug: 'lipase-complex',
         detailTitle: 'Lipase Complex',
         detailSummary: 'A contour-focused enzyme complex positioned around localized lipid appearance and professional body or facial protocol support.',
@@ -246,7 +247,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Collagenase Complex',
         body: 'Supports firmness, elasticity and dermal remodeling programs without invasive positioning.',
-        image: '/images/tech-collagenase-complex.png',
+        image: '/images/optimized/tech-collagenase-complex.webp',
         slug: 'collagenase-complex',
         detailTitle: 'Collagenase Complex',
         detailSummary: 'A firmness and elasticity-focused complex positioned for visible skin quality, remodeling language and premium professional treatment planning.',
@@ -260,7 +261,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Hyaluronidase Complex',
         body: 'Helps improve hydration delivery and the feel of deep skin replenishment.',
-        image: '/images/tech-hyaluronidase-complex.png',
+        image: '/images/optimized/tech-hyaluronidase-complex.webp',
         slug: 'hyaluronidase-complex',
         detailTitle: 'Hyaluronidase Complex',
         detailSummary: 'A hydration-delivery complex designed to support replenishment, comfort and a smoother professional skincare experience.',
@@ -274,7 +275,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Keratinase Complex',
         body: 'Encourages surface renewal, smoother texture and brighter-looking skin.',
-        image: '/images/tech-keratinase-complex.png',
+        image: '/images/optimized/tech-keratinase-complex.webp',
         slug: 'keratinase-complex',
         detailTitle: 'Keratinase Complex',
         detailSummary: 'A surface-renewal complex positioned around smoother texture, refined appearance and brighter-looking skin.',
@@ -296,7 +297,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Bandage Needle',
         subtitle: 'Emergency Serum',
         body: 'High-penetration bio-enzyme repair for barrier support and intensive recovery protocols.',
-        image: '/images/products/product-01-bandage-needle-dark.png',
+        image: '/images/products/optimized/product-01-bandage-needle-dark.webp',
         tags: ['Repair', 'Barrier', 'Hero'],
       },
       {
@@ -304,7 +305,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Remodeling Needle',
         subtitle: 'Facial Bioremodeling',
         body: 'Designed for professional programs focused on facial contour and harmony.',
-        image: '/images/products/product-02-remodeling-needle-dark.png',
+        image: '/images/products/optimized/product-02-remodeling-needle-dark.webp',
         tags: ['Contour', 'Firmness'],
       },
       {
@@ -312,7 +313,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Wrinkle Eraser',
         subtitle: 'Anti-Wrinkle',
         body: 'Collagen-support positioning for lines, texture and visible refinement.',
-        image: '/images/products/product-03-wrinkle-eraser-dark.png',
+        image: '/images/products/optimized/product-03-wrinkle-eraser-dark.webp',
         tags: ['Lines', 'Texture'],
       },
       {
@@ -320,7 +321,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Collagen Activator',
         subtitle: 'Total Revitalization',
         body: 'A daily professional-strength routine for elasticity, firmness and even tone.',
-        image: '/images/products/product-04-collagen-activator-dark.png',
+        image: '/images/products/optimized/product-04-collagen-activator-dark.webp',
         tags: ['Collagen', 'Glow'],
       },
       {
@@ -328,7 +329,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Hydration Complex',
         subtitle: 'Mesodermal Hydration',
         body: 'Hydration-focused protocol support with a premium clinical presentation.',
-        image: '/images/products/product-05-hydration-complex-dark.png',
+        image: '/images/products/optimized/product-05-hydration-complex-dark.webp',
         tags: ['Hydration', 'Comfort'],
       },
       {
@@ -336,7 +337,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Liquid Bandage',
         subtitle: 'Active Biological Bandage',
         body: 'A repair-led concept for micro-lesion care, elasticity and fast visible comfort.',
-        image: '/images/product-liquid-bandage.png',
+        image: '/images/optimized/product-liquid-bandage.webp',
         tags: ['Recovery', 'Elasticity'],
       },
     ],
@@ -485,7 +486,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Los materiales, envases y lenguaje del sitio estan preparados para consulta clinica y educacion de distribuidores desde el primer dia.',
           },
         ],
-        image: '/images/insight-madrid-origin.png',
+        image: '/images/optimized/insight-madrid-origin.webp',
         partnerValue:
           'Ayuda a los socios a explicar de donde viene la marca y por que PDOX se posiciona como una plataforma premium de ciencia cutanea profesional.',
       },
@@ -514,7 +515,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Renovacion superficial, textura mas suave y luminosidad.',
           },
         ],
-        image: '/images/insight-enzyme-platform.png',
+        image: '/images/optimized/insight-enzyme-platform.webp',
         partnerValue:
           'Facilita explicar el sistema de productos en consultas, materiales de formacion y presentaciones ante distribuidores.',
       },
@@ -539,7 +540,7 @@ const copy: Record<Lang, Copy> = {
             body: 'Cada lote debe ofrecer el mismo perfil visual, sensorial y de rendimiento.',
           },
         ],
-        image: '/images/insight-stability-target.png',
+        image: '/images/optimized/insight-stability-target.webp',
         partnerValue:
           'Refuerza la confianza de clinicas y distribuidores al presentar PDOX como una plataforma dermocosmetica profesional seria.',
       },
@@ -564,7 +565,7 @@ const copy: Record<Lang, Copy> = {
             body: 'El posicionamiento se mantiene dentro de limites cosmeticos y de ciencia cutanea profesional sin sobredimensionar resultados medicos.',
           },
         ],
-        image: '/images/insight-eu-quality.png',
+        image: '/images/optimized/insight-eu-quality.webp',
         partnerValue:
           'Ayuda a los socios a prepararse para formacion, conversaciones de venta y documentacion futura de mercado sin sobredimensionar claims medicos.',
       },
@@ -587,7 +588,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Complejo Lipasa',
         body: 'Orientado a la apariencia de lipidos localizados y protocolos profesionales de contorno.',
-        image: '/images/tech-lipase-complex.png',
+        image: '/images/optimized/tech-lipase-complex.webp',
         slug: 'lipase-complex',
         detailTitle: 'Complejo Lipasa',
         detailSummary: 'Complejo enzimatico enfocado en contorno, posicionado alrededor de la apariencia lipidica localizada y el soporte de protocolos corporales o faciales profesionales.',
@@ -601,7 +602,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Complejo Colagenasa',
         body: 'Apoya programas de firmeza, elasticidad y remodelacion dermica con lenguaje no invasivo.',
-        image: '/images/tech-collagenase-complex.png',
+        image: '/images/optimized/tech-collagenase-complex.webp',
         slug: 'collagenase-complex',
         detailTitle: 'Complejo Colagenasa',
         detailSummary: 'Complejo enfocado en firmeza y elasticidad, posicionado para calidad visible de la piel, lenguaje de remodelacion y planificacion de tratamientos profesionales premium.',
@@ -615,7 +616,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Complejo Hialuronidasa',
         body: 'Ayuda a mejorar la entrega de hidratacion y la sensacion de reposicion profunda.',
-        image: '/images/tech-hyaluronidase-complex.png',
+        image: '/images/optimized/tech-hyaluronidase-complex.webp',
         slug: 'hyaluronidase-complex',
         detailTitle: 'Complejo Hialuronidasa',
         detailSummary: 'Complejo de entrega de hidratacion disenado para apoyar reposicion, confort y una experiencia cutanea profesional mas suave.',
@@ -629,7 +630,7 @@ const copy: Record<Lang, Copy> = {
       {
         title: 'Complejo Queratinasa',
         body: 'Favorece renovacion superficial, textura mas lisa y piel con aspecto mas luminoso.',
-        image: '/images/tech-keratinase-complex.png',
+        image: '/images/optimized/tech-keratinase-complex.webp',
         slug: 'keratinase-complex',
         detailTitle: 'Complejo Queratinasa',
         detailSummary: 'Complejo de renovacion superficial posicionado alrededor de textura mas suave, apariencia refinada y piel con aspecto mas luminoso.',
@@ -651,7 +652,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Bandage Needle',
         subtitle: 'Serum de emergencia',
         body: 'Reparacion bio-enzimatica de alta penetracion para soporte de barrera y recuperacion intensiva.',
-        image: '/images/products/product-01-bandage-needle-dark.png',
+        image: '/images/products/optimized/product-01-bandage-needle-dark.webp',
         tags: ['Reparacion', 'Barrera', 'Hero'],
       },
       {
@@ -659,7 +660,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Remodeling Needle',
         subtitle: 'Bioremodelado facial',
         body: 'Disenado para programas profesionales centrados en contorno facial y armonia.',
-        image: '/images/products/product-02-remodeling-needle-dark.png',
+        image: '/images/products/optimized/product-02-remodeling-needle-dark.webp',
         tags: ['Contorno', 'Firmeza'],
       },
       {
@@ -667,7 +668,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Wrinkle Eraser',
         subtitle: 'Antiarrugas',
         body: 'Posicionamiento de soporte de colageno para lineas, textura y refinamiento visible.',
-        image: '/images/products/product-03-wrinkle-eraser-dark.png',
+        image: '/images/products/optimized/product-03-wrinkle-eraser-dark.webp',
         tags: ['Lineas', 'Textura'],
       },
       {
@@ -675,7 +676,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Collagen Activator',
         subtitle: 'Revitalizacion total',
         body: 'Rutina diaria de fuerza profesional para elasticidad, firmeza y tono uniforme.',
-        image: '/images/products/product-04-collagen-activator-dark.png',
+        image: '/images/products/optimized/product-04-collagen-activator-dark.webp',
         tags: ['Colageno', 'Luminosidad'],
       },
       {
@@ -683,7 +684,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Hydration Complex',
         subtitle: 'Hidratacion mesodermica',
         body: 'Soporte para protocolos de hidratacion con presentacion clinica premium.',
-        image: '/images/products/product-05-hydration-complex-dark.png',
+        image: '/images/products/optimized/product-05-hydration-complex-dark.webp',
         tags: ['Hidratacion', 'Confort'],
       },
       {
@@ -691,7 +692,7 @@ const copy: Record<Lang, Copy> = {
         name: 'Liquid Bandage',
         subtitle: 'Vendaje biologico activo',
         body: 'Concepto de reparacion para microlesiones, elasticidad y confort visible rapido.',
-        image: '/images/product-liquid-bandage.png',
+        image: '/images/optimized/product-liquid-bandage.webp',
         tags: ['Recuperacion', 'Elasticidad'],
       },
     ],
@@ -1016,72 +1017,15 @@ function ProductMarquee({
   copy: Copy;
   onOpenProduct: (slug: string) => void;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const isPausedRef = useRef(false);
-  const isDraggingRef = useRef(false);
-  const hasDraggedRef = useRef(false);
-  const dragStartX = useRef(0);
-  const dragStartScroll = useRef(0);
-  const [isDraggingState, setIsDraggingState] = useState(false);
-
-  const marqueeProducts = [...products, ...products, ...products];
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    let rafId: number;
-    let lastTime = performance.now();
-    const speed = 0.035;
-
-    const animate = (time: number) => {
-      if (!prefersReduced && !isPausedRef.current && !isDraggingRef.current) {
-        const delta = time - lastTime;
-        container.scrollLeft += delta * speed;
-        const oneSet = container.scrollWidth / 3;
-        if (container.scrollLeft >= oneSet) {
-          container.scrollLeft -= oneSet;
-        }
-      }
-      lastTime = time;
-      rafId = requestAnimationFrame(animate);
-    };
-
-    rafId = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(rafId);
-  }, [products.length]);
-
-  const handlePointerDown = (e: React.PointerEvent) => {
-    isDraggingRef.current = true;
-    hasDraggedRef.current = false;
-    dragStartX.current = e.clientX;
-    dragStartScroll.current = containerRef.current?.scrollLeft || 0;
-    setIsDraggingState(true);
-    (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId);
-  };
-
-  const handlePointerMove = (e: React.PointerEvent) => {
-    if (!isDraggingRef.current || !containerRef.current) return;
-    const delta = e.clientX - dragStartX.current;
-    if (Math.abs(delta) > 3) hasDraggedRef.current = true;
-    containerRef.current.scrollLeft = dragStartScroll.current - delta;
-  };
-
-  const handlePointerUp = () => {
-    isDraggingRef.current = false;
-    setIsDraggingState(false);
-  };
-
-  const handleClick = (slug: string) => {
-    if (!hasDraggedRef.current) onOpenProduct(slug);
-  };
+  const marqueeProducts = [...products, ...products];
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#0A0A0A] py-24 lg:py-32">
       <img
-        src="/images/bg-molecular-gold-flow.png"
+        src="/images/optimized/bg-molecular-gold-flow.webp"
         alt=""
+        loading="lazy"
+        decoding="async"
         className="absolute inset-0 h-full w-full object-cover opacity-25 z-0"
       />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/75 to-[#0A0A0A]/88" />
@@ -1101,50 +1045,44 @@ function ProductMarquee({
         </div>
       </div>
 
-      <div
-        ref={containerRef}
-        className={`relative z-10 mt-14 flex gap-6 overflow-x-auto px-4 sm:px-6 lg:px-8 select-none pdox-marquee-hide-scrollbar ${
-          isDraggingState ? 'cursor-grabbing' : 'cursor-grab'
-        }`}
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        onMouseEnter={() => { isPausedRef.current = true; }}
-        onMouseLeave={() => { isPausedRef.current = false; isDraggingRef.current = false; setIsDraggingState(false); }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-      >
-        {marqueeProducts.map((product, i) => (
-          <button
-            key={`${product.slug}-${i}`}
-            onClick={() => handleClick(product.slug)}
-            className="pdox-card-premium group shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left"
-            style={{ width: 'clamp(300px, 22vw, 380px)' }}
-          >
-            <div className="aspect-[4/3] bg-black p-6">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
-              />
-            </div>
-            <div className="p-6">
-              <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
-              <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
-              <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {product.tags.map((tag) => (
-                  <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
-                    {tag}
-                  </span>
-                ))}
+      <div className="relative z-10 mt-14 overflow-hidden">
+        <div className="pdox-marquee-track flex w-max gap-6 px-4 sm:px-6 lg:px-8">
+          {marqueeProducts.map((product, i) => (
+            <button
+              key={`${product.slug}-${i}`}
+              onClick={() => onOpenProduct(product.slug)}
+              aria-hidden={i >= products.length}
+              tabIndex={i >= products.length ? -1 : 0}
+              className="pdox-card-premium group w-[min(78vw,320px)] shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left sm:w-[340px] lg:w-[380px]"
+            >
+              <div className="aspect-[4/3] bg-black p-6">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
+                />
               </div>
-              <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
-                {copy.productMarqueeCta}
-                <ArrowRight size={14} />
+              <div className="p-6">
+                <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+                <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
+                <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {product.tags.map((tag) => (
+                    <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
+                  {copy.productMarqueeCta}
+                  <ArrowRight size={14} />
+                </div>
               </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -1180,7 +1118,7 @@ function ProductDetail({
 
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1194,7 +1132,7 @@ function ProductDetail({
         <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
           <div className="reveal border border-white/10 bg-black/35 p-10">
             <div className="aspect-square bg-[#090909] p-10">
-              <img src={product.image} alt={product.name} className="h-full w-full object-contain" />
+              <img src={product.image} alt={product.name} loading="lazy" decoding="async" className="h-full w-full object-contain" />
             </div>
           </div>
 
@@ -1275,7 +1213,7 @@ function InsightDetail({
 }) {
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1334,6 +1272,8 @@ function InsightDetail({
               <img
                 src={insight.image}
                 alt={insight.title}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
@@ -1367,7 +1307,7 @@ function ContentDetail({
 }) {
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <img src="/images/hero-bg-gold.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1426,6 +1366,8 @@ function ContentDetail({
               <img
                 src={image}
                 alt={title}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
@@ -1453,6 +1395,7 @@ function App() {
   const activeTechCard = currentPath.startsWith('/technology/')
     ? t.techCards.find((card) => `/technology/${card.slug}` === currentPath)
     : undefined;
+  const activeVerify = currentPath === '/verify';
 
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll('.reveal'));
@@ -1497,7 +1440,7 @@ function App() {
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/75 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
           <button onClick={() => goTo('home')} className="flex items-center gap-3" aria-label="PDOX home">
-            <img src="/images/logo.png" alt="PDOX" className="h-10 w-auto invert brightness-200" />
+            <img src="/images/logo.png" alt="PDOX" decoding="async" fetchPriority="high" className="h-10 w-auto invert brightness-200" />
           </button>
 
           <nav className="hidden items-center gap-10 lg:flex">
@@ -1580,12 +1523,16 @@ function App() {
             onBack={() => goTo('technology')}
             eyebrow={lang === 'en' ? 'Technology' : 'Tecnologia'}
           />
+        ) : activeVerify ? (
+          <VerifyPage />
         ) : (
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-20">
           <img
-            src="/images/hero-bg-gold.png"
+            src="/images/optimized/hero-bg-gold.webp"
             alt=""
+            decoding="async"
+            fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover opacity-55 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.14),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.18),#0A0A0A_92%)]" />
@@ -1599,7 +1546,7 @@ function App() {
             <div className="reveal relative">
               <div className="pdox-logo-breathe" />
               <div className="absolute inset-x-0 top-1/2 mx-auto h-28 w-80 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
-              <img src="/images/logo.png" alt="PDOX" className="relative mx-auto h-auto w-[min(72vw,480px)] invert brightness-200" />
+              <img src="/images/logo.png" alt="PDOX" decoding="async" fetchPriority="high" className="relative mx-auto h-auto w-[min(72vw,480px)] invert brightness-200" />
             </div>
             <h1 className="sr-only">{t.heroTitle}</h1>
             <p className="reveal mt-10 max-w-3xl text-lg leading-9 text-white/68">
@@ -1625,8 +1572,10 @@ function App() {
 
         <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
-            src="/images/bg-molecular-gold-flow.png"
+            src="/images/optimized/bg-molecular-gold-flow.webp"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
@@ -1664,8 +1613,10 @@ function App() {
 
         <section id="brand" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
-            src="/images/bg-lab-champagne.png"
+            src="/images/optimized/bg-lab-champagne.webp"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
@@ -1681,6 +1632,8 @@ function App() {
               <img
                 src="/images/lab-scene.jpg"
                 alt=""
+                loading="lazy"
+                decoding="async"
                 className="aspect-[4/5] w-full object-cover transition duration-700 group-hover:scale-[1.03]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
@@ -1708,8 +1661,10 @@ function App() {
 
         <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
-            src="/images/bg-molecular-gold-flow.png"
+            src="/images/optimized/bg-molecular-gold-flow.webp"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
@@ -1738,6 +1693,8 @@ function App() {
                       <img
                         src={card.image}
                         alt={card.title}
+                        loading="lazy"
+                        decoding="async"
                         className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.04]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
@@ -1763,8 +1720,10 @@ function App() {
 
         <section id="products" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
-            src="/images/bg-lab-champagne.png"
+            src="/images/optimized/bg-lab-champagne.webp"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
@@ -1793,6 +1752,8 @@ function App() {
                     <img
                       src={product.image}
                       alt={product.name}
+                      loading="lazy"
+                      decoding="async"
                       className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
@@ -1822,6 +1783,8 @@ function App() {
           <img
             src="/images/enzyme-visual.jpg"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute right-0 top-0 h-full w-full object-cover opacity-15 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#0F0E0B] via-[#0F0E0B]/80 to-transparent" />
@@ -1935,8 +1898,10 @@ function App() {
 
         <section id="source-traceability" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
           <img
-            src="/images/bg-molecular-gold-flow.png"
+            src="/images/optimized/bg-molecular-gold-flow.webp"
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 h-full w-full object-cover opacity-30 z-0"
           />
           <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
@@ -1958,8 +1923,10 @@ function App() {
             <div className="reveal mt-12 flex justify-center px-4 sm:px-6 lg:px-8">
               <div className="relative w-full max-w-[560px] overflow-hidden rounded-[18px] border border-white/10 bg-black/35 shadow-[0_24px_70px_-18px_rgba(0,0,0,0.65)] sm:max-w-[600px] lg:max-w-[620px]">
                 <img
-                  src="/images/source-traceability-en.png"
+                  src="/images/optimized/source-traceability-en.webp"
                   alt="PDOX Spain Source Traceability European Laboratory Visit"
+                  loading="lazy"
+                  decoding="async"
                   className="h-auto w-full object-contain"
                 />
               </div>
@@ -1988,7 +1955,7 @@ function App() {
       <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-[1500px] flex-col gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div>
-            <img src="/images/logo.png" alt="PDOX" className="mx-auto h-9 w-auto invert brightness-200 sm:mx-0" />
+            <img src="/images/logo.png" alt="PDOX" loading="lazy" decoding="async" className="mx-auto h-9 w-auto invert brightness-200 sm:mx-0" />
             <p className="mt-5 max-w-xl text-sm leading-7 text-white/42">{t.footerBody}</p>
           </div>
           <div className="text-[11px] uppercase tracking-[0.22em] text-white/25">

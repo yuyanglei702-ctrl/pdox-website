@@ -475,6 +475,15 @@
   100% { left: 200%; }
 }
 
+@keyframes pdoxMarqueeX {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
 /* ===== Enhanced Gold Particle Field ===== */
 .pdox-gold-particle-blur {
   position: absolute;
@@ -673,7 +682,61 @@
   }
 }
 
-/* ===== Product Marquee Scrollbar Hide ===== */
-.pdox-marquee-hide-scrollbar::-webkit-scrollbar {
-  display: none;
+/* ===== Product Marquee ===== */
+.pdox-marquee-track {
+  animation: pdoxMarqueeX 64s linear infinite;
+  will-change: transform;
+}
+
+.pdox-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ===== Mobile Performance Budget ===== */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .pdox-gold-haze,
+  .pdox-gold-particle,
+  .pdox-gold-particle-bright,
+  .pdox-gold-particle-blur,
+  .pdox-molecular-drift,
+  .pdox-light-sweep,
+  .pdox-logo-breathe,
+  .pdox-champagne-glow,
+  .pdox-grain,
+  .pdox-soft-glow {
+    display: none !important;
+  }
+
+  .pdox-card-premium,
+  .pdox-card-premium:hover,
+  .pdox-image-3d,
+  .pdox-image-3d:hover {
+    transform: none;
+    box-shadow: none;
+    transition: border-color 0.25s ease;
+  }
+
+  .pdox-btn-shine::after {
+    display: none;
+  }
+
+  .pdox-marquee-track {
+    animation-duration: 92s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pdox-marquee-track {
+    animation: none !important;
+  }
 }
