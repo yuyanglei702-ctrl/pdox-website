@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
-import OfficialBackdrop from './components/OfficialBackdrop';
-import LegalPage from './pages/LegalPage';
-import NotFoundPage from './pages/NotFoundPage';
-import OfficialChannelsPage from './pages/OfficialChannelsPage';
-import QualityTraceabilityPage from './pages/QualityTraceabilityPage';
+import VerifyPage from './pages/VerifyPage';
 import {
   ArrowLeft,
   ArrowRight,
@@ -108,29 +104,29 @@ type Copy = {
 
 const copy: Record<Lang, Copy> = {
   en: {
-    nav: ['Brand', 'Products', 'Technology', 'Quality', 'Partners', 'FAQ', 'Contact'],
-    heroEyebrow: 'Spanish premium bio-enzyme skincare',
+    nav: ['Brand', 'Technology', 'Products', 'Partners', 'FAQ', 'Contact'],
+    heroEyebrow: 'Spanish bio-enzyme skin science',
     heroTitle: 'PDOX',
     heroBody:
-      'A Spanish premium skincare brand presenting bio-enzyme care concepts for professional clinics, distributors and refined skin programs.',
+      'Spanish bio-enzyme skin science for clinics, distributors and premium skin programs that need measurable repair, contour and renewal performance.',
     heroPrimary: 'Explore Products',
     heroSecondary: 'View Technology',
     stats: [
       {
-        value: 'ES',
-        label: 'Spanish brand identity',
-        slug: 'spanish-brand-identity',
-        title: 'Spanish brand identity',
+        value: '2010',
+        label: 'Madrid laboratory origin',
+        slug: 'madrid-origin',
+        title: 'Madrid laboratory origin',
         summary:
-          'PDOX presents a Spanish premium skincare identity with a restrained European visual language and a professional product portfolio.',
+          'PDOX is positioned around a Spanish laboratory identity, combining premium dermocosmetic language with professional skin protocol logic.',
         sections: [
           {
-            title: 'Spanish brand language',
-            body: 'Spanish identity is expressed through disciplined design, professional education and a refined dermocosmetic presentation.',
+            title: 'Spanish scientific identity',
+            body: "PDOX draws from Madrid's research and formulation culture, presenting a credible European origin story for international partners.",
           },
           {
-            title: 'Professional portfolio direction',
-            body: 'The portfolio is organised around clear cosmetic care priorities for clinics and distribution partners.',
+            title: 'Independent formulation direction',
+            body: 'The brand maintains its own development priorities rather than following mass-market trends, which supports premium positioning.',
           },
           {
             title: 'Professional presentation for clinics and distribution partners',
@@ -139,15 +135,15 @@ const copy: Record<Lang, Copy> = {
         ],
         image: '/images/optimized/insight-madrid-origin.webp',
         partnerValue:
-          'Helps partners present PDOX consistently as a Spanish premium professional skincare brand.',
+          'Helps partners explain where the brand comes from and why PDOX is positioned as a premium professional skin science platform.',
       },
       {
         value: '4',
-        label: 'bio-enzyme care directions',
+        label: 'precision enzyme complexes',
         slug: 'enzyme-platform',
-        title: 'Four bio-enzyme care directions',
+        title: 'Four precision enzyme complexes',
         summary:
-          'PDOX organises its technology narrative around four complementary cosmetic care priorities: contour, firmness, hydration and surface refinement.',
+          'PDOX presents a multi-enzyme platform designed around complementary skin priorities: lipid balance, firmness, hydration delivery and surface refinement.',
         sections: [
           {
             title: 'Lipase Complex',
@@ -171,70 +167,70 @@ const copy: Record<Lang, Copy> = {
           'Makes the product system easier to explain in consultations, training materials and distributor presentations.',
       },
       {
-        value: '6',
-        label: 'focused skincare products',
-        slug: 'product-portfolio',
-        title: 'A focused six-product portfolio',
+        value: '15Y',
+        label: 'room-temperature stability target',
+        slug: 'stability-target',
+        title: 'Room-temperature stability target',
         summary:
-          'A concise six-product architecture helps professional partners understand, present and develop the range.',
+          'PDOX communicates a stability-led formulation direction for professional partners who need confidence in product handling, storage and presentation.',
         sections: [
           {
-            title: 'Portfolio clarity',
-            body: 'Each product is positioned around a distinct cosmetic appearance or care direction.',
+            title: 'Stability discipline',
+            body: 'Formulation choices prioritize shelf stability and handling confidence under professional channel conditions.',
           },
           {
-            title: 'Professional presentation',
-            body: 'Consistent naming, imagery and product pages support clinic consultation and distributor training.',
+            title: 'Practical channel handling',
+            body: 'Reduced cold-chain dependency simplifies logistics for clinics and distributors in varied markets.',
           },
           {
-            title: 'Expandable education',
-            body: 'Evidence and market documentation can be attached product by product when publicly cleared.',
+            title: 'Premium product consistency',
+            body: 'Every batch is expected to deliver the same visual, sensory and performance profile.',
           },
         ],
         image: '/images/optimized/insight-stability-target.webp',
         partnerValue:
-          'Gives clinics and distributors a clear range architecture without unsupported performance claims.',
+          'Supports clinic and distributor confidence when presenting PDOX as a serious professional dermocosmetic platform.',
       },
       {
-        value: 'EN/ES',
-        label: 'international brand languages',
-        slug: 'international-communication',
-        title: 'English and Spanish brand communication',
+        value: 'EU',
+        label: 'quality and compliance focus',
+        slug: 'eu-quality',
+        title: 'EU quality and compliance focus',
         summary:
-          'English and Spanish provide a focused international presentation for professional partners and brand enquiries.',
+          'PDOX should communicate with quality, traceability and documentation language suitable for international professional channels.',
         sections: [
           {
-            title: 'International presentation',
-            body: 'English supports professional communication across markets while Spanish preserves the brand identity.',
+            title: 'EU-facing quality language',
+            body: 'Claims, labeling and site copy are prepared with European market expectations in mind.',
           },
           {
-            title: 'Controlled public wording',
-            body: 'Public pages use cosmetic appearance language and distinguish brand archives from product evidence.',
+            title: 'Batch and documentation readiness',
+            body: 'Product records and traceability processes support professional channel requirements.',
           },
           {
-            title: 'Evidence-aware communication',
-            body: 'Product, quality and origin statements are published only within their reviewed scope.',
+            title: 'Responsible professional claims',
+            body: 'Positioning stays within cosmetic and professional skin science boundaries without overstating medical outcomes.',
           },
         ],
         image: '/images/optimized/insight-eu-quality.webp',
         partnerValue:
-          'Supports clear partner communication without overstating origin, certification or medical outcomes.',
+          'Helps partners prepare for training, sales conversations and future market documentation without overstating medical claims.',
       },
     ],
     overviewKicker: 'PDOX Overview',
-    overviewTitle: 'Spanish premium skincare for professional channels.',
+    overviewTitle: 'Professional bio-enzyme skin programs from Madrid.',
     overviewBody:
-      'A focused view of the PDOX platform: Spanish brand identity, six skincare products, bilingual communication and evidence-aware professional presentation.',
+      'A clear snapshot of the PDOX platform: Spanish origin, four enzyme complexes, stability discipline and EU-facing quality language for professional channels.',
     brandKicker: 'The Brand',
-    brandTitle: 'European restraint, professional clarity and premium presentation.',
+    brandTitle: 'Independent research, proprietary formulation and clinical-grade presentation.',
     brandBody: [
-      'PDOX is presented as a Spanish premium bio-enzyme skincare brand for clinics, distributors and professional partners.',
-      'Its visual and verbal language is deliberately restrained: platinum laboratory materials, refined dermocosmetic packaging and clear product pathways.',
+      'PDOX is positioned as an independent precision bio-enzyme skin brand with roots in Madrid. The site now presents the brand for international audiences with English and Spanish as the only public languages.',
+      'The brand language is deliberately restrained: laboratory confidence, premium dermocosmetic finish, and clear product pathways for clinics and distribution partners.',
     ],
     techKicker: 'Core Technology',
-    techTitle: 'A disciplined bio-enzyme care platform for visible skin quality.',
+    techTitle: 'A controlled multi-enzyme platform for visible skin transformation.',
     techBody:
-      'The PDOX technology narrative connects complementary cosmetic care directions for contour, firmness, hydration and smoother-looking skin.',
+      'The PDOX system is built around complementary enzyme actions designed to support lipid balance, collagen renewal, hydration pathways and surface refinement.',
     techCards: [
       {
         title: 'Lipase Complex',
@@ -256,7 +252,7 @@ const copy: Record<Lang, Copy> = {
         image: '/images/optimized/tech-collagenase-complex.webp',
         slug: 'collagenase-complex',
         detailTitle: 'Collagenase Complex',
-        detailSummary: 'A firmness and elasticity-focused complex positioned for visible skin quality and premium professional care planning.',
+        detailSummary: 'A firmness and elasticity-focused complex positioned for visible skin quality, remodeling language and premium professional treatment planning.',
         detailSections: [
           { title: 'Supports firmness and elasticity storytelling', body: 'Connects enzyme logic to visible skin structure and resilience.' },
           { title: 'Connects collagen renewal language with professional skincare programs', body: 'Helps clinics position the product within broader renewal protocols.' },
@@ -294,7 +290,7 @@ const copy: Record<Lang, Copy> = {
       },
     ],
     productsKicker: 'Products',
-    productsTitle: 'Professional precision series',
+    productsTitle: 'Clinical precision series',
     productsBody:
       'A compact product architecture makes the range easy to understand, demonstrate and expand across markets.',
     products: [
@@ -302,15 +298,15 @@ const copy: Record<Lang, Copy> = {
         slug: 'bandage-needle',
         name: 'Bandage Needle',
         subtitle: 'Emergency Serum',
-        body: 'A recovery-focused cosmetic serum that helps support a comfortable, smoother-looking skin barrier.',
+        body: 'High-penetration bio-enzyme repair for barrier support and intensive recovery protocols.',
         image: '/images/products/optimized/product-01-bandage-needle-dark.webp',
-        tags: ['Recovery Care', 'Barrier Comfort', 'Hero'],
+        tags: ['Repair', 'Barrier', 'Hero'],
       },
       {
         slug: 'remodeling-needle',
         name: 'Remodeling Needle',
         subtitle: 'Facial Bioremodeling',
-        body: 'Helps improve the appearance of facial contour, firmness and visual harmony within professional skincare programs.',
+        body: 'Designed for professional programs focused on facial contour and harmony.',
         image: '/images/products/optimized/product-02-remodeling-needle-dark.webp',
         tags: ['Contour', 'Firmness'],
       },
@@ -318,7 +314,7 @@ const copy: Record<Lang, Copy> = {
         slug: 'wrinkle-eraser',
         name: 'Wrinkle Eraser',
         subtitle: 'Anti-Wrinkle',
-        body: 'Helps improve the appearance of fine lines, uneven texture and visible skin refinement.',
+        body: 'Collagen-support positioning for lines, texture and visible refinement.',
         image: '/images/products/optimized/product-03-wrinkle-eraser-dark.webp',
         tags: ['Lines', 'Texture'],
       },
@@ -326,7 +322,7 @@ const copy: Record<Lang, Copy> = {
         slug: 'liquid-bandage',
         name: 'Liquid Bandage',
         subtitle: 'Active Biological Bandage',
-        body: 'A recovery-focused care concept designed to support comfort, elasticity and smoother-looking skin.',
+        body: 'A repair-led concept for micro-lesion care, elasticity and fast visible comfort.',
         image: '/images/products/optimized/product-liquid-bandage.webp',
         tags: ['Recovery', 'Elasticity'],
       },
@@ -367,32 +363,32 @@ const copy: Record<Lang, Copy> = {
     detailContact: 'Contact PDOX',
     detailHint: 'Click any product image to open its detailed product page.',
     scienceKicker: 'Science',
-    scienceTitle: 'Professional trust begins with controlled communication.',
+    scienceTitle: 'Built for professional trust before mass visibility.',
     scienceBody:
-      'PDOX separates brand narrative, cosmetic benefits and evidence scope so professional partners can present the range with clarity.',
+      'The next phase should turn this website into a credible sales asset: verified product claims, distributor materials, clinical proof modules and conversion tracking.',
     sciencePoints: [
       {
         title: 'Traceable quality',
-        body: 'Product information is connected to its reviewed public scope and updated as evidence becomes available.',
+        body: 'Every product story should connect formula, batch discipline and market-ready documentation.',
       },
       {
         title: 'Premium education',
-        body: 'Clinics and distributors receive clear cosmetic care directions rather than vague or medicalised promises.',
+        body: 'Clinics need clear protocol logic, not vague cosmetic language.',
       },
       {
         title: 'Global expansion',
-        body: 'English and Spanish keep international communication focused while preserving Spanish brand identity.',
+        body: 'English and Spanish keep the site focused for international launch and Spanish brand origin.',
       },
     ],
     channelsKicker: 'Professional Channels',
     channelsTitle: 'Built for clinics, distributors and premium brand partners.',
     channelsBody:
-      'PDOX gives each professional audience relevant information while maintaining one restrained European brand language.',
+      'PDOX should communicate differently to each audience while keeping one premium scientific brand language.',
     channels: [
       {
         title: 'Clinics & Skin Studios',
-        body: 'A clear product system for professional facial and body care protocols, consultation storytelling and premium service menus.',
-        points: ['Protocol education', 'Premium care positioning', 'Product range clarity'],
+        body: 'A clear product system for professional facial and body protocols, consultation storytelling and premium treatment menus.',
+        points: ['Protocol education', 'Premium treatment positioning', 'Product range clarity'],
       },
       {
         title: 'Distributors',
@@ -401,14 +397,14 @@ const copy: Record<Lang, Copy> = {
       },
       {
         title: 'End Consumers',
-        body: 'A refined official brand presentation that builds trust before purchase conversations through visual quality and clear explanations.',
+        body: 'A refined website experience that builds trust before purchase conversations begin through visual quality and simple explanations.',
         points: ['Brand confidence', 'Benefit-led language', 'Professional credibility'],
       },
     ],
     protocolKicker: 'Protocol Logic',
-    protocolTitle: 'From product images to professional care pathways.',
+    protocolTitle: 'From product images to professional treatment pathways.',
     protocolBody:
-      'PDOX is presented as a connected portfolio: recovery care, contour, renewal and hydration can support complementary professional pathways.',
+      'The website now frames PDOX as a system, not a loose catalog: repair, contour, renewal and hydration can be presented as complementary professional pathways.',
     protocolSteps: [
       {
         value: '01',
@@ -432,17 +428,17 @@ const copy: Record<Lang, Copy> = {
       {
         question: 'Is PDOX designed for professional channels?',
         answer:
-          'Yes. PDOX presents its range for clinics, distributors and premium skin programs, with product language focused on professional care.',
+          'Yes. The website positions PDOX for clinics, distributors and premium skin programs, with product language focused on professional presentation.',
       },
       {
         question: 'Can product pages be expanded later?',
         answer:
-          'Yes. Each product has a dedicated page, allowing reviewed claims, usage guidance and market documentation to be added within their verified scope.',
+          'Yes. Each product already has its own detail page, so claims, protocols, training assets, certificates or market materials can be added progressively.',
       },
       {
         question: 'Why English and Spanish only?',
         answer:
-          'English supports international communication, while Spanish preserves the brand identity and professional European presentation.',
+          'English supports international communication, while Spanish reinforces the Madrid brand origin and launch identity.',
       },
       {
         question: 'How should partners contact PDOX?',
@@ -456,16 +452,16 @@ const copy: Record<Lang, Copy> = {
     productMarqueeCta: 'View Product',
     ctaTitle: 'Start a precision skin protocol.',
     ctaBody:
-      'For clinics, distributors and brand partners, PDOX provides a focused international dermocosmetic brand platform.',
+      'For clinics, distributors and brand partners, PDOX is prepared to become a focused global dermocosmetic platform.',
     ctaButton: 'Contact PDOX',
     footerBody:
-      'PDOX is a Spanish premium bio-enzyme skincare brand presented for professional clinics, distributors and international brand partners.',
-    brandStoryTitle: 'Spanish identity, professional discipline and premium presentation.',
-    brandStorySummary: 'PDOX combines a Spanish premium skincare identity, restrained European laboratory aesthetics and clear cosmetic care language for professional partners.',
+      'PDOX is an independent precision bio-enzyme skin science brand based in Madrid. Research, formulation and production story prepared for global distribution.',
+    brandStoryTitle: 'Independent research, proprietary formulation and clinical-grade presentation.',
+    brandStorySummary: 'PDOX is built around a Spanish precision bio-enzyme skincare identity, combining laboratory credibility, premium dermocosmetic aesthetics and professional protocol language.',
     brandStorySections: [
-      { title: 'Spanish brand identity', body: 'A refined Spanish brand language designed for international professional communication.' },
-      { title: 'Focused portfolio direction', body: 'Clear cosmetic care priorities support a premium position without unsupported scientific claims.' },
-      { title: 'Premium professional presentation', body: 'Materials, packaging and site language prepared for clinic consultation and distributor education.' },
+      { title: 'Spanish laboratory identity', body: 'Rooted in Madrid research culture with a credible European origin story for international partners.' },
+      { title: 'Proprietary formulation direction', body: 'Independent development priorities that support premium positioning rather than mass-market trends.' },
+      { title: 'Premium clinical presentation', body: 'Materials, packaging and site language prepared for clinic consultation and distributor education.' },
       { title: 'Prepared for clinics, distributors and professional partners', body: 'A brand platform designed to be explained with confidence in professional channels from day one.' },
     ],
     brandStoryPartnerValue: 'This brand story helps partners explain PDOX as a serious professional skincare science platform, not only a product catalog.',
@@ -475,25 +471,25 @@ const copy: Record<Lang, Copy> = {
     insightPartnerValue: 'Partner value',
   },
   es: {
-    nav: ['Marca', 'Productos', 'Tecnologia', 'Calidad', 'Socios', 'FAQ', 'Contacto'],
-    heroEyebrow: 'Cuidado bio-enzimatico premium espanol',
+    nav: ['Marca', 'Tecnologia', 'Productos', 'Socios', 'FAQ', 'Contacto'],
+    heroEyebrow: 'Ciencia cutanea bio-enzimatica espanola',
     heroTitle: 'PDOX',
     heroBody:
-      'Marca espanola premium de cuidado bio-enzimatico para clinicas, distribuidores y programas profesionales de alta gama.',
+      'Ciencia cutanea bio-enzimatica espanola para clinicas, distribuidores y programas premium que buscan reparacion, contorno y renovacion medibles.',
     heroPrimary: 'Explorar Productos',
     heroSecondary: 'Ver Tecnologia',
     stats: [
       {
-        value: 'ES',
-        label: 'identidad de marca espanola',
-        slug: 'spanish-brand-identity',
-        title: 'Identidad de marca espanola',
+        value: '2010',
+        label: 'origen de laboratorio en Madrid',
+        slug: 'madrid-origin',
+        title: 'Origen de laboratorio en Madrid',
         summary:
-          'PDOX presenta una identidad espanola de cuidado premium con lenguaje visual europeo y una cartera profesional clara.',
+          'PDOX se posiciona desde una identidad de laboratorio espanola, combinando lenguaje dermocosmetico premium con logica de protocolo profesional para la piel.',
         sections: [
           {
-            title: 'Lenguaje de marca espanol',
-            body: 'La identidad espanola se expresa mediante diseno disciplinado, educacion profesional y presentacion dermocosmetica refinada.',
+            title: 'Identidad cientifica espanola',
+            body: 'PDOX bebe de la cultura de investigacion y formulacion de Madrid, presentando una historia de origen europeo creible para socios internacionales.',
           },
           {
             title: 'Direccion de formulacion independiente',
@@ -510,11 +506,11 @@ const copy: Record<Lang, Copy> = {
       },
       {
         value: '4',
-        label: 'direcciones de cuidado bio-enzimatico',
+        label: 'complejos enzimaticos de precision',
         slug: 'enzyme-platform',
-        title: 'Cuatro direcciones de cuidado bio-enzimatico',
+        title: 'Cuatro complejos enzimaticos de precision',
         summary:
-          'PDOX organiza su narrativa tecnologica alrededor de cuatro prioridades cosmeticas: contorno, firmeza, hidratacion y refinamiento superficial.',
+          'PDOX presenta una plataforma multi-enzimatica disenada alrededor de prioridades complementarias de la piel: equilibrio lipidico, firmeza, entrega de hidratacion y refinamiento superficial.',
         sections: [
           {
             title: 'Complejo Lipasa',
@@ -538,24 +534,24 @@ const copy: Record<Lang, Copy> = {
           'Facilita explicar el sistema de productos en consultas, materiales de formacion y presentaciones ante distribuidores.',
       },
       {
-        value: '6',
-        label: 'productos de cuidado enfocado',
-        slug: 'product-portfolio',
-        title: 'Una cartera enfocada de seis productos',
+        value: '15A',
+        label: 'objetivo de estabilidad ambiente',
+        slug: 'stability-target',
+        title: 'Objetivo de estabilidad a temperatura ambiente',
         summary:
-          'Una arquitectura concisa de seis productos ayuda a los socios profesionales a comprender, presentar y desarrollar la gama.',
+          'PDOX comunica una direccion de formulacion liderada por la estabilidad para socios profesionales que necesitan confianza en el manejo, almacenamiento y presentacion del producto.',
         sections: [
           {
-            title: 'Claridad de cartera',
-            body: 'Cada producto se presenta alrededor de una direccion distinta de apariencia o cuidado cosmetico.',
+            title: 'Disciplina de estabilidad',
+            body: 'Las decisiones de formulacion priorizan la estabilidad en estante y la confianza de manejo bajo condiciones de canal profesional.',
           },
           {
-            title: 'Presentacion profesional',
-            body: 'Nombres, imagenes y paginas coherentes apoyan la consulta en clinica y la formacion de distribuidores.',
+            title: 'Manejo practico de canal',
+            body: 'Menor dependencia de cadena de frio simplifica la logistica para clinicas y distribuidores en mercados variados.',
           },
           {
-            title: 'Educacion ampliable',
-            body: 'La evidencia y la documentacion pueden incorporarse producto por producto cuando se autoricen para uso publico.',
+            title: 'Consistencia premium del producto',
+            body: 'Cada lote debe ofrecer el mismo perfil visual, sensorial y de rendimiento.',
           },
         ],
         image: '/images/optimized/insight-stability-target.webp',
@@ -563,24 +559,24 @@ const copy: Record<Lang, Copy> = {
           'Refuerza la confianza de clinicas y distribuidores al presentar PDOX como una plataforma dermocosmetica profesional seria.',
       },
       {
-        value: 'EN/ES',
-        label: 'idiomas internacionales de marca',
-        slug: 'international-communication',
-        title: 'Comunicacion de marca en ingles y espanol',
+        value: 'UE',
+        label: 'enfoque en calidad y cumplimiento',
+        slug: 'eu-quality',
+        title: 'Enfoque en calidad y cumplimiento UE',
         summary:
-          'El ingles y el espanol ofrecen una presentacion internacional enfocada para socios profesionales y consultas de marca.',
+          'PDOX debe comunicar con lenguaje de calidad, trazabilidad y documentacion adecuado para canales profesionales internacionales.',
         sections: [
           {
-            title: 'Presentacion internacional',
-            body: 'El ingles facilita la comunicacion profesional entre mercados y el espanol preserva la identidad de marca.',
+            title: 'Lenguaje de calidad orientado a UE',
+            body: 'Los claims, etiquetado y copy del sitio se preparan teniendo en cuenta las expectativas del mercado europeo.',
           },
           {
-            title: 'Lenguaje publico controlado',
-            body: 'Las paginas publicas utilizan lenguaje cosmetico y distinguen los archivos de marca de la evidencia de producto.',
+            title: 'Preparacion de lotes y documentacion',
+            body: 'Los registros de producto y procesos de trazabilidad apoyan los requisitos de canal profesional.',
           },
           {
-            title: 'Comunicacion consciente de la evidencia',
-            body: 'Las afirmaciones de producto, calidad y origen se publican solo dentro de su alcance revisado.',
+            title: 'Claims profesionales responsables',
+            body: 'El posicionamiento se mantiene dentro de limites cosmeticos y de ciencia cutanea profesional sin sobredimensionar resultados medicos.',
           },
         ],
         image: '/images/optimized/insight-eu-quality.webp',
@@ -589,19 +585,19 @@ const copy: Record<Lang, Copy> = {
       },
     ],
     overviewKicker: 'Vision PDOX',
-    overviewTitle: 'Cuidado premium espanol para canales profesionales.',
+    overviewTitle: 'Programas profesionales bio-enzimaticos de piel desde Madrid.',
     overviewBody:
-      'Una lectura clara de PDOX: identidad espanola, seis productos, comunicacion bilingue y presentacion profesional consciente de la evidencia.',
+      'Una lectura clara de la plataforma PDOX: origen espanol, cuatro complejos enzimaticos, disciplina de estabilidad y lenguaje de calidad orientado a canales profesionales.',
     brandKicker: 'La Marca',
-    brandTitle: 'Sobriedad europea, claridad profesional y presentacion premium.',
+    brandTitle: 'Investigacion independiente, formulacion propia y presentacion clinica premium.',
     brandBody: [
-      'PDOX se presenta como una marca espanola premium de cuidado bio-enzimatico para clinicas, distribuidores y socios profesionales.',
-      'Su lenguaje visual y verbal es deliberadamente sobrio: materiales de laboratorio en platino, envases dermocosmeticos refinados y rutas de producto claras.',
+      'PDOX se presenta como una marca independiente de bio-enzimas de precision con raices en Madrid. El sitio queda preparado para audiencias internacionales con ingles y espanol como unicos idiomas publicos.',
+      'El lenguaje visual es sobrio: confianza de laboratorio, acabado dermocosmetico premium y rutas claras para clinicas y socios de distribucion.',
     ],
     techKicker: 'Tecnologia Central',
-    techTitle: 'Una plataforma disciplinada de cuidado bio-enzimatico para la calidad visible de la piel.',
+    techTitle: 'Una plataforma multi-enzimatica controlada para transformacion visible de la piel.',
     techBody:
-      'La narrativa tecnologica de PDOX conecta direcciones cosmeticas complementarias para contorno, firmeza, hidratacion y una piel de aspecto mas suave.',
+      'El sistema PDOX se construye alrededor de acciones enzimaticas complementarias para apoyar equilibrio lipidico, renovacion de colageno, hidratacion y refinamiento superficial.',
     techCards: [
       {
         title: 'Complejo Lipasa',
@@ -623,7 +619,7 @@ const copy: Record<Lang, Copy> = {
         image: '/images/optimized/tech-collagenase-complex.webp',
         slug: 'collagenase-complex',
         detailTitle: 'Complejo Colagenasa',
-        detailSummary: 'Complejo enfocado en firmeza y elasticidad, posicionado para la calidad visible de la piel y la planificacion de cuidados profesionales premium.',
+        detailSummary: 'Complejo enfocado en firmeza y elasticidad, posicionado para calidad visible de la piel, lenguaje de remodelacion y planificacion de tratamientos profesionales premium.',
         detailSections: [
           { title: 'Apoya la narrativa de firmeza y elasticidad', body: 'Conecta la logica enzimatica con la estructura visible y la resiliencia de la piel.' },
           { title: 'Conecta el lenguaje de renovacion de colageno con programas profesionales', body: 'Ayuda a las clinicas a posicionar el producto dentro de protocolos de renovacion mas amplios.' },
@@ -661,7 +657,7 @@ const copy: Record<Lang, Copy> = {
       },
     ],
     productsKicker: 'Productos',
-    productsTitle: 'Serie de precision profesional',
+    productsTitle: 'Serie de precision clinica',
     productsBody:
       'Una arquitectura compacta permite entender, demostrar y expandir la linea con claridad en distintos mercados.',
     products: [
@@ -669,15 +665,15 @@ const copy: Record<Lang, Copy> = {
         slug: 'bandage-needle',
         name: 'Bandage Needle',
         subtitle: 'Serum de emergencia',
-        body: 'Serum cosmetico enfocado en la recuperacion que ayuda a una barrera cutanea de aspecto mas suave y confortable.',
+        body: 'Reparacion bio-enzimatica de alta penetracion para soporte de barrera y recuperacion intensiva.',
         image: '/images/products/optimized/product-01-bandage-needle-dark.webp',
-        tags: ['Cuidado Recuperador', 'Confort de Barrera', 'Hero'],
+        tags: ['Reparacion', 'Barrera', 'Hero'],
       },
       {
         slug: 'remodeling-needle',
         name: 'Remodeling Needle',
         subtitle: 'Bioremodelado facial',
-        body: 'Ayuda a mejorar la apariencia del contorno, la firmeza y la armonia visual dentro de programas profesionales.',
+        body: 'Disenado para programas profesionales centrados en contorno facial y armonia.',
         image: '/images/products/optimized/product-02-remodeling-needle-dark.webp',
         tags: ['Contorno', 'Firmeza'],
       },
@@ -685,7 +681,7 @@ const copy: Record<Lang, Copy> = {
         slug: 'wrinkle-eraser',
         name: 'Wrinkle Eraser',
         subtitle: 'Antiarrugas',
-        body: 'Ayuda a mejorar la apariencia de lineas finas, textura irregular y refinamiento visible de la piel.',
+        body: 'Posicionamiento de soporte de colageno para lineas, textura y refinamiento visible.',
         image: '/images/products/optimized/product-03-wrinkle-eraser-dark.webp',
         tags: ['Lineas', 'Textura'],
       },
@@ -693,7 +689,7 @@ const copy: Record<Lang, Copy> = {
         slug: 'liquid-bandage',
         name: 'Liquid Bandage',
         subtitle: 'Vendaje biologico activo',
-        body: 'Concepto de cuidado recuperador disenado para apoyar el confort, la elasticidad y una piel de aspecto mas suave.',
+        body: 'Concepto de reparacion para microlesiones, elasticidad y confort visible rapido.',
         image: '/images/products/optimized/product-liquid-bandage.webp',
         tags: ['Recuperacion', 'Elasticidad'],
       },
@@ -734,9 +730,9 @@ const copy: Record<Lang, Copy> = {
     detailContact: 'Contactar PDOX',
     detailHint: 'Haz clic en cualquier imagen de producto para abrir su pagina de detalle.',
     scienceKicker: 'Ciencia',
-    scienceTitle: 'La confianza profesional empieza con una comunicacion controlada.',
+    scienceTitle: 'Construido para confianza profesional antes de visibilidad masiva.',
     scienceBody:
-      'PDOX separa la narrativa de marca, los beneficios cosmeticos y el alcance de la evidencia para que los socios presenten la gama con claridad.',
+      'La siguiente fase debe convertir esta web en un activo comercial creible: claims verificados, materiales para distribuidores, modulos clinicos y medicion de conversion.',
     sciencePoints: [
       {
         title: 'Calidad trazable',
@@ -748,7 +744,7 @@ const copy: Record<Lang, Copy> = {
       },
       {
         title: 'Expansion global',
-        body: 'El ingles y el espanol mantienen una comunicacion internacional enfocada y preservan la identidad de marca espanola.',
+        body: 'Ingles y espanol mantienen el sitio enfocado para lanzamiento internacional y origen espanol.',
       },
     ],
     channelsKicker: 'Canales Profesionales',
@@ -758,7 +754,7 @@ const copy: Record<Lang, Copy> = {
     channels: [
       {
         title: 'Clinicas y estudios de piel',
-        body: 'Un sistema claro de productos para protocolos de cuidado facial y corporal, consulta profesional y servicios premium.',
+        body: 'Un sistema claro de productos para protocolos faciales y corporales, consulta profesional y menus de tratamiento premium.',
         points: ['Educacion de protocolo', 'Posicionamiento premium', 'Claridad de linea'],
       },
       {
@@ -773,7 +769,7 @@ const copy: Record<Lang, Copy> = {
       },
     ],
     protocolKicker: 'Logica de Protocolo',
-    protocolTitle: 'De imagenes de producto a rutas profesionales de cuidado.',
+    protocolTitle: 'De imagenes de producto a rutas profesionales de tratamiento.',
     protocolBody:
       'La web presenta PDOX como un sistema, no como un catalogo suelto: reparacion, contorno, renovacion e hidratacion funcionan como rutas profesionales complementarias.',
     protocolSteps: [
@@ -804,12 +800,12 @@ const copy: Record<Lang, Copy> = {
       {
         question: 'Se pueden ampliar las paginas de producto despues?',
         answer:
-          'Si. Cada producto tiene una pagina dedicada para incorporar declaraciones revisadas, orientacion de uso y documentacion dentro de su alcance verificado.',
+          'Si. Cada producto ya tiene su propia pagina de detalle, por lo que se pueden agregar claims, protocolos, formacion, certificados o materiales de mercado.',
       },
       {
         question: 'Por que solo ingles y espanol?',
         answer:
-          'El ingles facilita la comunicacion internacional, mientras que el espanol preserva la identidad de marca y la presentacion profesional europea.',
+          'El ingles ayuda a la comunicacion internacional, mientras que el espanol refuerza el origen de marca en Madrid y la identidad de lanzamiento.',
       },
       {
         question: 'Como deben contactar los socios con PDOX?',
@@ -823,16 +819,16 @@ const copy: Record<Lang, Copy> = {
     productMarqueeCta: 'Ver Producto',
     ctaTitle: 'Inicia un protocolo cutaneo de precision.',
     ctaBody:
-      'Para clinicas, distribuidores y socios de marca, PDOX ofrece una plataforma dermocosmetica internacional enfocada.',
+      'Para clinicas, distribuidores y socios de marca, PDOX esta preparado para convertirse en una plataforma dermocosmetica global enfocada.',
     ctaButton: 'Contactar PDOX',
     footerBody:
-      'PDOX es una marca espanola premium de cuidado bio-enzimatico presentada para clinicas, distribuidores y socios internacionales.',
-    brandStoryTitle: 'Identidad espanola, disciplina profesional y presentacion premium.',
-    brandStorySummary: 'PDOX combina una identidad espanola de cuidado premium, una estetica europea de laboratorio sobria y un lenguaje cosmetico claro para socios profesionales.',
+      'PDOX es una marca independiente de ciencia cutanea bio-enzimatica de precision con base en Madrid. Historia de investigacion, formulacion y produccion preparada para distribucion global.',
+    brandStoryTitle: 'Investigacion independiente, formulacion propia y presentacion clinica premium.',
+    brandStorySummary: 'PDOX se construye desde una identidad espanola de bio-enzimas de precision para el cuidado de la piel, combinando credibilidad de laboratorio, estetica dermocosmetica premium y lenguaje de protocolo profesional.',
     brandStorySections: [
-      { title: 'Identidad de marca espanola', body: 'Un lenguaje de marca refinado para la comunicacion profesional internacional.' },
-      { title: 'Direccion de cartera enfocada', body: 'Prioridades cosmeticas claras apoyan el posicionamiento premium sin afirmaciones cientificas no verificadas.' },
-      { title: 'Presentacion profesional premium', body: 'Materiales, envases y lenguaje del sitio preparados para consulta en clinica y educacion de distribuidores.' },
+      { title: 'Identidad de laboratorio espanol', body: 'Arraigada en la cultura de investigacion de Madrid con una historia de origen europeo creible para socios internacionales.' },
+      { title: 'Direccion de formulacion propia', body: 'Prioridades de desarrollo independientes que apoyan el posicionamiento premium en lugar de seguir tendencias de mercado masivo.' },
+      { title: 'Presentacion clinica premium', body: 'Materiales, envases y lenguaje del sitio preparados para consulta clinica y educacion de distribuidores.' },
       { title: 'Preparado para clinicas, distribuidores y socios profesionales', body: 'Una plataforma de marca disenada para explicarse con confianza en canales profesionales desde el primer dia.' },
     ],
     brandStoryPartnerValue: 'Esta historia de marca ayuda a los socios a explicar PDOX como una plataforma seria de ciencia cutanea profesional, no solo un catalogo de productos.',
@@ -843,10 +839,9 @@ const copy: Record<Lang, Copy> = {
   },
 };
 
-const sectionIds = ['brand', 'products', 'technology', 'quality', 'partners', 'faq', 'contact'];
+const sectionIds = ['brand', 'technology', 'products', 'partners', 'faq', 'contact'];
 const techIcons = [FlaskConical, Microscope, Beaker, Sparkles];
 const scienceIcons = [ShieldCheck, Award, Globe2];
-/* Legacy atmospheric primitives retained for controlled desktop experiments. */
 const goldParticles = [
   /* normal particles 2-4px */
   { left: '6%', top: '12%', size: '3px', delay: '0s', duration: '18s', type: 'normal' },
@@ -1038,7 +1033,6 @@ function MolecularDriftLayer({ count = 6 }: { count?: number }) {
 function GoldLightSweep() {
   return <div className="pdox-light-sweep z-[2]" aria-hidden="true" />;
 }
-void MolecularDriftLayer;
 
 function ProductMarquee({
   products,
@@ -1053,8 +1047,16 @@ function ProductMarquee({
 
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#0A0A0A] py-24 lg:py-32">
-      <OfficialBackdrop kind="material" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#050505]/94 via-[#090A0B]/82 to-[#050505]/95" />
+      <img
+        src="/images/optimized/bg-molecular-gold-flow.webp"
+        alt=""
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover opacity-25 z-0"
+      />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/88 via-[#0A0A0A]/75 to-[#0A0A0A]/88" />
+      <GoldParticleField subtle count={20} />
+      <GrainTexture />
       <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
@@ -1127,12 +1129,12 @@ function ProductDetail({
     product.detailHighlights ?? (lang === 'en'
       ? [
           `${product.subtitle} positioning for professional clinic and distributor presentation.`,
-          'Part of the PDOX bio-enzyme care range for recovery, renewal and visible skin quality.',
+          'Part of the PDOX bio-enzyme range for focused repair, renewal and visible skin performance.',
           'Prepared for premium product education, protocol storytelling and partner conversations.',
         ]
       : [
           `${product.subtitle} para presentacion profesional en clinicas y distribucion.`,
-          'Parte de la linea de cuidado bio-enzimatico PDOX para recuperacion, renovacion y calidad visible de la piel.',
+          'Parte de la linea bio-enzimatica PDOX para reparacion, renovacion y rendimiento visible.',
           'Preparado para educacion premium, narrativa de protocolo y conversaciones con socios.',
         ]);
   const protocol =
@@ -1142,7 +1144,7 @@ function ProductDetail({
 
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <OfficialBackdrop kind="material" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1237,7 +1239,7 @@ function InsightDetail({
 }) {
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <OfficialBackdrop kind="archive" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1331,7 +1333,7 @@ function ContentDetail({
 }) {
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
-      <OfficialBackdrop kind="material" />
+      <img src="/images/optimized/hero-bg-gold.webp" alt="" loading="lazy" decoding="async" className="absolute inset-0 h-full w-full object-cover opacity-30 z-0" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/80 via-[#0A0A0A]/95 to-[#0A0A0A]" />
       <div className="relative z-10 mx-auto max-w-[1500px]">
         <button
@@ -1403,57 +1405,23 @@ function ContentDetail({
   );
 }
 function App() {
+  const [lang, setLang] = useState<Lang>('en');
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const pathIsSpanish = location.pathname === '/es' || location.pathname.startsWith('/es/');
-  const lang: Lang = pathIsSpanish ? 'es' : 'en';
-  const [menuOpen, setMenuOpen] = useState(false);
   const t = copy[lang];
   const currentPath = location.pathname.replace(/\/$/, '') || '/';
-  const routePath = pathIsSpanish ? currentPath.slice(3) || '/' : currentPath;
-  const routePrefix = lang === 'es' ? '/es' : '';
-  const activeProduct = routePath.startsWith('/products/')
-    ? t.products.find((product) => `/products/${product.slug}` === routePath)
+  const activeProduct = currentPath.startsWith('/products/')
+    ? t.products.find((product) => `/products/${product.slug}` === currentPath)
     : undefined;
-  const activeInsight = routePath.startsWith('/insights/')
-    ? t.stats.find((stat) => `/insights/${stat.slug}` === routePath)
+  const activeInsight = currentPath.startsWith('/insights/')
+    ? t.stats.find((stat) => `/insights/${stat.slug}` === currentPath)
     : undefined;
-  const activeBrandStory = routePath === '/brand-story';
-  const activeTechCard = routePath.startsWith('/technology/')
-    ? t.techCards.find((card) => `/technology/${card.slug}` === routePath)
+  const activeBrandStory = currentPath === '/brand-story';
+  const activeTechCard = currentPath.startsWith('/technology/')
+    ? t.techCards.find((card) => `/technology/${card.slug}` === currentPath)
     : undefined;
-  const activeOfficialChannels = routePath === '/official-channels' || routePath === '/verify';
-  const activeQuality = routePath === '/quality-traceability';
-  const activeLegalPage = (['/legal', '/privacy', '/terms'] as const).find((path) => path === routePath)?.slice(1) as
-    | 'legal'
-    | 'privacy'
-    | 'terms'
-    | undefined;
-  const activeHome = routePath === '/';
-
-  useEffect(() => {
-    document.documentElement.lang = lang;
-    const title = activeProduct
-      ? `${activeProduct.name} | PDOX`
-      : activeQuality
-        ? `${lang === 'es' ? 'Calidad y trazabilidad' : 'Quality & Traceability'} | PDOX`
-        : activeOfficialChannels
-          ? `${lang === 'es' ? 'Canales oficiales' : 'Official Channels'} | PDOX`
-          : activeLegalPage
-            ? `${activeLegalPage[0].toUpperCase()}${activeLegalPage.slice(1)} | PDOX`
-            : lang === 'es'
-              ? 'PDOX | Cuidado Bio-Enzimatico Premium Espanol'
-              : 'PDOX | Spanish Premium Bio-Enzyme Skincare';
-    document.title = title;
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    canonical?.setAttribute('href', `https://www.pdoxserum.com${currentPath === '/' ? '' : currentPath}`);
-  }, [activeLegalPage, activeOfficialChannels, activeProduct, activeQuality, currentPath, lang]);
-
-  useEffect(() => {
-    if (routePath === '/verify') {
-      navigate(`${routePrefix}/official-channels`, { replace: true });
-    }
-  }, [navigate, routePath, routePrefix]);
+  const activeVerify = currentPath === '/verify';
 
   useEffect(() => {
     const revealItems = Array.from(document.querySelectorAll('.reveal'));
@@ -1468,18 +1436,12 @@ function App() {
 
     revealItems.forEach((item) => observer.observe(item));
     return () => observer.disconnect();
-  }, [lang, routePath]);
-
-  const changeLanguage = (nextLang: Lang) => {
-    const nextPath = nextLang === 'es' ? `/es${routePath === '/' ? '/' : routePath}` : routePath;
-    navigate(nextPath);
-    setMenuOpen(false);
-  };
+  }, [lang, currentPath]);
 
   const goTo = (id: string) => {
     const scrollToSection = () => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-    if (routePath !== '/') {
-      navigate(`${routePrefix}/`);
+    if (currentPath !== '/') {
+      navigate('/');
       window.setTimeout(scrollToSection, 80);
     } else {
       scrollToSection();
@@ -1488,13 +1450,13 @@ function App() {
   };
 
   const openProduct = (slug: string) => {
-    navigate(`${routePrefix}/products/${slug}`);
+    navigate(`/products/${slug}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenuOpen(false);
   };
 
   const openInsight = (slug: string) => {
-    navigate(`${routePrefix}/insights/${slug}`);
+    navigate(`/insights/${slug}`);
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setMenuOpen(false);
   };
@@ -1504,10 +1466,10 @@ function App() {
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/75 backdrop-blur-xl">
         <div className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
           <button onClick={() => goTo('home')} className="flex items-center gap-3" aria-label="PDOX home">
-            <img src="/images/official/pdox-logo-nav.webp" alt="PDOX" decoding="async" fetchPriority="high" width="320" height="147" className="h-10 w-auto invert brightness-200" />
+            <img src="/images/logo.png" alt="PDOX" decoding="async" fetchPriority="high" className="h-10 w-auto invert brightness-200" />
           </button>
 
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-10 lg:flex">
             {t.nav.map((item, index) => (
               <button
                 key={item}
@@ -1524,7 +1486,7 @@ function App() {
               {(['en', 'es'] as Lang[]).map((item) => (
                 <button
                   key={item}
-                  onClick={() => changeLanguage(item)}
+                  onClick={() => setLang(item)}
                   className={`rounded-full px-3.5 py-1.5 text-[11px] font-medium uppercase transition ${
                     lang === item ? 'bg-[#C9A96E] text-black' : 'text-white/55 hover:text-white'
                   }`}
@@ -1587,37 +1549,36 @@ function App() {
             onBack={() => goTo('technology')}
             eyebrow={lang === 'en' ? 'Technology' : 'Tecnologia'}
           />
-        ) : activeOfficialChannels ? (
-          <OfficialChannelsPage lang={lang} />
-        ) : activeQuality ? (
-          <QualityTraceabilityPage lang={lang} />
-        ) : activeLegalPage ? (
-          <LegalPage lang={lang} page={activeLegalPage} />
-        ) : activeHome ? (
+        ) : activeVerify ? (
+          <VerifyPage />
+        ) : (
           <>
         <section id="home" className="relative min-h-screen overflow-hidden pt-20">
-          <OfficialBackdrop kind="atelier" priority />
-          <div className="absolute inset-0 z-[1] bg-[linear-gradient(to_bottom,rgba(3,4,5,0.28),rgba(3,4,5,0.62)_62%,#050505_100%)]" />
-          <GoldParticleField subtle count={8} />
+          <img
+            src="/images/optimized/hero-bg-gold.webp"
+            alt=""
+            decoding="async"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover opacity-55 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_32%,rgba(201,169,110,0.14),transparent_38%),linear-gradient(to_bottom,rgba(0,0,0,0.18),#0A0A0A_92%)]" />
+          <GoldParticleField count={48} />
+          <MolecularDriftLayer count={6} />
           <GoldLightSweep />
-          <div className="hero-product-stage" aria-hidden="true">
-            <img src="/images/products/optimized/product-liquid-bandage.webp" alt="" loading="eager" decoding="async" fetchPriority="low" className="hero-product hero-product-left" />
-            <img src="/images/products/optimized/product-v-face-tightening-glow.webp" alt="" loading="lazy" decoding="async" fetchPriority="low" className="hero-product hero-product-center" />
-            <img src="/images/products/optimized/product-youthful-eye-aqua-essence.webp" alt="" loading="eager" decoding="async" fetchPriority="low" className="hero-product hero-product-right" />
-          </div>
-          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl flex-col items-center justify-center px-4 pb-52 pt-20 text-center sm:px-6 lg:px-8 lg:pb-44">
-            <p className="mb-6 text-[13px] uppercase tracking-[0.42em] text-[#C9A96E]">
+          <div className="relative z-10 mx-auto flex min-h-[calc(100vh-5rem)] max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:px-6 lg:px-8">
+            <p className="reveal mb-6 text-[13px] uppercase tracking-[0.42em] text-[#C9A96E]">
                 {t.heroEyebrow}
             </p>
-            <div className="relative">
+            <div className="reveal relative">
               <div className="pdox-logo-breathe" />
-              <img src="/images/official/pdox-logo-hero.webp" alt="PDOX" decoding="async" fetchPriority="high" width="960" height="440" className="relative mx-auto h-auto w-[min(72vw,480px)] invert brightness-200" />
+              <div className="absolute inset-x-0 top-1/2 mx-auto h-28 w-80 -translate-y-1/2 rounded-full bg-[#C9A96E]/10 blur-3xl" />
+              <img src="/images/logo.png" alt="PDOX" decoding="async" fetchPriority="high" className="relative mx-auto h-auto w-[min(72vw,480px)] invert brightness-200" />
             </div>
             <h1 className="sr-only">{t.heroTitle}</h1>
-            <p className="mt-10 max-w-3xl text-lg leading-9 text-white/68">
+            <p className="reveal mt-10 max-w-3xl text-lg leading-9 text-white/68">
                 {t.heroBody}
             </p>
-            <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+            <div className="reveal mt-12 flex flex-col gap-4 sm:flex-row">
                 <button
                   onClick={() => goTo('products')}
                   className="pdox-btn-shine inline-flex items-center justify-center gap-2 bg-[#C9A96E] px-8 py-5 text-sm font-semibold uppercase tracking-[0.22em] text-black transition hover:bg-white"
@@ -1635,9 +1596,19 @@ function App() {
           </div>
         </section>
 
-        <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#090A0B] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="archive" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#050505]/90 via-[#08090A]/82 to-[#050505]/94" />
+        <section id="overview" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <img
+            src="/images/optimized/bg-molecular-gold-flow.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
+          <GoldParticleField subtle count={36} />
+          <MolecularDriftLayer count={5} />
+          <GoldLightSweep />
+          <GrainTexture />
           <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
             <div className="max-w-2xl">
               <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
@@ -1667,12 +1638,21 @@ function App() {
         </section>
 
         <section id="brand" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="archive" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#050505]/88 via-[#08090A]/78 to-[#050505]/94" />
+          <img
+            src="/images/optimized/bg-lab-champagne.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
+          <GoldParticleField subtle count={18} />
+          <div className="pdox-champagne-glow" />
           <SoftGlow />
+          <GrainTexture />
           <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
             <button
-              onClick={() => navigate(`${routePrefix}/brand-story`)}
+              onClick={() => navigate('/brand-story')}
               className="pdox-card-premium reveal group relative overflow-hidden border border-white/10 text-left"
             >
               <img
@@ -1705,9 +1685,18 @@ function App() {
           </div>
         </section>
 
-        <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111214] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="material" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#050505]/88 via-[#090A0B]/78 to-[#050505]/92" />
+        <section id="technology" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <img
+            src="/images/optimized/bg-molecular-gold-flow.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
+          <GoldParticleField subtle count={36} />
+          <MolecularDriftLayer count={5} />
+          <GoldLightSweep />
           <GrainTexture />
           <div className="relative z-10 mx-auto max-w-[1500px]">
             <div className="max-w-3xl">
@@ -1723,7 +1712,7 @@ function App() {
                 return (
                   <button
                     key={card.title}
-                    onClick={() => navigate(`${routePrefix}/technology/${card.slug}`)}
+                    onClick={() => navigate(`/technology/${card.slug}`)}
                     className="pdox-card-premium reveal group cursor-pointer overflow-hidden border border-white/10 bg-black/25 text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-[#0A0A0A]">
@@ -1756,8 +1745,18 @@ function App() {
         </section>
 
         <section id="products" className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="material" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#050505]/90 via-[#090A0B]/82 to-[#050505]/94" />
+          <img
+            src="/images/optimized/bg-lab-champagne.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-40 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/86 via-[#0A0A0A]/72 to-[#0A0A0A]/90" />
+          <GoldParticleField subtle count={18} />
+          <div className="pdox-champagne-glow" />
+          <SoftGlow />
+          <GrainTexture />
           <div className="relative z-10 mx-auto max-w-[1500px]">
             <div className="mx-auto max-w-3xl text-center">
               <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
@@ -1841,40 +1840,8 @@ function App() {
           </div>
         </section>
 
-        <section id="quality" className="relative overflow-hidden border-y border-white/10 bg-[#090A0B] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="archive" />
-          <div className="absolute inset-0 z-[1] bg-gradient-to-r from-[#050505]/96 via-[#050505]/83 to-[#050505]/68" />
-          <div className="relative z-10 mx-auto grid max-w-[1500px] gap-12 lg:grid-cols-[1fr_0.72fr] lg:items-center">
-            <div className="max-w-3xl">
-              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.34em] text-[#C9A96E]">
-                {lang === 'en' ? 'Quality & Traceability' : 'Calidad y trazabilidad'}
-              </p>
-              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">
-                {lang === 'en' ? 'Evidence is presented with its scope.' : 'Cada evidencia se presenta con su alcance.'}
-              </h2>
-              <p className="reveal mt-8 text-base leading-9 text-white/56">
-                {lang === 'en'
-                  ? 'Brand archives, product identity and cosmetic claims are kept separate. Public materials do not extend beyond their reviewed purpose.'
-                  : 'Los archivos de marca, la identidad del producto y las declaraciones cosmeticas se mantienen separados. Los materiales publicos no superan su finalidad revisada.'}
-              </p>
-              <button onClick={() => navigate(`${routePrefix}/quality-traceability`)} className="reveal mt-10 inline-flex items-center gap-2 border border-[#C9A96E]/50 px-7 py-4 text-xs uppercase tracking-[0.2em] text-[#D7B979] transition hover:bg-[#C9A96E] hover:text-black">
-                {lang === 'en' ? 'Open evidence register' : 'Abrir registro de evidencias'} <ArrowRight size={16} />
-              </button>
-            </div>
-            <div className="reveal overflow-hidden border border-white/10 bg-[#070809]/80 p-3">
-              <img src="/images/optimized/source-traceability-en.webp" alt="PDOX brand visit archive" loading="lazy" decoding="async" className="aspect-[4/5] w-full object-cover object-top opacity-88" />
-              <p className="p-5 text-xs leading-6 text-white/42">
-                {lang === 'en'
-                  ? 'Brand visit archive. Not product certification, manufacturing-origin proof or efficacy evidence.'
-                  : 'Archivo de visita de marca. No constituye certificacion de producto, prueba de fabricacion ni evidencia de eficacia.'}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111214] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
-          <OfficialBackdrop kind="archive" />
-          <div className="absolute inset-0 z-[1] bg-[#050505]/88" />
+        <section id="partners" className="relative overflow-hidden border-y border-white/10 bg-[#111] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <GoldParticleField subtle count={16} />
           <div className="relative z-10 mx-auto max-w-[1500px]">
             <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
               <div>
@@ -1955,6 +1922,44 @@ function App() {
           onOpenProduct={(slug) => openProduct(slug)}
         />
 
+        <section id="source-traceability" className="relative overflow-hidden border-y border-white/10 bg-[#0D0C0A] px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+          <img
+            src="/images/optimized/bg-molecular-gold-flow.webp"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover opacity-30 z-0"
+          />
+          <div className="absolute inset-0 z-[1] bg-gradient-to-b from-[#0A0A0A]/84 via-[#0A0A0A]/68 to-[#0A0A0A]/88" />
+          <GoldParticleField subtle count={20} />
+          <GrainTexture />
+          <div className="relative z-10 mx-auto max-w-[1500px]">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="reveal mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">
+                European Laboratory Visit
+              </p>
+              <h2 className="reveal text-[clamp(40px,5vw,72px)] leading-tight">
+                Source Traceability
+              </h2>
+              <p className="reveal mt-8 text-base leading-9 text-white/55">
+                PDOX highlights source transparency through documented European laboratory visits, presenting a professional skincare technology narrative built on selected sources, traceable quality, and trusted assurance.
+              </p>
+            </div>
+
+            <div className="reveal mt-12 flex justify-center px-4 sm:px-6 lg:px-8">
+              <div className="relative w-full max-w-[560px] overflow-hidden rounded-[18px] border border-white/10 bg-black/35 shadow-[0_24px_70px_-18px_rgba(0,0,0,0.65)] sm:max-w-[600px] lg:max-w-[620px]">
+                <img
+                  src="/images/optimized/source-traceability-en.webp"
+                  alt="PDOX Spain Source Traceability European Laboratory Visit"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="contact" className="bg-[#C9A96E] px-4 py-24 text-black sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-4xl text-center">
             <Clock className="reveal mx-auto mb-8 h-9 w-9" />
@@ -1970,27 +1975,17 @@ function App() {
           </div>
         </section>
           </>
-        ) : (
-          <NotFoundPage lang={lang} />
         )}
       </main>
 
       <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-[1500px] flex-col gap-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div>
-            <img src="/images/official/pdox-logo-nav.webp" alt="PDOX" loading="lazy" decoding="async" width="320" height="147" className="mx-auto h-9 w-auto invert brightness-200 sm:mx-0" />
+            <img src="/images/logo.png" alt="PDOX" loading="lazy" decoding="async" className="mx-auto h-9 w-auto invert brightness-200 sm:mx-0" />
             <p className="mt-5 max-w-xl text-sm leading-7 text-white/42">{t.footerBody}</p>
           </div>
-          <div className="grid gap-3 text-[11px] uppercase tracking-[0.18em] text-white/32 sm:text-right">
-            <span>Official Website | www.pdoxserum.com</span>
-            <a href="mailto:info@pdoxserum.com" className="hover:text-[#C9A96E]">info@pdoxserum.com</a>
-            <div className="flex flex-wrap justify-center gap-4 sm:justify-end">
-              <button onClick={() => navigate(`${routePrefix}/official-channels`)} className="hover:text-[#C9A96E]">{lang === 'en' ? 'Official Channels' : 'Canales oficiales'}</button>
-              <button onClick={() => navigate(`${routePrefix}/legal`)} className="hover:text-[#C9A96E]">Legal</button>
-              <button onClick={() => navigate(`${routePrefix}/privacy`)} className="hover:text-[#C9A96E]">{lang === 'en' ? 'Privacy' : 'Privacidad'}</button>
-              <button onClick={() => navigate(`${routePrefix}/terms`)} className="hover:text-[#C9A96E]">{lang === 'en' ? 'Terms' : 'Condiciones'}</button>
-            </div>
-            <span>(c) 2026 PDOX</span>
+          <div className="text-[11px] uppercase tracking-[0.22em] text-white/25">
+            (c) 2026 PDOX - Madrid - Global Distribution
           </div>
         </div>
       </footer>
