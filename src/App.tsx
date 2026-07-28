@@ -25,6 +25,8 @@ type Product = {
   body: string;
   image: string;
   tags: string[];
+  detailHighlights?: string[];
+  detailProtocol?: string;
 };
 
 type Stat = {
@@ -339,6 +341,20 @@ const copy: Record<Lang, Copy> = {
         body: 'A repair-led concept for micro-lesion care, elasticity and fast visible comfort.',
         image: '/images/optimized/product-liquid-bandage.webp',
         tags: ['Recovery', 'Elasticity'],
+      },
+      {
+        slug: 'youthful-eye-aqua-essence',
+        name: 'Youthful Eye Area Aqua Essence',
+        subtitle: 'Precision Eye-Area Care',
+        body: 'A precision eye-area essence designed to improve the appearance of fine lines, loss of firmness, hollow-looking shadows and signs of fatigue while supporting hydrated, smoother-looking skin.',
+        image: '/images/products/optimized/product-youthful-eye-aqua-essence.webp',
+        tags: ['Firmness', 'Fine-Line Care', 'Hydration'],
+        detailHighlights: [
+          'Helps the eye area look firmer and more supported as part of a professional care program.',
+          'Targets the appearance of fine lines, tired-looking shadows and uneven eye-area texture.',
+          'Supports hydration and a smoother, more refreshed-looking eye contour.',
+        ],
+        detailProtocol: 'Positioned for professional eye-area care after individual assessment, with results expected to vary by skin condition and protocol.',
       },
     ],
     detailBack: 'Back to Products',
@@ -694,6 +710,20 @@ const copy: Record<Lang, Copy> = {
         body: 'Concepto de reparacion para microlesiones, elasticidad y confort visible rapido.',
         image: '/images/optimized/product-liquid-bandage.webp',
         tags: ['Recuperacion', 'Elasticidad'],
+      },
+      {
+        slug: 'youthful-eye-aqua-essence',
+        name: 'Esencia Aqua Juvenil para el Contorno de Ojos',
+        subtitle: 'Cuidado de Precisión del Contorno de Ojos',
+        body: 'Una esencia de precisión diseñada para mejorar la apariencia de líneas finas, pérdida de firmeza, sombras hundidas y signos de fatiga, mientras favorece una piel hidratada y de aspecto más liso.',
+        image: '/images/products/optimized/product-youthful-eye-aqua-essence.webp',
+        tags: ['Firmeza', 'Líneas Finas', 'Hidratación'],
+        detailHighlights: [
+          'Ayuda a que el contorno de ojos se vea más firme y con mayor sensación de soporte dentro de un programa profesional.',
+          'Se enfoca en la apariencia de líneas finas, sombras de aspecto cansado y textura irregular del contorno de ojos.',
+          'Favorece la hidratación y un contorno de ojos de aspecto más liso y descansado.',
+        ],
+        detailProtocol: 'Posicionado para el cuidado profesional del contorno de ojos tras una valoración individual; los resultados pueden variar según el estado de la piel y el protocolo.',
       },
     ],
     detailBack: 'Volver a Productos',
@@ -1100,7 +1130,7 @@ function ProductDetail({
   onBack: () => void;
 }) {
   const highlights =
-    lang === 'en'
+    product.detailHighlights ?? (lang === 'en'
       ? [
           `${product.subtitle} positioning for professional clinic and distributor presentation.`,
           'Part of the PDOX bio-enzyme range for focused repair, renewal and visible skin performance.',
@@ -1110,11 +1140,11 @@ function ProductDetail({
           `${product.subtitle} para presentacion profesional en clinicas y distribucion.`,
           'Parte de la linea bio-enzimatica PDOX para reparacion, renovacion y rendimiento visible.',
           'Preparado para educacion premium, narrativa de protocolo y conversaciones con socios.',
-        ];
+        ]);
   const protocol =
-    lang === 'en'
+    product.detailProtocol ?? (lang === 'en'
       ? 'Use this page as the professional product snapshot: product role, visual identity, benefit language and a clear contact path for commercial follow-up.'
-      : 'Usa esta pagina como ficha profesional del producto: rol, identidad visual, lenguaje de beneficio y contacto claro para seguimiento comercial.';
+      : 'Usa esta pagina como ficha profesional del producto: rol, identidad visual, lenguaje de beneficio y contacto claro para seguimiento comercial.');
 
   return (
     <section className="relative min-h-screen overflow-hidden px-4 pb-24 pt-32 sm:px-6 lg:px-8">
