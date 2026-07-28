@@ -1043,8 +1043,6 @@ function ProductMarquee({
   copy: Copy;
   onOpenProduct: (slug: string) => void;
 }) {
-  const marqueeProducts = [...products, ...products];
-
   return (
     <section className="relative overflow-hidden border-y border-white/10 bg-[#0A0A0A] py-24 lg:py-32">
       <img
@@ -1071,42 +1069,49 @@ function ProductMarquee({
         </div>
       </div>
 
-      <div className="relative z-10 mt-14 overflow-hidden">
-        <div className="pdox-marquee-track flex w-max gap-6 px-4 sm:px-6 lg:px-8">
-          {marqueeProducts.map((product, i) => (
-            <button
-              key={`${product.slug}-${i}`}
-              onClick={() => onOpenProduct(product.slug)}
-              aria-hidden={i >= products.length}
-              tabIndex={i >= products.length ? -1 : 0}
-              className="pdox-card-premium group w-[min(78vw,320px)] shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left sm:w-[340px] lg:w-[380px]"
+      <div className="relative z-10 mt-14 overflow-hidden pl-4 sm:pl-6 lg:pl-8">
+        <div className="pdox-marquee-track flex w-max">
+          {[0, 1].map((groupIndex) => (
+            <div
+              key={groupIndex}
+              className="pdox-marquee-set flex shrink-0 gap-6 pr-6"
+              aria-hidden={groupIndex === 1}
             >
-              <div className="aspect-[4/3] bg-black p-6">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
-                <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
-                <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {product.tags.map((tag) => (
-                    <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
-                  {copy.productMarqueeCta}
-                  <ArrowRight size={14} />
-                </div>
-              </div>
-            </button>
+              {products.map((product) => (
+                <button
+                  key={`${groupIndex}-${product.slug}`}
+                  onClick={() => onOpenProduct(product.slug)}
+                  tabIndex={groupIndex === 1 ? -1 : 0}
+                  className="pdox-card-premium group w-[min(78vw,320px)] shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left sm:w-[340px] lg:w-[380px]"
+                >
+                  <div className="aspect-[4/3] bg-black p-6">
+                    <img
+                      src={product.image}
+                      alt={groupIndex === 1 ? '' : product.name}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+                    <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
+                    <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {product.tags.map((tag) => (
+                        <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
+                      {copy.productMarqueeCta}
+                      <ArrowRight size={14} />
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
           ))}
         </div>
       </div>

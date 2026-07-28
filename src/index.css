@@ -688,10 +688,6 @@
   will-change: transform;
 }
 
-.pdox-marquee-track:hover {
-  animation-play-state: paused;
-}
-
 /* ===== Mobile Performance Budget ===== */
 @media (max-width: 767px) {
   html {
