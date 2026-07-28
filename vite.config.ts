@@ -4,7 +4,9 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  // Assets must resolve from the site root so direct SPA routes such as
+  // /products/:slug do not request /products/assets/*.
+  base: '/',
   plugins: [react()],
   server: {
     port: 3000,
