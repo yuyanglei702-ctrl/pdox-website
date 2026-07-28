@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/generate-route-pages.mjs",
     "lint": "eslint .",
-    "optimize:images": "node scripts/optimize-assets.mjs",
+    "check:site": "node scripts/check-public-site.mjs",
+    "optimize:images": "node scripts/optimize-assets.mjs && node scripts/build-official-assets.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
