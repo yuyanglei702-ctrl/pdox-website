@@ -1074,7 +1074,7 @@ function ProductMarquee({
           {[0, 1].map((groupIndex) => (
             <div
               key={groupIndex}
-              className="pdox-marquee-set flex shrink-0 gap-6 pr-6"
+              className="pdox-marquee-set flex shrink-0 items-stretch gap-6 pr-6"
               aria-hidden={groupIndex === 1}
             >
               {products.map((product) => (
@@ -1082,29 +1082,29 @@ function ProductMarquee({
                   key={`${groupIndex}-${product.slug}`}
                   onClick={() => onOpenProduct(product.slug)}
                   tabIndex={groupIndex === 1 ? -1 : 0}
-                  className="pdox-card-premium group w-[min(78vw,320px)] shrink-0 overflow-hidden border border-white/10 bg-[#111] text-left sm:w-[340px] lg:w-[380px]"
+                  className="pdox-card-premium group flex h-[520px] w-[min(78vw,320px)] shrink-0 flex-col overflow-hidden border border-white/10 bg-[#111] text-left sm:h-[535px] sm:w-[340px] lg:h-[560px] lg:w-[380px]"
                 >
-                  <div className="aspect-[4/3] bg-black p-6">
+                  <div className="h-[240px] shrink-0 overflow-hidden bg-black p-6 sm:h-[255px] lg:h-[285px]">
                     <img
                       src={product.image}
                       alt={groupIndex === 1 ? '' : product.name}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
+                      className="block h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
-                  <div className="p-6">
-                    <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
-                    <h3 className="mt-2 font-sans text-lg font-medium">{product.name}</h3>
+                  <div className="flex min-h-0 flex-1 flex-col p-6">
+                    <p className="min-h-9 text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
+                    <h3 className="mt-2 min-h-7 font-sans text-lg font-medium">{product.name}</h3>
                     <p className="mt-3 line-clamp-2 text-sm leading-6 text-white/48">{product.body}</p>
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-4 flex min-h-7 flex-wrap content-start gap-2">
                       {product.tags.map((tag) => (
                         <span key={tag} className="border border-white/10 px-2.5 py-1 text-[10px] text-white/45">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="mt-5 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
+                    <div className="mt-auto inline-flex items-center gap-2 pt-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
                       {copy.productMarqueeCta}
                       <ArrowRight size={14} />
                     </div>
@@ -1777,7 +1777,7 @@ function App() {
                 <button
                   key={product.name}
                   onClick={() => openProduct(product.slug)}
-                  className="pdox-card-premium reveal group overflow-hidden border border-white/10 bg-[#111] text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
+                  className="pdox-card-premium reveal group flex h-full flex-col overflow-hidden border border-white/10 bg-[#111] text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                 >
                   <div className="aspect-[4/3] bg-black p-8">
                     <img
@@ -1788,11 +1788,11 @@ function App() {
                       className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
                     />
                   </div>
-                  <div className="p-8">
+                  <div className="flex flex-1 flex-col p-8">
                     <p className="text-[12px] uppercase tracking-[0.24em] text-[#C9A96E]">{product.subtitle}</p>
                     <h3 className="mt-3 font-sans text-xl font-medium">{product.name}</h3>
                     <p className="mt-5 min-h-[80px] text-sm leading-7 text-white/48">{product.body}</p>
-                    <div className="mt-6 inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
+                    <div className="mt-auto inline-flex items-center gap-2 pt-6 text-[12px] font-semibold uppercase tracking-[0.2em] text-[#C9A96E]">
                       {t.detailEyebrow}
                       <ArrowRight size={16} />
                     </div>
