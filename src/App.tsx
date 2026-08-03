@@ -1703,13 +1703,17 @@ function App() {
                   onClick={() => openProduct(product.slug)}
                   className="pdox-card-premium reveal group flex h-full flex-col overflow-hidden border border-white/10 bg-[#111] text-left focus:outline-none focus:ring-2 focus:ring-[#C9A96E]/70"
                 >
-                  <div className="aspect-[4/3] bg-black p-8">
+                  <div className="aspect-[4/3] overflow-hidden bg-black p-8">
                     <img
                       src={product.image}
                       alt={product.name}
                       loading="lazy"
                       decoding="async"
-                      className="h-full w-full object-contain transition duration-700 group-hover:scale-[1.04]"
+                      className={`h-full w-full object-contain transition duration-700 ${
+                        product.slug === 'youthful-eye-aqua-essence'
+                          ? 'translate-y-[3%] scale-[1.14] group-hover:scale-[1.18]'
+                          : 'group-hover:scale-[1.04]'
+                      }`}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-8">
