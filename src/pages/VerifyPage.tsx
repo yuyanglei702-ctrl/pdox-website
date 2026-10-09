@@ -1,33 +1,10 @@
-import { ArrowLeft, ArrowRight, Globe2, Mail, ShieldCheck } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { ArrowRight, Globe2, Mail, ShieldCheck } from 'lucide-react';
 
 export default function VerifyPage() {
-  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0A0A0A]/80 backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-[1500px] items-center justify-between px-4 sm:px-6 lg:px-8">
-          <button onClick={() => navigate('/')} aria-label="PDOX home">
-            <img
-              src="/images/logo.png"
-              alt="PDOX"
-              decoding="async"
-              fetchPriority="high"
-              className="h-10 w-auto invert brightness-200"
-            />
-          </button>
-          <button
-            onClick={() => navigate('/')}
-            className="flex items-center gap-2 text-[13px] uppercase tracking-wide text-white/60 transition-colors hover:text-[#C9A96E]"
-          >
-            <ArrowLeft size={16} />
-            Back to Home
-          </button>
-        </div>
-      </header>
-
-      <main className="pt-20">
+      <div className="pt-20">
         <section className="relative overflow-hidden border-b border-white/10 px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <img
             src="/images/optimized/hero-bg-gold.webp"
@@ -115,15 +92,9 @@ export default function VerifyPage() {
             </a>
           </div>
         </section>
-      </main>
+      </div>
 
-      <footer className="border-t border-white/10 bg-[#0A0A0A] px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-[1500px] text-center">
-          <img src="/images/logo.png" alt="PDOX" loading="lazy" decoding="async" className="mx-auto h-8 w-auto invert brightness-200" />
-          <p className="mt-4 text-xs uppercase tracking-[0.18em] text-white/35">Official Website | www.pdoxserum.com</p>
-          <p className="mt-2 text-xs text-white/25">This page provides official channel information and does not automatically authenticate an individual item.</p>
-        </div>
-      </footer>
+
     </div>
   );
 }

@@ -28,10 +28,13 @@
       ]
     }
   ],
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/verify",
+      "destination": "/official-channels",
+      "permanent": true
     }
   ]
 }
