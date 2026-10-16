@@ -1,6 +1,7 @@
 import { copy } from '../content/site-copy';
 import type { Lang } from '../content/site-copy';
 import { hubRoutes, siteNavigation } from './site-navigation';
+import { websiteOperator } from './site-identity';
 
 export const siteOrigin = 'https://www.pdoxserum.com';
 const descriptions: Record<string, string> = {
@@ -37,7 +38,7 @@ export function getSiteMetadata(path: string, lang: Lang = 'en') {
   const chinese = route === '/zh-cn';
   return {
     title: route === '/' ? 'PDOX 普特奥斯官方网站 | Official Website' : chinese ? 'PDOX普特奥斯官网｜品牌介绍、产品资料与官方联系' : `${label} | PDOX 普特奥斯`,
-    description: route === '/' || chinese ? 'PDOX普特奥斯官方网站。查看品牌介绍、官网产品展示、产品资料入口、官方渠道和合作咨询信息。' : product?.body || technology?.body || insight?.summary || (route === '/brand-story' ? content.brandStorySummary : descriptions[route]) || content.overviewBody,
+    description: route === '/' || chinese ? `PDOX普特奥斯官方网站，由${websiteOperator}运营。查看品牌介绍、产品资料、官方渠道和合作咨询信息。` : product?.body || technology?.body || insight?.summary || (route === '/brand-story' ? content.brandStorySummary : descriptions[route]) || content.overviewBody,
     canonical: `${siteOrigin}${route}`,
     lang: chinese ? 'zh-CN' : lang,
     indexable: publicRoutes().includes(route),

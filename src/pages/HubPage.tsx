@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { ArrowRight, Mail } from 'lucide-react';
 import { siteNavigation } from '../lib/site-navigation';
+import WebsiteOperator from '../components/WebsiteOperator';
 
 type Lang = 'en' | 'es';
 type Entry = { href: string; label: string; body?: string; image?: string };
@@ -89,6 +90,7 @@ export function HubPage({ path, lang, content }: { path: string; lang: Lang; con
       {path === '/resources' && <LinkRows entries={resources} lang={lang} />}
       {path === '/faq' && <div className="max-w-4xl">{content.faqs.map(faq => <details key={faq.question} className="group border-b border-white/15 py-6"><summary className="cursor-pointer font-sans text-lg leading-7 text-white/85 marker:text-[#C9A96E]">{faq.question}</summary><p className="mt-5 max-w-3xl text-sm leading-8 text-white/65">{faq.answer}</p></details>)}<Link to="/contact" className="mt-10 inline-flex items-center gap-3 text-[#C9A96E]">{en ? 'Ask another question' : 'Hacer otra pregunta'}<ArrowRight size={18} /></Link></div>}
       {path === '/traceability' && <div className="grid gap-12 lg:grid-cols-2"><img src="/images/optimized/source-traceability-en.webp" alt="PDOX laboratory visit archive" className="mx-auto w-full max-w-[520px] object-contain" /><div><h2 className="text-4xl leading-tight">{en ? 'Context before conclusions.' : 'Contexto antes de conclusiones.'}</h2><p className="mt-6 text-base leading-8 text-white/65">{en ? 'Photographs document a visit and visual record. They do not by themselves certify a specific product, manufacturing site, formulation or performance claim.' : 'Las fotografias documentan una visita. Por si solas no certifican un producto, centro de fabricacion, formula o claim de rendimiento.'}</p><p className="mt-6 text-sm leading-8 text-white/60">{en ? 'For a product review, include its exact name and the document you need. Supporting information should match the product identity and actual document scope.' : 'Para revisar un producto, indica su nombre exacto y el documento que necesitas. La informacion debe corresponder al producto y alcance real del documento.'}</p><Link to="/contact?topic=documentation" className="mt-8 inline-flex items-center gap-3 text-[#C9A96E]">{en ? 'Request product information' : 'Solicitar informacion'}<ArrowRight size={18} /></Link></div></div>}
+      {(path === '/about' || path === '/contact') && <WebsiteOperator />}
       {path === '/contact' && <ContactForm key={`${lang}-${path}-${query.toString()}`} lang={lang} products={content.products} />}
       {path !== '/contact' && <div className="mt-20 flex flex-wrap items-center justify-between gap-6 border-t border-white/10 pt-8"><p className="text-sm text-white/60">{en ? 'Need information about a specific product?' : 'Necesitas informacion sobre un producto?'}</p><Link to="/contact?topic=documentation" className="inline-flex items-center gap-3 text-sm text-[#C9A96E]">{en ? 'Contact PDOX' : 'Contactar PDOX'}<ArrowRight size={18} /></Link></div>}
     </div>

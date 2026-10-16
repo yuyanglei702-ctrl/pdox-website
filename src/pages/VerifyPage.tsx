@@ -1,4 +1,5 @@
 import { ArrowRight, Globe2, Mail, ShieldCheck } from 'lucide-react';
+import WebsiteOperator from '../components/WebsiteOperator';
 
 export default function VerifyPage() {
 
@@ -33,6 +34,7 @@ export default function VerifyPage() {
 
         <section className="bg-[#111214] px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
           <div className="mx-auto max-w-[1200px]">
+            <WebsiteOperator />
             <div className="mx-auto max-w-3xl text-center">
               <p className="mb-4 text-[13px] uppercase tracking-[0.38em] text-[#C9A96E]">Official Channels</p>
               <h2 className="text-[clamp(32px,4vw,52px)] leading-tight">Use verified PDOX contact routes.</h2>

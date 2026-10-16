@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { ArrowRight } from 'lucide-react';
+import WebsiteOperator from '../components/WebsiteOperator';
 
 const entries = [
   { href: '/about', title: '了解 PDOX 普特奥斯', body: '从品牌介绍进入产品展示、资料支持和官方联系页面。' },
@@ -20,6 +21,7 @@ export default function ChineseHome() {
       </div>
     </div>
     <div className="mx-auto max-w-[1200px] px-5 pt-14 sm:px-8">
+      <WebsiteOperator />
       <div className="divide-y divide-white/10 border-y border-white/10">{entries.map(entry => <Link key={entry.href} to={entry.href} className="group grid grid-cols-[1fr_24px] items-center gap-6 py-9"><div><h2 className="font-sans text-2xl leading-9 group-hover:text-[#C9A96E]">{entry.title}</h2><p className="mt-4 max-w-2xl text-base leading-8 text-white/65">{entry.body}</p></div><ArrowRight className="text-[#C9A96E]" size={22} /></Link>)}</div>
       <section className="mt-14 border border-white/10 bg-white/[0.02] p-7 sm:p-10"><h2 className="font-sans text-2xl">联系 PDOX 普特奥斯</h2><p className="mt-5 max-w-2xl text-base leading-8 text-white/65">产品资料、合作咨询及购买后的产品信息核对，可通过官网联系页整理咨询内容。涉及单件产品时，请提供准确名称、包装信息、购买渠道及可用的批次信息。</p><Link to="/contact" className="mt-7 inline-flex items-center gap-3 text-[#C9A96E]">进入官方联系页<ArrowRight size={18} /></Link></section>
     </div>

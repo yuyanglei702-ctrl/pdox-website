@@ -7,6 +7,7 @@ import ChineseHome from './pages/ChineseHome';
 import { copy } from './content/site-copy';
 import type { Lang, Product, Stat, Copy } from './content/site-copy';
 import { getSiteMetadata } from './lib/site-metadata';
+import { websiteOperator } from './lib/site-identity';
 import {
   ArrowLeft,
   ArrowRight,
@@ -1227,7 +1228,7 @@ function App() {
             <div><h2 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C9A96E]">{activeChineseHome ? '产品目录' : t.productsKicker}</h2><div className="mt-5 grid gap-3">{t.products.map(product => <Link key={product.slug} to={`/products/${product.slug}`} className="text-sm leading-6 text-white/60 hover:text-[#C9A96E]">{product.name}</Link>)}</div></div>
             <div><h2 className="font-sans text-xs uppercase tracking-[0.2em] text-[#C9A96E]">{activeChineseHome ? '资料与支持' : lang === 'en' ? 'Information & support' : 'Informacion y soporte'}</h2><div className="mt-5 grid gap-3 text-sm text-white/60"><Link to="/traceability" className="hover:text-[#C9A96E]">{activeChineseHome ? '品牌访问影像' : lang === 'en' ? 'Visit archive' : 'Archivo de visita'}</Link><Link to="/official-channels" className="hover:text-[#C9A96E]">{activeChineseHome ? '官方渠道' : lang === 'en' ? 'Official channels' : 'Canales oficiales'}</Link><Link to="/faq" className="hover:text-[#C9A96E]">{activeChineseHome ? '常见问题' : 'FAQ'}</Link><Link to="/contact?topic=documentation" className="hover:text-[#C9A96E]">{activeChineseHome ? '申请产品资料' : lang === 'en' ? 'Request product information' : 'Solicitar informacion'}</Link><a href="mailto:info@pdoxserum.com" className="break-all hover:text-[#C9A96E]">info@pdoxserum.com</a></div></div>
           </div>
-          <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-[11px] uppercase tracking-[0.14em] text-white/45"><span>PDOX 普特奥斯 · Official Website | www.pdoxserum.com</span><span>(c) 2026 PDOX</span></div>
+          <div className="mt-12 flex flex-wrap justify-between gap-4 border-t border-white/10 pt-6 text-sm leading-7 text-white/60"><span>PDOX 普特奥斯 · Official Website | www.pdoxserum.com</span><span lang="zh-CN">网站运营主体：{websiteOperator}</span><span>(c) 2026 PDOX</span></div>
         </div>
       </footer>
     </div>
